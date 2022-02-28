@@ -1,4 +1,27 @@
-### Hi there 👋
+### Hi there 👋, I am Benard Mathu
+
+## About me
+- 🌱 I’m currently learning Python and Artificial Intelligence
+- 🤔 I’m looking to help with
+  - Spring Boot
+  - mobile application or
+  - Artificial Intelligence projects
+- 📫 How to reach me: mathubenard@gmail.com
+- 💬 Ask me about
+  - Mobile application development
+  - Java
+  - Spring Boot
+  - Physics
+- Topics I am interested in:
+  - Astronomy
+  - Physics
+  - Artificial Intelligence
+
+## My Stats
+[![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&count_private=true&theme=tokyonight&showicons=true)]()
+
+[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=5&theme=tokyonight)]()
+
 
 <!--
 **ben-mathu/ben-mathu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
