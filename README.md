@@ -13,10 +13,12 @@
   - Physics
   - Artificial Intelligence
 
-## My Stats
-[![My GitHub Stats](https://profile-stats.herokuapp.com/api/?username=ben-mathu&count_private=true&theme=tokyonight&showicons=true)]()
+<!-- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats) -->
 
-[![My GitHub Language Stats](https://profile-stats.herokuapp.com/api/top-langs/?username=ben-mathu&count_private=true&langs_count=7&theme=tokyonight)]()
+## My Stats
+[![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&count_private=true&theme=radical&show_icons=true&hide_border=true)]()
+
+[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&count_private=true&langs_count=7&theme=radical&show_icons=true&hide_border=true&show_owner=true&card_width=495)]()
 
 
 <!--
