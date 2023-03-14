@@ -9,7 +9,6 @@
     list-style: none;
     display: inline-block;
     margin: 20px;
-    color: white;
   }
 }
 
@@ -18,6 +17,7 @@
   padding: 5px;
   width: 5%;
   transition: .5s;
+  color: white;
 }
 
 .link-button:hover {
