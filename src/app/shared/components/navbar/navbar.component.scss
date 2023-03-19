@@ -3,22 +3,21 @@
 .navbar-container {
   text-align: center;
   background-color: $backgroundColor;
+  margin: 0px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 
-  ul {
-    margin: 0px;
-  }
-
-  li {
+  a {
     list-style: none;
-    display: inline-block;
-    padding: 20px;
   }
 }
 
 .link-button {
   text-decoration: none;
-  padding: 5px;
-  width: 5%;
   transition: .5s;
   color: $primaryColor;
   text-transform: uppercase;
@@ -26,11 +25,15 @@
 }
 
 .link-button:hover {
-  text-decoration: none;
   padding: 5px;
   color: white;
   border-bottom: 3px solid #ffca28;
-  width: 100%;
+}
+
+.active {
+  padding: 5px;
+  color: white;
+  border-bottom: 3px solid #ffca28;
 }
 
 a {
