@@ -2,9 +2,11 @@
 @import "variables";
 
 html, body {
+  height: 100%;
   color: white;
   background-color: $backgroundColor;
   font-family: 'Work Sans';
+  margin: 0px;
 }
 
 /* width */
@@ -27,4 +29,10 @@ html, body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.sub-titles {
+  color: $primaryColor;
+  text-transform: uppercase;
+  font-weight: 700;
 }

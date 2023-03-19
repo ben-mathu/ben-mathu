@@ -2,13 +2,16 @@
 
 .navbar-container {
   text-align: center;
-  margin-top: 20px;
   background-color: $backgroundColor;
+
+  ul {
+    margin: 0px;
+  }
 
   li {
     list-style: none;
     display: inline-block;
-    margin: 20px;
+    padding: 20px;
   }
 }
 
@@ -17,7 +20,9 @@
   padding: 5px;
   width: 5%;
   transition: .5s;
-  color: white;
+  color: $primaryColor;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .link-button:hover {

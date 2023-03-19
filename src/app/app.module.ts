@@ -13,14 +13,6 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 
-const appRoutes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "contacts", component: ContactsComponent },
-  { path: "about", component: AboutComponent },
-  { path: "portfolio", component: PortfolioComponent },
-  { path: "**", component: PageNotFoundComponent }
-]
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +27,6 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes),
     MatIconModule
   ],
   providers: [],
