@@ -7,6 +7,12 @@ html, body {
   background-color: $backgroundColor;
   font-family: 'Work Sans';
   margin: 0px;
+
+  app-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* width */
