@@ -1,4 +1,3 @@
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
@@ -41,7 +40,7 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
     provideFirestore(() => getFirestore())
   ],
   providers: [
-    ScreenTrackingService,UserTrackingService
+    // ScreenTrackingService,UserTrackingService
   ],
   bootstrap: [AppComponent]
 })
