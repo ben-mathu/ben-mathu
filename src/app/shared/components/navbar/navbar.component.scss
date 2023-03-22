@@ -27,13 +27,13 @@
 .link-button:hover {
   padding: 5px;
   color: white;
-  border-bottom: 3px solid #ffca28;
+  border-bottom: 3px solid $accentColor;
 }
 
 .active {
   padding: 5px;
   color: white;
-  border-bottom: 3px solid #ffca28;
+  border-bottom: 3px solid $accentColor;
 }
 
 a {

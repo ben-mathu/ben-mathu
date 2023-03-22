@@ -1,5 +1,6 @@
+import { DocumentData } from '@angular/fire/firestore';
+import { FirebaseService } from './../../shared/services/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -7,10 +8,13 @@ import { Firestore } from '@angular/fire/firestore';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  headerData!: DocumentData[];
 
-  constructor(private store: Firestore) { }
+  constructor(private service: FirebaseService) { }
 
   ngOnInit(): void {
+    this.service.header$.subscribe(result => {
+      this.headerData = result;
+    })
   }
-  
 }

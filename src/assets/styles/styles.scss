@@ -17,13 +17,14 @@ html, body {
 
 /* width */
 ::-webkit-scrollbar {
-  height: 10px;
+  padding: 0px 5px;
   width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f100;
+  scroll-margin: 5px;
 }
 
 /* Handle */
