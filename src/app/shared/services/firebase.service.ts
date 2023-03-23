@@ -1,20 +1,16 @@
-import { Firestore, collectionData, collection, DocumentData } from '@angular/fire/firestore';
 import { Injectable } from '@angular/core';
-import { Header } from '../models/header/header';
-import { Observable } from 'rxjs';
+import { child, Database, get, ref } from '@angular/fire/database';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  header$!: Observable<DocumentData[]>;
 
-  constructor(private store: Firestore) {
-    this.getHeader();
+  constructor(private database: Database) {
   }
 
-  getHeader = () => {
-    const collectionQuery = collection(this.store, 'header');
-    this.header$ = collectionData(collectionQuery);
+  getHeader(): Promise<any> {
+    const headerRef = ref(this.database);
+    return get(child(headerRef, 'header'));
   }
 }

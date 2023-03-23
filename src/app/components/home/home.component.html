@@ -4,23 +4,17 @@
       <mat-icon>account_circle</mat-icon>
     </div>
     <div class="my-description">
-      <span class="name">{{ headerData[0]['name'] }}}</span>
-      <span class="headline">Software Engineer, Physics Enthusiast and a Proclivity for Computer Science</span>
-      <span class="description">Experienced Software Engineer with a demonstrated history of working in the Mobile Application industry for over three years. Strong software engineering professional skilled in Java, Kotlin, C++ and Python. Other technologies skilled at include, Android Mobile Development, Java EE, Spring Framework, and AngularJS. I am passionate about fields in Electrical Engineering, Embedded Systems, Robotics and Physics.</span>
+      <span class="name">{{ headerData.name }}</span>
+      <span class="headline">{{ headerData.headline }}</span>
+      <span class="description">{{ headerData.description }}</span>
 
       <div class="skills-section">
         <span>Skills:</span>
-        <span class="skill">C++</span>
-        <span class="skill">Python</span>
-        <span class="skill">Java</span>
-        <span class="skill">Kotlin</span>
+        <span class="skill" *ngFor="let item of headerData.skillArr">{{ item }}</span>
       </div>
       <div class="skills-section">
         <span>Technologies:</span>
-        <span class="skill">AWS</span>
-        <span class="skill">Linode</span>
-        <span class="skill">AngularJS</span>
-        <span class="skill">Spring Boot</span>
+        <span class="skill" *ngFor="let item of headerData.techArr">{{ item }}</span>
       </div>
     </div>
   </div>

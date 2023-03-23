@@ -1,12 +1,11 @@
 @import "/src/assets/styles/styles.scss";
 
 .home-container {
-  max-width: 1024px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: 0px 100px;
 
   .header-section {
     width: 100%;
@@ -19,19 +18,18 @@
 }
 
 .my-avatar {
-  width: 145px;
-  height: 145px;
+  height: fit-content;
   border: 1px solid #3b4f58;
   border-radius: 15px;
 
   mat-icon {
+    width: inherit;
+    height: inherit;
     font-size: 145px;
   }
 }
 
 .my-description {
-  max-width: 800px;
-  max-height: 400px;
   display: flex;
   flex-direction: column;
 

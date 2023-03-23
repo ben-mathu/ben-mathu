@@ -4,6 +4,8 @@ export class Header implements DocumentData {
   name!: string;
   headline!: string;
   description!: string;
-  skills!: [];
-  technologies!: [];
+  skills!: string;
+  technologies!: string;
+  skillArr!: string[];
+  techArr!: string[];
 }
