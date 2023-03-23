@@ -19,6 +19,29 @@
   }
 }
 
+.info-links {
+  li {
+    width: 200px;
+    border: 1px solid $borderColor;
+    border-radius: 10px;
+
+    a {
+      padding: 10px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+    }
+
+    mat-icon {
+      color: $primaryColor;
+    }
+  }
+}
+
 .follow-me {
   margin: 30px;
 }

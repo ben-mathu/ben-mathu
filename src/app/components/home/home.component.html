@@ -4,17 +4,17 @@
       <mat-icon>account_circle</mat-icon>
     </div>
     <div class="my-description">
-      <span class="name">{{ headerData.name }}</span>
-      <span class="headline">{{ headerData.headline }}</span>
-      <span class="description">{{ headerData.description }}</span>
+      <span class="name">{{ myDetails.name }}</span>
+      <span class="headline">{{ myDetails.headline }}</span>
+      <span class="description">{{ myDetails.description }}</span>
 
       <div class="skills-section">
         <span>Skills:</span>
-        <span class="skill" *ngFor="let item of headerData.skillArr">{{ item }}</span>
+        <span class="skill" *ngFor="let item of myDetails.skillArr">{{ item }}</span>
       </div>
       <div class="skills-section">
         <span>Technologies:</span>
-        <span class="skill" *ngFor="let item of headerData.techArr">{{ item }}</span>
+        <span class="skill" *ngFor="let item of myDetails.techArr">{{ item }}</span>
       </div>
     </div>
   </div>

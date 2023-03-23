@@ -1,7 +1,7 @@
-import { Header } from './header';
+import { MyDetails } from './header';
 
-describe('Header', () => {
+describe('MyDetails', () => {
   it('should create an instance', () => {
-    expect(new Header()).toBeTruthy();
+    expect(new MyDetails()).toBeTruthy();
   });
 });

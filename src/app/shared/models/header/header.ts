@@ -1,6 +1,6 @@
 import { DocumentData } from "@angular/fire/firestore";
 
-export class Header implements DocumentData {
+export class MyDetails implements DocumentData {
   name!: string;
   headline!: string;
   description!: string;
@@ -8,4 +8,5 @@ export class Header implements DocumentData {
   technologies!: string;
   skillArr!: string[];
   techArr!: string[];
+  cv_url!: string;
 }

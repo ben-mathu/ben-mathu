@@ -1,5 +1,5 @@
 <nav class="navbar-container">
-  <a class="link-button sub-titles" routerLink="/home" routerLinkActive="active">Home</a>
+  <a class="link-button sub-titles" routerLink="/home" [state]="{ headerData: headerData }" routerLinkActive="active">Home</a>
   <a class="link-button sub-titles" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
   <a class="link-button sub-titles" routerLink="/about" routerLinkActive="active">About</a>
   <a class="link-button sub-titles" routerLink="/contacts" routerLinkActive="active">Contacts</a>
