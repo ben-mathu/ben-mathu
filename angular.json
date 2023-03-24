@@ -14,7 +14,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "./src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -33,7 +33,9 @@
             "styles": [
               "src/assets/styles/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "baseHref": "./",
+            "deployUrl": "./"
           },
           "configurations": {
             "production": {

@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   myDetails!: MyDetails;
 
-  constructor(private service: FirebaseService) {
+  constructor(private service: FirebaseService) {}
+
+  ngOnInit() {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
       this.myDetails.skillArr = result.val().skills.split(',');

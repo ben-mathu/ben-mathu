@@ -4,6 +4,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 
+import { APP_BASE_HREF } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -44,6 +46,7 @@ import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/f
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
+    { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
 })

@@ -8,15 +8,15 @@ import { MyDetails } from 'src/app/shared/models/header/header';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  myDetails!: MyDetails;
+  myDetails: MyDetails = new MyDetails();
 
-  constructor(private service: FirebaseService) {
+  constructor(private service: FirebaseService) {}
+
+  ngOnInit(): void {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
       this.myDetails.skillArr = result.val().skills.split(',');
       this.myDetails.techArr = result.val().technologies.split(',');
     });
   }
-
-  ngOnInit(): void {}
 }
