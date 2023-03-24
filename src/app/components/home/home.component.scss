@@ -74,8 +74,23 @@
 .projects-section {
   width: 100%;
   margin-top: 30px;
-  justify-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  align-items: center;
 
-  .header {
+  .message {
+    width: 30%;
+    padding: 40px;
+    margin: 70px;
+    border: 1px solid $accentColor;
+    border-radius: 15px;
+    color: white;
+    font-size: large;
+    text-align: center;
+
+    .message-item span {
+      color: $accentColor;
+    }
   }
 }
