@@ -33,9 +33,7 @@
             "styles": [
               "src/assets/styles/styles.scss"
             ],
-            "scripts": [],
-            "baseHref": "./",
-            "deployUrl": "./"
+            "scripts": []
           },
           "configurations": {
             "production": {

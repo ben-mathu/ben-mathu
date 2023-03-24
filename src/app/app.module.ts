@@ -46,7 +46,7 @@ import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/f
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
-    { provide: APP_BASE_HREF, useValue: '/' }
+    { provide: APP_BASE_HREF, useValue: environment.baseUrl }
   ],
   bootstrap: [AppComponent]
 })

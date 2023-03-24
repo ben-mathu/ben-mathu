@@ -8,7 +8,8 @@ export const environment = {
     apiKey: 'AIzaSyASvEpLdxPFboli1hzO8AFrth1cpc9Ate0',
     authDomain: 'ben-mathu-portfolio.firebaseapp.com',
     messagingSenderId: '512645300438',
-    measurementId: 'G-3S6VR7XQRY',
+    measurementId: 'G-3S6VR7XQRY'
   },
-  production: true
+  production: true,
+  baseUrl: '/ben-mathu-portfolio/'
 };
