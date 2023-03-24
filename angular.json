@@ -14,7 +14,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "src",
+      "sourceRoot": "./src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -31,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/assets/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -108,6 +108,9 @@
 
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

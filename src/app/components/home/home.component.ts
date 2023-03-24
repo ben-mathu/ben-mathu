@@ -1,18 +1,18 @@
+import { FirebaseService } from './../../shared/services/firebase.service';
+import { Component, OnInit, Input } from '@angular/core';
 import { MyDetails } from 'src/app/shared/models/header/header';
-import { FirebaseService } from './shared/services/firebase.service';
-import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
-  myDetails!: MyDetails;
+export class HomeComponent implements OnInit {
+  myDetails: MyDetails = new MyDetails();
 
   constructor(private service: FirebaseService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
       this.myDetails.skillArr = result.val().skills.split(',');
