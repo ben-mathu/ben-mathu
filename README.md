@@ -12,6 +12,7 @@
   - Astronomy
   - Physics
   - Artificial Intelligence
+- [My Portfolio](https://ben-mathu.github.io/ben-mathu-portfolio)
 
 <!-- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats) -->
 
