@@ -2,7 +2,8 @@
 
 ## About me
 - 🌱 I’m currently learning Python and Artificial Intelligence
-- 📫 How to reach me: mathubenard@gmail.com
+- 📫 How to reach me: 📧: mathubenard@gmail.com
+- [LinkedIn](https://linkedin.com/in/benard-mathu)
 - 🧑‍💻 Technical Skills
   - Writing Optimal, easily scalable and maintainable code
   - Programming languages:
