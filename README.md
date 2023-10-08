@@ -1,29 +1,41 @@
-# This is my portfolio
+### Hi there 👋, I am Benard Mathu
 
-# Ben Mathu Portfolio
+## About me
+- 🌱 I’m currently learning Python and Artificial Intelligence
+- 📫 How to reach me: 📧: mathubenard@gmail.com
+- [LinkedIn](https://linkedin.com/in/benard-mathu)
+- 🧑‍💻 Technical Skills
+  - Writing Optimal, easily scalable and maintainable code
+  - Programming languages:
+    - Java, Kotlin, Python, C/C++, Typescript, Javascript
+  - Non-Code Skills:
+    - User Interface/Experience Designs, Architectural Designs and implementations & Entity Relationship Diagram
+  - Frameworks & Technologies:
+    - Materia Design Components (MDC - Android), Jetpack, Spring/Spring Frameworks, Heroku, AWS
+- 💬 Ask me about
+  - Mobile application development, Java, Physics
+- Topics I am interested in:
+  - Astronomy, Physics, Artificial Intelligence
+- [My Portfolio](https://ben-mathu.github.io/ben-mathu-portfolio)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+<!-- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats) -->
 
-## Development server
+## My Stats
+[![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&count_private=true&theme=radical&show_icons=true&hide_border=true)]()
+[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&count_private=true&langs_count=7&theme=radical&show_icons=true&hide_border=true&show_owner=true&card_width=495)]()
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+<!--
+**ben-mathu/ben-mathu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Here are some ideas to get you started:
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- 🔭 I’m currently working on ...
+- 🌱 I’m currently learning ...
+- 👯 I’m looking to collaborate on ...
+- 🤔 I’m looking for help with ...
+- 💬 Ask me about ...
+- 📫 How to reach me: ...
+- 😄 Pronouns: ...
+- ⚡ Fun fact: ...
+-->
