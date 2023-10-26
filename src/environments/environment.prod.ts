@@ -11,5 +11,5 @@ export const environment = {
     measurementId: 'G-3S6VR7XQRY'
   },
   production: true,
-  baseUrl: '/ben-mathu-portfolio/'
+  baseUrl: '/ben-mathu/'
 };

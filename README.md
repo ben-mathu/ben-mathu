@@ -16,7 +16,7 @@
   - Mobile application development, Java, Physics
 - Topics I am interested in:
   - Astronomy, Physics, Artificial Intelligence
-- [My Portfolio](https://ben-mathu.github.io/ben-mathu-portfolio)
+- [My Portfolio](https://ben-mathu.github.io/ben-mathu)
 
 <!-- [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats) -->
 

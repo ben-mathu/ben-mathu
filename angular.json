@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bennel-website-template": {
+    "ben-mathu": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bennel-website-template",
+            "outputPath": "dist/ben-mathu",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bennel-website-template:build:production"
+              "browserTarget": "ben-mathu:build:production"
             },
             "development": {
-              "browserTarget": "bennel-website-template:build:development"
+              "browserTarget": "ben-mathu:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bennel-website-template:build"
+            "browserTarget": "ben-mathu:build"
           }
         },
         "test": {
@@ -115,5 +115,5 @@
       }
     }
   },
-  "defaultProject": "bennel-website-template"
+  "defaultProject": "ben-mathu"
 }
