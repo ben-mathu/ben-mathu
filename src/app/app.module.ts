@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
+import { ExperienceComponent } from './components/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/f
     AboutComponent,
     PortfolioComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
