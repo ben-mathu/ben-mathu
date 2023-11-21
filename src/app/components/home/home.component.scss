@@ -127,6 +127,7 @@
     span {
       text-decoration: none;
       color: #fff;
+      transition: .3s ease-in-out, -webkit-transform .3s ease;
     }
   }
 
@@ -135,6 +136,11 @@
     background-color: #13191d;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0,0,0,.4);
+
+    span {
+      transform-origin: bottom left;
+      transform: scale(2);
+    }
   }
 
   .message {
