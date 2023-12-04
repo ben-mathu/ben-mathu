@@ -7,10 +7,28 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExperienceComponent } from './components/experience/experience.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "about", component: AboutComponent },
-  { path: "portfolio", component: PortfolioComponent },
-  { path: "experience", component: ExperienceComponent },
+  {
+    path: "",
+    component: HomeComponent,
+    children: [
+      { path: "", redirectTo: "parent", pathMatch: "full" },
+      {
+        path: "about",
+        component: AboutComponent,
+        data: { breadcrumb: { alias: "About" } }
+      },
+      {
+        path: "portfolio",
+        component: PortfolioComponent,
+        data: { breadcrumb: { alias: "Portfolio" } }
+      },
+      {
+        path: "experience",
+        component: ExperienceComponent,
+        data: { breadcrumb: { alias: "Experience" } }
+      },
+    ]
+  },
   { path: "**", component: PageNotFoundComponent }
 ]
 

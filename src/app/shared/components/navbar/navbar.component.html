@@ -1,7 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-ligh bg-light mb-4 navbar-container">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 px-3 navbar-container">
+  <a class="navbar-brand" [routerLink]="['/']">Home</a>
   <div class="collapse navbar-collapse">
+    <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+    <ng-template #iconTemplate>
+      <mat-icon>chevron-right</mat-icon>
+    </ng-template>
     <ul class="navbar-nav mr-uto">
-      <li class="nav-item"  routerLinkActive="active"><a class="link-button sub-titles" [routerLink]="['/']">Home</a></li>
+      <li class="nav-item ml-2"  routerLinkActive="active"><a class="link-button sub-titles" [routerLink]="['/']">Home</a></li>
       <li routerLinkActive="active"><a class="link-button sub-titles" [routerLink]="['./experience']">Experience</a></li>
     </ul>
   </div>

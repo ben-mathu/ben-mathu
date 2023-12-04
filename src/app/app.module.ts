@@ -20,6 +20,7 @@ import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { ExperienceComponent } from './components/experience/experience.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ExperienceComponent } from './components/experience/experience.componen
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    FirestoreModule
+    FirestoreModule,
+    BreadcrumbModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
