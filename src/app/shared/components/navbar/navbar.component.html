@@ -1,6 +1,11 @@
-<nav class="navbar-container">
-  <a class="link-button sub-titles" [routerLink]="['/']" routerLinkActive="active">Home</a>
-  <a class="link-button sub-titles" [routerLink]="['./experience']" routerLinkActive="active">Experience</a>
+<nav class="navbar navbar-expand-md navbar-ligh bg-light mb-4 navbar-container">
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-uto">
+      <li class="nav-item"  routerLinkActive="active"><a class="link-button sub-titles" [routerLink]="['/']">Home</a></li>
+      <li routerLinkActive="active"><a class="link-button sub-titles" [routerLink]="['./experience']">Experience</a></li>
+    </ul>
+  </div>
+
   <!-- <a class="link-button sub-titles" routerLink="./portfolio" routerLinkActive="active">Portfolio</a>
   <a class="link-button sub-titles" routerLink="./about" routerLinkActive="active">About</a>
   <a class="link-button sub-titles" routerLink="./contacts" routerLinkActive="active">Contacts</a> -->

@@ -30,12 +30,12 @@
   border-bottom: 3px solid $accentColor;
 }
 
+a {
+  text-decoration: none;
+}
+
 .active {
   padding: 5px;
   color: white;
   border-bottom: 3px solid $accentColor;
-}
-
-a {
-  text-decoration: none;
 }
