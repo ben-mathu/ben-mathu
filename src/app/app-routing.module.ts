@@ -9,25 +9,22 @@ import { ExperienceComponent } from './components/experience/experience.componen
 const routes: Routes = [
   {
     path: "",
-    component: HomeComponent,
-    children: [
-      { path: "", redirectTo: "parent", pathMatch: "full" },
-      {
-        path: "about",
-        component: AboutComponent,
-        data: { breadcrumb: { alias: "About" } }
-      },
-      {
-        path: "portfolio",
-        component: PortfolioComponent,
-        data: { breadcrumb: { alias: "Portfolio" } }
-      },
-      {
-        path: "experience",
-        component: ExperienceComponent,
-        data: { breadcrumb: { alias: "Experience" } }
-      },
-    ]
+    component: HomeComponent
+  },
+  {
+    path: "about",
+    component: AboutComponent,
+    data: { breadcrumb: { alias: "About" } }
+  },
+  {
+    path: "portfolio",
+    component: PortfolioComponent,
+    data: { breadcrumb: { alias: "Portfolio" } }
+  },
+  {
+    path: "experience",
+    component: ExperienceComponent,
+    data: { breadcrumb: { alias: "Experience" } }
   },
   { path: "**", component: PageNotFoundComponent }
 ]

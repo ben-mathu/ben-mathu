@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-experience',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private breadcrumbService: BreadcrumbService
+  ) { }
 
   ngOnInit(): void {
+    this.breadcrumbService.set('@Experience', 'Experience');
   }
 
 }

@@ -44,7 +44,8 @@ import { BreadcrumbModule } from 'xng-breadcrumb';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     FirestoreModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    MatIconModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService

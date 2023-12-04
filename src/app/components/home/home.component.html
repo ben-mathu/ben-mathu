@@ -1,20 +1,22 @@
-<div class="home-container">
-  <div class="header-section">
-    <div class="my-avatar">
-      <mat-icon>account_circle</mat-icon>
-    </div>
-    <div class="my-description">
-      <span class="name">{{ myDetails.name }}</span>
-      <span class="headline">{{ myDetails.headline }}</span>
-      <span class="description">{{ myDetails.description }}</span>
-
-      <div class="skills-section">
-        <span class="skills-title">Skills:</span>
-        <span class="skill" *ngFor="let item of myDetails.skillArr">{{ item }}</span>
+<div class="container">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="container-fluid">
+      <div class="my-avatar">
+        <img src="{{ avatarImage }}"/>
       </div>
-      <div class="skills-section">
-        <span class="skills-title">Technologies:</span>
-        <span class="skill" *ngFor="let item of myDetails.techArr">{{ item }}</span>
+      <div class="my-description">
+        <span class="name">{{ myDetails.name }}</span>
+        <span class="headline">{{ myDetails.headline }}</span>
+        <span class="description">{{ myDetails.description }}</span>
+
+        <div class="skills-section d-flex flex-wrap">
+          <span class="skills-title">Skills:</span>
+          <span class="skill" *ngFor="let item of myDetails.skillArr">{{ item }}</span>
+        </div>
+        <div class="skills-section d-flex flex-wrap">
+          <span class="skills-title">Technologies:</span>
+          <span class="skill" *ngFor="let item of myDetails.techArr">{{ item }}</span>
+        </div>
       </div>
     </div>
 
@@ -32,16 +34,24 @@
   <div class="projects-section">
 
     <div class="menu-container">
-      <a href="#" class="menu" routerLink="./experience" routerLinkActive="active"><span>Experience</span></a>
+      <a href="#" class="menu" [routerLink]="['./experience']" >
+        <span>Experience</span>
+        <mat-icon class="material-symbols-rounded">
+          work_history
+        </mat-icon>
+      </a>
       <a href="#" class="menu">
         <span>Projects</span>
+        <mat-icon class="material-symbols-rounded">
+          emoji_objects
+        </mat-icon>
       </a>
-      <a href="#" class="menu"><span>Blog</span></a>
+      <a href="#" class="menu">
+        <span>Blog</span>
+        <mat-icon class="material-symbols-rounded">
+          rss_feed
+        </mat-icon>
+      </a>
     </div>
-    <!-- <div class="message">
-      <div class="message-item">More to come; incomplete and complete projects, ideas, a blog and geeky stuff.</div>
-      <br />
-      <div class="message-item">This web app was made possible using <span>Firebase</span> and <span>AngularJS</span>.</div>
-    </div> -->
   </div>
 </div> <!-- End of home-container -->

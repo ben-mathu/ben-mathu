@@ -1,41 +1,24 @@
-// @import "/src/assets/styles/styles.scss";
+@import "/src/assets/styles/styles.scss";
 
-// .navbar-container {
-//   text-align: center;
-//   background-color: $backgroundColor;
-//   margin: 0px;
-//   padding: 20px;
-//   display: flex;
-//   flex-direction: row;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 30px;
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
 
-//   a {
-//     list-style: none;
-//   }
-// }
+a {
+  text-decoration: none;
+  color: white;
 
-// .link-button {
-//   text-decoration: none;
-//   transition: .5s;
-//   color: $primaryColor;
-//   text-transform: uppercase;
-//   font-weight: 700;
-// }
+  .social-icons {
+    width: 20px;
+    height: 20px;
+  }
+}
 
-// .link-button:hover {
-//   padding: 5px;
-//   color: white;
-//   border-bottom: 3px solid $accentColor;
-// }
+xng-breadcrumb {
+  font-size: small;
+}
 
-// a {
-//   text-decoration: none;
-// }
-
-// .active {
-//   padding: 5px;
-//   color: white;
-//   border-bottom: 3px solid $accentColor;
-// }
+mat-icon {
+  color: white;
+}
