@@ -13,6 +13,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup for Deployments
+        env:
+          MY_EMAIL: mathubenard@gmail.com
+          MY_NAME: ben-mathu
+        run: |
+          git config --global user.email $MY_EMAIL
+          git config --global user.name $MY_NAME
+          git remote set-url origin https://$MY_NAME:${{ secrets.GH_SECRET }}@github.com/ben-mathu/ben-mathu.git
+
       - uses: actions/setup-node@v3
         with:
           node-version: 18.13
