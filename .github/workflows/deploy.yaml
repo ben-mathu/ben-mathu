@@ -21,13 +21,13 @@ jobs:
       # - name: Setup for Deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        #   MY_EMAIL: mathubenard@gmail.com
-        #   MY_NAME: ben-mathu
+          MY_EMAIL: mathubenard@gmail.com
+          MY_NAME: ben-mathu
 
-        # run: |
-        #   git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        #   git config --global user.name "github-actions"
-        #   git remote set-url origin https://$MY_NAME:${{ secrets.GITHUB_TOKEN }}@github.com/ben-mathu/ben-mathu.git
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions"
+          git remote set-url origin https://$MY_NAME:$GITHUB_TOKEN@github.com/ben-mathu/ben-mathu.git
 
       - uses: actions/setup-node@v3
         with:
