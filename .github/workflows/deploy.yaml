@@ -18,7 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # - name: Setup for Deployments
+      - name: Setup for Deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_EMAIL: mathubenard@gmail.com
