@@ -17,11 +17,12 @@ jobs:
         # env:
         #   MY_EMAIL: mathubenard@gmail.com
         #   MY_NAME: ben-mathu
+
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions"
-          git remote set-url origin https://$MY_NAME:${{ secrets.GITHUB_SECRET }}@github.com/ben-mathu/ben-mathu.git
-          git config --global credential.helper 'cache --timeout 3600'
+          git remote set-url origin https://$MY_NAME:${{ secrets.GITHUB_TOKEN }}@github.com/ben-mathu/ben-mathu.git
+          6l51s<t
 
       - uses: actions/setup-node@v3
         with:
