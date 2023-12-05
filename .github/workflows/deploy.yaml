@@ -10,23 +10,24 @@ jobs:
   deploy-github-pages:
     runs-on: ubuntu-latest
 
-    permissions:
-      pages: write
-      id-token: write
+    # permissions:
+    #   pages: write
+    #   id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup for Deployments
-        # env:
+      # - name: Setup for Deployments
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         #   MY_EMAIL: mathubenard@gmail.com
         #   MY_NAME: ben-mathu
 
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions"
-          git remote set-url origin https://$MY_NAME:${{ secrets.GITHUB_TOKEN }}@github.com/ben-mathu/ben-mathu.git
+        # run: |
+        #   git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        #   git config --global user.name "github-actions"
+        #   git remote set-url origin https://$MY_NAME:${{ secrets.GITHUB_TOKEN }}@github.com/ben-mathu/ben-mathu.git
 
       - uses: actions/setup-node@v3
         with:
@@ -38,8 +39,8 @@ jobs:
       - name: Link Angular
         run: npm link @angular/cli
 
-      - name: Setup pages
-        uses: actions/deploy-pages@v2
+      # - name: Setup pages
+      #   uses: actions/deploy-pages@v2
 
-      - name: Deploy
+      - name: DeployS
         run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu --no-silent
