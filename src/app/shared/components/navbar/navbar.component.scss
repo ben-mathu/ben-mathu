@@ -1,41 +1,28 @@
 @import "/src/assets/styles/styles.scss";
 
-.navbar-container {
-  text-align: center;
-  background-color: $backgroundColor;
-  margin: 0px;
-  padding: 20px;
+.navbar-nav {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-
-  a {
-    list-style: none;
-  }
-}
-
-.link-button {
-  text-decoration: none;
-  transition: .5s;
-  color: $primaryColor;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.link-button:hover {
-  padding: 5px;
-  color: white;
-  border-bottom: 3px solid $accentColor;
-}
-
-.active {
-  padding: 5px;
-  color: white;
-  border-bottom: 3px solid $accentColor;
 }
 
 a {
   text-decoration: none;
+  color: white;
+
+  .social-icons {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+xng-breadcrumb {
+  font-size: small;
+}
+
+mat-icon {
+  color: white;
+}
+
+.socials {
+  max-width: fit-content;
 }

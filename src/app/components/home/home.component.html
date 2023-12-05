@@ -1,38 +1,25 @@
-<div class="home-container">
-  <div class="header-section">
-    <div class="my-avatar">
-      <mat-icon>account_circle</mat-icon>
-    </div>
-    <div class="my-description">
-      <span class="name">{{ myDetails.name }}</span>
-      <span class="headline">{{ myDetails.headline }}</span>
-      <span class="description">{{ myDetails.description }}</span>
-
-      <div class="skills-section">
-        <span>Skills:</span>
-        <span class="skill" *ngFor="let item of myDetails.skillArr">{{ item }}</span>
+<div class="container-fluid">
+  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    <div class="d-flex flex-wrap justify-content-between">
+      <div class="my-avatar">
+        <img src="{{ avatarImage }}"/>
       </div>
-      <div class="skills-section">
-        <span>Technologies:</span>
-        <span class="skill" *ngFor="let item of myDetails.techArr">{{ item }}</span>
-      </div>
+      <div class="my-description">
+        <span class="name">{{ myDetails.name }}</span>
+        <span class="headline">{{ myDetails.headline }}</span>
+        <span class="description">{{ myDetails.description }}</span>
 
-      <div class="projects-section">
-        <div class="message">
-          <div class="message-item">More to come; incomplete and complete projects, ideas, a blog and geeky stuff.</div>
-          <br />
-          <div class="message-item">This web app was made possible using <span>Firebase</span> and <span>AngularJS</span>.</div>
+        <div class="skills-section d-flex flex-wrap">
+          <span class="skills-title">Skills:</span>
+          <span class="skill" *ngFor="let item of myDetails.skillArr">{{ item }}</span>
+        </div>
+        <div class="skills-section d-flex flex-wrap">
+          <span class="skills-title">Technologies:</span>
+          <span class="skill" *ngFor="let item of myDetails.techArr">{{ item }}</span>
         </div>
       </div>
     </div>
-    <div class="social-universe">
-      <!-- <div class="twitter-profile-timeline">
-        <a class="twitter-timeline" data-width="470" data-height="400" data-theme="dark" href="https://twitter.com/beniemathu?ref_src=twsrc%5Etfw">Tweets by beniemathu</a>
-      </div> -->
-      <div class="spotify-playlist">
-        <p>What I listen to:</p>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6ISGW6cNRUjbn1AWTHfACy?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div>
-  </div>
-</div>
+  </div> <!-- End of header-section -->
+
+  <app-projects></app-projects>
+</div> <!-- End of home-container -->

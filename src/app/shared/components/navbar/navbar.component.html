@@ -1,5 +1,45 @@
-<nav class="navbar-container">
-  <a class="link-button sub-titles" [routerLink]="['/']" routerLinkActive="active">Home</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 justify-content-between">
+  <div class="navbar-brand">
+    <a [routerLink]="['/']">Home</a>
+    <div>
+      <xng-breadcrumb [separator]="iconTemplate"></xng-breadcrumb>
+      <ng-template #iconTemplate>
+        <mat-icon>arrow_right</mat-icon>
+      </ng-template>
+    </div>
+  </div>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="material-symbols-rounded">
+      <mat-icon>menu</mat-icon>
+    </span>
+  </button>
+
+  <div class="socials collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item mx-2">
+        <a target="_blank" href="https://linkedin.com/in/benard-mathu">
+          <img class="social-icons" src="assets/images/linkedin.svg" alt="LinkedIn" />
+        </a>
+      </li>
+      <li class="nav-item mx-2">
+        <a target="_blank" href="https://twitter.com/beniemathu">
+          <img class="social-icons" src="assets/images/icon_x.svg" alt="Twitter" />
+        </a>
+      </li>
+      <li class="nav-item mx-2">
+        <a target="_blank" href="https://instagram.com/benard.mathu?igshid=ZDdkNTZiNTM=">
+          <img class="social-icons" src="assets/images/instagram.svg" alt="Instagram" />
+        </a>
+      </li>
+      <li class="nav-item mx-2">
+        <a target="_blank" href="https://github.com/ben-mathu">
+          <img class="social-icons" src="assets/images/github.svg" width="30" height="30" alt="Github: ben-mathu" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
   <!-- <a class="link-button sub-titles" routerLink="./portfolio" routerLinkActive="active">Portfolio</a>
   <a class="link-button sub-titles" routerLink="./about" routerLinkActive="active">About</a>
   <a class="link-button sub-titles" routerLink="./contacts" routerLinkActive="active">Contacts</a> -->

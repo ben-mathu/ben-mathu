@@ -1,0 +1,26 @@
+name: Deploy Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-github-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18.13
+
+      - name: Install Dependencies
+        run: npm i
+
+      - name: Link Angular
+        run: npm link @angular/cli
+
+      - name: Deploy to Github Pages
+        run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu

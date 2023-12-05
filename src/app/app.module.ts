@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
-import { ContactsComponent } from './components/contacts/contacts.component';
 import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -20,17 +19,21 @@ import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { BreadcrumbModule } from 'xng-breadcrumb';
+import { ProjectsComponent } from './shared/components/projects/projects.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ContactsComponent,
     AboutComponent,
     PortfolioComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    ExperienceComponent,
+    ProjectsComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/f
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    FirestoreModule
+    FirestoreModule,
+    BreadcrumbModule,
+    MatIconModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
