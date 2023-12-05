@@ -9,6 +9,11 @@ on:
 jobs:
   deploy-github-pages:
     runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+      
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -34,4 +39,5 @@ jobs:
         run: npm link @angular/cli
 
       - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v2
         run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu --no-silent
