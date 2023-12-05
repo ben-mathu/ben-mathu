@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    <div class="container-fluid">
+    <div class="d-flex flex-wrap justify-content-between">
       <div class="my-avatar">
         <img src="{{ avatarImage }}"/>
       </div>
@@ -19,39 +19,7 @@
         </div>
       </div>
     </div>
-
-    <div class="social-universe">
-      <!-- <div class="twitter-profile-timeline">
-        <a class="twitter-timeline" data-width="470" data-height="400" data-theme="dark" href="https://twitter.com/beniemathu?ref_src=twsrc%5Etfw">Tweets by beniemathu</a>
-      </div> -->
-      <div class="spotify-playlist">
-        <p>What I listen to:</p>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6ISGW6cNRUjbn1AWTHfACy?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      </div>
-    </div> <!-- End of social-universe -->
   </div> <!-- End of header-section -->
 
-  <div class="projects-section">
-
-    <div class="menu-container">
-      <a href="#" class="menu" [routerLink]="['./experience']" >
-        <span>Experience</span>
-        <mat-icon class="material-symbols-rounded">
-          work_history
-        </mat-icon>
-      </a>
-      <a href="#" class="menu">
-        <span>Projects</span>
-        <mat-icon class="material-symbols-rounded">
-          emoji_objects
-        </mat-icon>
-      </a>
-      <a href="#" class="menu">
-        <span>Blog</span>
-        <mat-icon class="material-symbols-rounded">
-          rss_feed
-        </mat-icon>
-      </a>
-    </div>
-  </div>
+  <app-projects></app-projects>
 </div> <!-- End of home-container -->
