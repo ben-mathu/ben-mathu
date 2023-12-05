@@ -38,5 +38,8 @@ jobs:
       - name: Link Angular
         run: npm link @angular/cli
 
-      - name: Deploy to Github Pages
+      - name: Setup pages
+        uses: actions/deploy-pages@v2
+
+      - name: Deploy
         run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu --no-silent
