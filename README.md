@@ -9,7 +9,7 @@
   - Physics, Artificial Intelligence
 - [My Portfolio](https://ben-mathu.github.io/ben-mathu)
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=ben-mathu)](https://github.com/anuraghazra/github-readme-stats)
 
 ## My Stats
 
