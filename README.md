@@ -12,7 +12,7 @@
 ## My Stats
 
 [![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300)]()
-[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=7&theme=transparent&show_icons=true&hide_border=true&card_width=300)]()
+[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=7&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=pie)]()
 
 
 <!--
