@@ -9,12 +9,10 @@
   - Physics, Artificial Intelligence
 - [My Portfolio](https://ben-mathu.github.io/ben-mathu)
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=ben-mathu&repo=ben-mathu)](https://github.com/anuraghazra/github-readme-stats)
-
 ## My Stats
 
-[![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&count_private=true&theme=transparent&show_icons=true&hide_border=true&card_width=300)]()
-[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&count_private=true&langs_count=7&theme=radical&show_icons=true&hide_border=true&show_owner=true&card_width=300)]()
+[![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300)]()
+[![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=7&theme=transparent&show_icons=true&hide_border=true&card_width=300)]()
 
 
 <!--
