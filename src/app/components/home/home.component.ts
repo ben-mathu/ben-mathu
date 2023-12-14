@@ -24,13 +24,16 @@ export class HomeComponent implements OnInit {
       const skills: Skill[] = [];
       console.log(skillDictList);
 
-      for (let item in skillDictList) {
+      for (let item of skillDictList) {
         let skillDict = item.split(":");
+        console.log(skillDict);
 
         const skill: Skill = {
           name: skillDict[0],
           rating: skillDict[1]
-        }
+        };
+
+        skills.push(skill);
       }
 
       this.myDetails.skillArr = skills;
