@@ -7,7 +7,6 @@
   - Mobile application development, Java, Physics
 - Topics I am interested in:
   - Physics, Artificial Intelligence
-- [My Portfolio](https://ben-mathu.github.io/ben-mathu)
 
 ## My Stats
 

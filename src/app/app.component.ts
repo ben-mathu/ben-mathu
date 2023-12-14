@@ -16,7 +16,6 @@ export class AppComponent {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
       this.myDetails.skillArr = result.val().skills.split(',');
-      this.myDetails.techArr = result.val().technologies.split(',');
     });
   }
 }

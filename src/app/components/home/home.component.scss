@@ -1,16 +1,16 @@
 @import "/src/assets/styles/styles.scss";
 
 .my-avatar {
-  width: 270px;
-  height: 270px;
+  max-width: 270px;
+  max-height: 270px;
   border: 1px solid #3b4f58;
   border-radius: 15px;
   overflow: hidden;
 
-  img {
-    width: 270px;
-    height: 270px;
-  }
+//   img {
+//     width: 270px;
+//     height: 270px;
+//   }
 
   mat-icon {
     width: inherit;
@@ -20,57 +20,52 @@
 }
 
 .my-description {
-  display: flex;
-  flex-direction: column;
   max-width: 60%;
 
   .name {
-    font-size: 32px;
+    font-size: 25px;
     margin-bottom: 5px;
   }
 
   .headline {
-    font-size: 21px;
-    margin-bottom: 30px;
-    font-family: 'Work Sans';
-    font-weight: 300;
-    font-style: italic;
+    font-size: 18px;
+//     margin-bottom: 30px;
+//     font-family: 'Work Sans';
+//     font-weight: 300;
+//     font-style: italic;
   }
 
   .description {
     border: 1px solid $borderColor;
-    font-weight: 100;
     line-height: 25px;
-    padding: 20px;
-    border-radius: 20px;
-    font-size: 18px;
-
+    border-radius: 10px;
+    font-size: 14px;
   }
 
-  .skills-section {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    margin-top: 10px;
+//   .skills-section {
+//     display: flex;
+//     flex-direction: row;
+//     gap: 10px;
+//     margin-top: 10px;
 
-    .skills-title {
-      display: inline-flex;
-      align-items: center;
-    }
+//     .skills-title {
+//       display: inline-flex;
+//       align-items: center;
+//     }
 
-    .skill {
-      display: inline-flex;
-      height: 32px;
-      justify-content: center;
-      align-items: center;
-      flex-shrink: 0;
-      padding: 0px 10px;
-      background-color: $accentColor;
-      color: $backgroundColor;
-      font-weight: 700;
-      border-radius: 8px;
-      box-shadow: 0px 1px 3px 1px rgba(37, 50, 57, 0.15), 0px 1px 2px 0px rgba(37, 50, 57, 0.30);
-      transition: .3s ease,-webkit-transform .3s ease;
-    }
-  }
+//     .skill {
+//       display: inline-flex;
+//       height: 32px;
+//       justify-content: center;
+//       align-items: center;
+//       flex-shrink: 0;
+//       padding: 0px 10px;
+//       background-color: $accentColor;
+//       color: $backgroundColor;
+//       font-weight: 700;
+//       border-radius: 8px;
+//       box-shadow: 0px 1px 3px 1px rgba(37, 50, 57, 0.15), 0px 1px 2px 0px rgba(37, 50, 57, 0.30);
+//       transition: .3s ease,-webkit-transform .3s ease;
+//     }
+//   }
 }
