@@ -12,10 +12,10 @@
         <div class="skills-section d-flex flex-wrap my-2">
           <div class="skills-title">Skills</div>
           <div class="row d-flex flex-wrap">
-            <div class="skill col-6" *ngFor="let item of myDetails.skillArr; index as i">
+            <div class="skill col-sm-6 d-flex flex-row flex-wrap" *ngFor="let item of myDetails.skillArr; index as i">
               <div class="d-flex flex-row justify-content-between mx-2">
                 <span>{{ item.name }}</span>
-                <span>{{ item.rating }}</span>
+                <span> {{ item.rating }}</span>
               </div>
               <mat-progress-bar class="rounded" mode="determinate" value="{{ calculatePercentage(item.rating) }}" color="accent"></mat-progress-bar>
             </div>
