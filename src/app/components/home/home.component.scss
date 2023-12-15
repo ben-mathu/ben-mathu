@@ -7,11 +7,6 @@
   border-radius: 15px;
   overflow: hidden;
 
-//   img {
-//     width: 270px;
-//     height: 270px;
-//   }
-
   mat-icon {
     width: inherit;
     height: inherit;
@@ -29,10 +24,6 @@
 
   .headline {
     font-size: 18px;
-//     margin-bottom: 30px;
-//     font-family: 'Work Sans';
-//     font-weight: 300;
-//     font-style: italic;
   }
 
   .description {
@@ -41,31 +32,4 @@
     border-radius: 10px;
     font-size: 14px;
   }
-
-//   .skills-section {
-//     display: flex;
-//     flex-direction: row;
-//     gap: 10px;
-//     margin-top: 10px;
-
-//     .skills-title {
-//       display: inline-flex;
-//       align-items: center;
-//     }
-
-//     .skill {
-//       display: inline-flex;
-//       height: 32px;
-//       justify-content: center;
-//       align-items: center;
-//       flex-shrink: 0;
-//       padding: 0px 10px;
-//       background-color: $accentColor;
-//       color: $backgroundColor;
-//       font-weight: 700;
-//       border-radius: 8px;
-//       box-shadow: 0px 1px 3px 1px rgba(37, 50, 57, 0.15), 0px 1px 2px 0px rgba(37, 50, 57, 0.30);
-//       transition: .3s ease,-webkit-transform .3s ease;
-//     }
-//   }
 }
