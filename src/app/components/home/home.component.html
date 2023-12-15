@@ -1,26 +1,20 @@
 <div class="container-fluid">
   <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    <div class="d-flex flex-wrap justify-content-between">
-      <div class="my-avatar">
+    <div class="d-flex flex-wrap flex-row">
+      <div class="my-avatar mr-3">
         <img src="{{ avatarImage }}"/>
       </div>
-      <div class="my-description">
+      <div class="my-description d-flex flex-column mx-4">
         <span class="name">{{ myDetails.name }}</span>
         <span class="headline">{{ myDetails.headline }}</span>
-        <span class="description">{{ myDetails.description }}</span>
+        <span class="description p-2 mt-2 font-weight-light">{{ myDetails.description }}</span>
 
         <div class="skills-section d-flex flex-wrap my-2">
           <div class="skills-title">Skills</div>
           <div class="row d-flex flex-wrap">
-            <div class="skill col-6" *ngFor="let item of myDetails.skillArr; index as i">
-              <div>
-                <div class="d-flex flex-row justify-content-between mx-1">
-                  <span>{{ item.name }}</span>
-                  <span>{{ calculateRate(item.rating) }}</span>
-                </div>
-                <mat-progress-bar class="rounded" mode="determinate" value="{{ item.rating }}" color="accent"></mat-progress-bar>
-              </div>
-            </div>
+            <span class="skill col-6" *ngFor="let item of myDetails.skillArr; index as i">
+              {{ item.name }} {{ item.rating }}
+            </span>
           </div>
         </div>
       </div>

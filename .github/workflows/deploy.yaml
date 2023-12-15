@@ -33,13 +33,13 @@ jobs:
           node-version: 18.13
 
       - name: Install Dependencies
-        run: npm i
+        run: npm i --force
 
       - name: Link Angular
-        run: npm link @angular/cli
+        run: npm link @angular/cli --force
 
       # - name: Setup pages
       #   uses: actions/deploy-pages@v2
 
-      - name: DeployS
+      - name: Deploy
         run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu --no-silent

@@ -1,7 +1,5 @@
 import { FirebaseService } from './../../shared/services/firebase.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MatProgressBar } from '@angular/material/progress-bar';
-import { Observable, delay, map, startWith } from 'rxjs';
 import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 
 @Component({
@@ -30,27 +28,13 @@ export class HomeComponent implements OnInit {
 
         const skill: Skill = {
           name: skillDict[0],
-          rating: String(Number(skillDict[1].trim()) / 10 * 100)
+          rating: skillDict[1]
         };
 
         skills.push(skill);
       }
 
-      this.myDetails.skillArr = skills.sort((skill1, skill2) => {
-        if (Number(skill1.rating) < Number(skill2.rating)) {
-          return 1;
-        }
-
-        if (Number(skill1.rating) > Number(skill2.rating)) {
-          return -1;
-        }
-
-        return 0;
-      });
+      this.myDetails.skillArr = skills;
     });
-  }
-
-  calculateRate = (rate: String) => {
-    return Number(rate) / 100 * 10;
   }
 }

@@ -76,10 +76,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ben-mathu:build:production"
+              "buildTarget": "ben-mathu:build:production"
             },
             "development": {
-              "browserTarget": "ben-mathu:build:development"
+              "buildTarget": "ben-mathu:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ben-mathu:build"
+            "buildTarget": "ben-mathu:build"
           }
         },
         "test": {
