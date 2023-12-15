@@ -9,6 +9,7 @@ import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 })
 export class HomeComponent implements OnInit {
 
+
   myDetails: MyDetails = new MyDetails();
   avatarImage: String = "https://lh3.googleusercontent.com/a/ACg8ocL5ZsD77c6dOJYmEf4p7qNyBDcGY4Ql3p8lBQlKSG7sLB0=s288-c-no";
 
@@ -34,7 +35,24 @@ export class HomeComponent implements OnInit {
         skills.push(skill);
       }
 
-      this.myDetails.skillArr = skills;
+      this.myDetails.skillArr = skills.sort((a: Skill, b: Skill) => {
+        const rateA: number = Number(a.rating);
+        const rateB: number = Number(b.rating);
+
+        if (rateA < rateB) {
+          return 1;
+        }
+
+        if (rateA > rateB) {
+          return -1;
+        }
+
+        return 0;
+      });
     });
+  }
+
+  calculatePercentage(rate: string) {
+    return Number(rate) / 10 * 100;
   }
 }
