@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -47,7 +48,8 @@ import { ProjectsComponent } from './components/home/projects/projects.component
     provideFirestore(() => getFirestore()),
     FirestoreModule,
     BreadcrumbModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
