@@ -33,7 +33,7 @@ jobs:
           node-version: 18.13
 
       - name: Install Dependencies
-        run: npm i
+        run: npm i --force
 
       - name: Link Angular
         run: npm link @angular/cli

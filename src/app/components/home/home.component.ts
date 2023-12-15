@@ -22,11 +22,9 @@ export class HomeComponent implements OnInit {
 
       const skillDictList = result.val().skills.split(',');
       const skills: Skill[] = [];
-      console.log(skillDictList);
 
       for (let item of skillDictList) {
         let skillDict = item.split(":");
-        console.log(skillDict);
 
         const skill: Skill = {
           name: skillDict[0],
