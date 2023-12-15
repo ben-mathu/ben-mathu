@@ -1,6 +1,8 @@
 import { FirebaseService } from './../../shared/services/firebase.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MyDetails } from 'src/app/shared/models/header/header';
+import { MatProgressBar } from '@angular/material/progress-bar';
+import { Observable, delay, map, startWith } from 'rxjs';
+import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +21,36 @@ export class HomeComponent implements OnInit {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
       this.myDetails.skillArr = result.val().skills.split(',');
-      this.myDetails.techArr = result.val().technologies.split(',');
+
+      const skillDictList = result.val().skills.split(',');
+      const skills: Skill[] = [];
+
+      for (let item of skillDictList) {
+        let skillDict = item.split(":");
+
+        const skill: Skill = {
+          name: skillDict[0],
+          rating: String(Number(skillDict[1].trim()) / 10 * 100)
+        };
+
+        skills.push(skill);
+      }
+
+      this.myDetails.skillArr = skills.sort((skill1, skill2) => {
+        if (Number(skill1.rating) < Number(skill2.rating)) {
+          return 1;
+        }
+
+        if (Number(skill1.rating) > Number(skill2.rating)) {
+          return -1;
+        }
+
+        return 0;
+      });
     });
+  }
+
+  calculateRate = (rate: String) => {
+    return Number(rate) / 100 * 10;
   }
 }
