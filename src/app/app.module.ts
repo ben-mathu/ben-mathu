@@ -21,7 +21,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { ProjectsComponent } from './shared/components/projects/projects.component';
+import { ProjectsComponent } from './components/home/projects/projects.component';
 
 @NgModule({
   declarations: [
