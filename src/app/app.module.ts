@@ -22,7 +22,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { ProjectsComponent } from './components/home/projects/projects.component';
+import { CardComponent } from './shared/components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,7 @@ import { ProjectsComponent } from './components/home/projects/projects.component
     PageNotFoundComponent,
     FooterComponent,
     ExperienceComponent,
-    ProjectsComponent
+    CardComponent
   ],
   imports: [
     BrowserModule,

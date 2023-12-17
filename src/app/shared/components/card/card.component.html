@@ -1,0 +1,13 @@
+<a *ngIf="cardDetail.routeName === ''" class="menu d-flex flex-column justify-content-center" href="{{cardDetail.link}}" target="_blank">
+  <mat-icon class="material-symbols-rounded">
+    {{ cardDetail.icon }}
+  </mat-icon>
+  <span>{{ cardDetail.cardName }}</span>
+</a>
+
+<a *ngIf="cardDetail.routeName !== ''" class="menu d-flex flex-column justify-content-center" [routerLink]="[cardDetail.routeName]">
+  <mat-icon class="material-symbols-rounded">
+    {{ cardDetail.icon }}
+  </mat-icon>
+  <span>{{ cardDetail.cardName }}</span>
+</a>

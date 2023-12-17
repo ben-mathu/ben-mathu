@@ -25,5 +25,7 @@
     </div>
   </div> <!-- End of header-section -->
 
-  <app-projects></app-projects>
+  <div class="d-flex flex-wrap justify-content-center">
+    <app-card class="col-3 m-3" *ngFor="let item of cardDetails" [cardDetail]="item"></app-card>
+  </div>
 </div> <!-- End of home-container -->
