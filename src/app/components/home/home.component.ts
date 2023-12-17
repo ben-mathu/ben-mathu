@@ -1,5 +1,6 @@
 import { FirebaseService } from './../../shared/services/firebase.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { CardDetail } from 'src/app/shared/models/header/card_detail';
 import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 
 @Component({
@@ -12,6 +13,27 @@ export class HomeComponent implements OnInit {
 
   myDetails: MyDetails = new MyDetails();
   avatarImage: String = "https://lh3.googleusercontent.com/a/ACg8ocL5ZsD77c6dOJYmEf4p7qNyBDcGY4Ql3p8lBQlKSG7sLB0=s288-c-no";
+
+  cardDetails: CardDetail[] = [
+    {
+      routeName: './experience',
+      cardName: 'Experience',
+      icon: 'work_history',
+      link: '#'
+    },
+    {
+      routeName: '',
+      cardName: 'Projects',
+      icon: 'emoji_objects',
+      link: '#'
+    },
+    {
+      routeName: '',
+      cardName: 'Blog',
+      icon: 'rss_feed',
+      link: 'https://mathutechblog.wordpress.com/blog/'
+    }
+  ]
 
   constructor(private service: FirebaseService) {
   }
@@ -50,9 +72,5 @@ export class HomeComponent implements OnInit {
         return 0;
       });
     });
-  }
-
-  calculatePercentage(rate: string) {
-    return Number(rate) / 10 * 100;
   }
 }

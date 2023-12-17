@@ -1,0 +1,5 @@
+<div class="d-flex flex-row justify-content-between mx-2" style="width: 100%">
+  <span>{{ myInfo.name }}</span>
+  <span>{{ myInfo.rating }}</span>
+</div>
+<mat-progress-bar class="rounded" mode="determinate" value="{{ calculatePercentage(myInfo.rating) }}" color="accent"></mat-progress-bar>

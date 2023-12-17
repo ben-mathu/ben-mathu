@@ -9,12 +9,10 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
@@ -22,19 +20,16 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { ProjectsComponent } from './components/home/projects/projects.component';
+import { SharedModule } from './shared/components/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
     AboutComponent,
     PortfolioComponent,
     PageNotFoundComponent,
-    FooterComponent,
-    ExperienceComponent,
-    ProjectsComponent
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +44,8 @@ import { ProjectsComponent } from './components/home/projects/projects.component
     FirestoreModule,
     BreadcrumbModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    SharedModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
