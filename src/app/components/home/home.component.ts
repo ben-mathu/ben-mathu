@@ -73,8 +73,4 @@ export class HomeComponent implements OnInit {
       });
     });
   }
-
-  calculatePercentage(rate: string) {
-    return Number(rate) / 10 * 100;
-  }
 }
