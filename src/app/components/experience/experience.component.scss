@@ -1,31 +1,7 @@
-.experience-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 100px;
+.grid-item {
+  width: 200px;
+}
 
-  .exp-grid-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    display: grid;
-    grid-template-rows: auto auto auto auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-auto-columns: 1fr;
-    gap: 30px;
-    position: relative;
-    padding: 0 20px;
-
-    .experience-item {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      transform-origin: 50% 100%;
-      justify-content: flex-start;
-      border-radius: 0.5rem;
-      background-color: #1b2429;
-      padding: 10px 10px 10px 10px;
-      overflow: hidden;
-    }
-  }
+.grid-item-2 {
+  width: 400px;
 }
