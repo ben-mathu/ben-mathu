@@ -1,7 +1,11 @@
+@import "src/assets/styles/_variables.scss";
+
 .grid-wrapper div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+  background-color: $backgroundColor;
+  color: $fontColor;
 }
 
 .grid-wrapper div img {
