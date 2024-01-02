@@ -8,7 +8,10 @@
   grid-auto-flow: dense;
   margin: 0 50px 20px 50px;
 
-  div {
+  .card {
+    text-align: center;
+    text-transform: uppercase;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,12 +26,25 @@
       object-fit: cover;
       border-radius: 5px;
     }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: .2s ease, -webkit-transform .3 ease;
+    }
   }
 
-  div:hover {
+  .card:hover {
     z-index: 1;
     background-color: #13191d79;
     box-shadow: 0 4px 8px rgba(0,0,0, .4);
+
+    .card-body {
+      transform: scale(1.05);
+      color: $accentColor;
+    }
   }
 }
 
