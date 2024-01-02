@@ -15,5 +15,4 @@ export class ExperienceComponent implements OnInit {
   ngOnInit(): void {
     this.breadcrumbService.set('@Experience', 'Experience');
   }
-
 }

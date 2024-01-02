@@ -1,62 +1,30 @@
-@media (min-width: 567px) {
-  .menu {
-    height: 5rem;
-    padding: 1rem;
-    text-decoration: none;
-    transform-origin: 50% 100%;
-    border-radius: 0.5rem;
-    display: flex;
-    justify-content: flex-start center;
-    align-items: flex-start center;
-    position: relative;
-    overflow: hidden;
-    background-color: #1b242979;
-    transition: .3s ease,-webkit-transform .3s ease;
-
-    span {
-      color: #fff;
-      transition: .3s ease-in-out, -webkit-transform .3s ease;
-    }
-
-    mat-icon {
-      color: rgba(255, 255, 255, 0.397);
-      right: 0;
-      bottom: 0;
-      position: absolute;
-      margin: 10px;
-      transition: .3s ease, -webkit-transform .3s ease;
-    }
-  }
-
-  .menu:hover {
-    z-index: 1;
-    background-color: #13191d79;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0,0,0,.4);
-
-    span {
-      transform: scale(2);
-      transform-origin: center left; // move element to center left
-    }
-
-    mat-icon {
-      color: rgba(255, 255, 255, 0.397);;
-      right: 10px;
-      bottom: 10px;
-      position: absolute;
-      transform-origin: right; // move element right - does not make any sense I know
-      transform: scale(4);
-    }
-  }
-}
-
 .menu {
   height: 5rem;
   padding: 1rem;
-  border-radius: 0.5rem;
   text-decoration: none;
+  transform-origin: 50% 100%;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: flex-start center;
+  align-items: flex-start center;
+  position: relative;
+  overflow: hidden;
   background-color: #1b242979;
-  color: rgba(255, 255, 255, 0.397);
+  transition: .3s ease,-webkit-transform .3s ease;
+
+  span {
+    color: #fff;
+    transition: .3s ease-in-out, -webkit-transform .3s ease;
+  }
+
+  mat-icon {
+    color: rgba(255, 255, 255, 0.397);
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    margin: 10px;
+    transition: .3s ease, -webkit-transform .3s ease;
+  }
 }
 
 .menu:hover {
@@ -64,4 +32,36 @@
   background-color: #13191d79;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0,0,0,.4);
+
+  span {
+    transform: scale(2);
+    transform-origin: center left; // move element to center left
+  }
+
+  mat-icon {
+    color: rgba(255, 255, 255, 0.397);;
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+    transform-origin: right; // move element right - does not make any sense I know
+    transform: scale(4);
+  }
+}
+
+@media (max-width: 567px) {
+  .menu {
+    height: 5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    background-color: #1b242979;
+    color: rgba(255, 255, 255, 0.397);
+  }
+
+  .menu:hover {
+    z-index: 1;
+    background-color: #13191d79;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,.4);
+  }
 }
