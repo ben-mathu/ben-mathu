@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { APP_BASE_HREF } from '@angular/common';
@@ -45,7 +46,8 @@ import { SharedModule } from './shared/components/shared.module';
     BreadcrumbModule,
     MatIconModule,
     MatProgressBarModule,
-    SharedModule
+    SharedModule,
+    MatButtonModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
