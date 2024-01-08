@@ -1,0 +1,35 @@
+@import "/assets/styles/variables";
+
+.my-avatar {
+  max-width: 270px;
+  max-height: 270px;
+  border: 1px solid #3b4f58;
+  border-radius: 15px;
+  overflow: hidden;
+
+  mat-icon {
+    width: inherit;
+    height: inherit;
+    font-size: 145px;
+  }
+}
+
+.my-description {
+  max-width: 60%;
+
+  .name {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  .headline {
+    font-size: 18px;
+  }
+
+  .description {
+    border: 1px solid $borderColor;
+    line-height: 25px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+}

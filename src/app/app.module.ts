@@ -10,31 +10,28 @@ import { APP_BASE_HREF } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutComponent } from './components/about/about.component';
-import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAnalytics,getAnalytics } from '@angular/fire/analytics';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
-import { ExperienceComponent } from './components/experience/experience.component';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { SharedModule } from './shared/components/shared.module';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { HomeModule } from './components/home/home.module';
+import { AdminModule } from './components/admin/admin.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent,
-    PortfolioComponent,
-    PageNotFoundComponent,
-    ExperienceComponent
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HomeModule,
+    AdminModule,
     MatIconModule,
     MatTabsModule,
     MatCardModule,
@@ -42,6 +39,7 @@ import { SharedModule } from './shared/components/shared.module';
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    provideAuth(() => getAuth()),
     FirestoreModule,
     BreadcrumbModule,
     MatIconModule,

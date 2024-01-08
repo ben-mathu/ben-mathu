@@ -1,5 +1,5 @@
 import { MyDetails } from 'src/app/shared/models/header/header';
-import { FirebaseService } from './shared/services/firebase.service';
+import { FirebaseService } from './shared/services/firebase/firebase.service';
 import { Component } from '@angular/core';
 
 @Component({
