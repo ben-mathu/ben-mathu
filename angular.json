@@ -104,7 +104,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
+              "assets/styles.scss",
+              "assets/app-theme.scss",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [
