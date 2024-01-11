@@ -39,7 +39,6 @@ import { AdminModule } from './components/admin/admin.module';
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    provideAuth(() => getAuth()),
     FirestoreModule,
     BreadcrumbModule,
     MatIconModule,

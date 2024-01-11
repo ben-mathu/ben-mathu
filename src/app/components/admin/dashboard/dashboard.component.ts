@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@Home', 'Dashboard');
+    this.breadcrumbService.set('@Dashboard', 'Dashboard');
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { getAuth, onAuthStateChanged } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +8,19 @@ export class AuthService {
 
   constructor() { }
 
-  get isLoggedIn(): boolean {
-    const token = localStorage.getItem('user');
-    const user = JSON.parse(token as string)
-    return user !== null ? true : false;
+  async isLoggedIn() {
+    return await this.getSignedInUser();
+  }
+
+  getSignedInUser = function() {
+    return new Promise<boolean>(function (resolve, reject) {
+      onAuthStateChanged(getAuth(), (user) => {
+        if (user) {
+          resolve(true);
+        } else {
+          resolve(false);
+        }
+      });
+    });
   }
 }

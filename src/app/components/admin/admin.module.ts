@@ -11,12 +11,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { getAuth, provideAuth } from '@angular/fire/auth';
+import { SignupComponent } from './signup/signup.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AdminComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    SignupComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +29,9 @@ import { provideAnimations } from '@angular/platform-browser/animations';
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideAuth(() => getAuth()),
+    MatIconModule
   ],
   providers: [
     AuthService,

@@ -11,7 +11,7 @@ export class AboutComponent implements OnInit {
   constructor(private breadcrumbService: BreadcrumbService) {}
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@Home', 'About');
+    this.breadcrumbService.set('@About', 'About');
   }
 
 }
