@@ -4,15 +4,11 @@ import { ActivatedRoute, ActivatedRouteSnapshot, CanActivate, CanActivateFn, Rou
 import { Observable } from 'rxjs';
 import { authInstance$ } from '@angular/fire/auth';
 
-@Injectable({providedIn: 'root'})
-export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router) {}
+export const authGuard: CanActivateFn = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const isLoggedIn = await inject(AuthService).isLoggedIn();
 
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const isAuthenticated = await this.authService.isLoggedIn();
-    if (isAuthenticated) {
-      this.router.navigate(['admin']);
-    }
-    return true;
+  if (isLoggedIn) {
+    inject(Router).navigate(['admin', 'dashboard']);
   }
+  return isLoggedIn;
 }
