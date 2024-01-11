@@ -12,8 +12,9 @@ import { SecureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/se
 const adminRoutes: Routes = [
   {
     path: 'admin',
-    redirectTo: 'admin/dashboard',
-    pathMatch: 'full'
+    component: DashboardComponent,
+    data: { breadcrumb: { alias: 'Dashboard' } },
+    canActivate: [SecureInnerPageGuard],
   },
   {
     path: 'admin',
@@ -29,12 +30,6 @@ const adminRoutes: Routes = [
       //   component: SignupComponent,
       //   data: { breadcrumb: { alias: 'SignUp' } }
       // },
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-        data: { breadcrumb: { alias: 'Dashboard' } },
-        canActivate: [SecureInnerPageGuard],
-      }
     ]
   },
 
