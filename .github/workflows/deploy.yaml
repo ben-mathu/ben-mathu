@@ -42,4 +42,4 @@ jobs:
       #   uses: actions/deploy-pages@v2
 
       - name: Deploy
-        run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu --no-silent
+        run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu/ --no-silent
