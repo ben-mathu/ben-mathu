@@ -2,7 +2,7 @@ import { MyDetails } from 'src/app/shared/models/header/header';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'customn-footer',
+  selector: 'custom-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
