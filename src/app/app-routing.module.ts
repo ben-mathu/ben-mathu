@@ -16,7 +16,7 @@ const routes: Routes = [
   //   path: 'admin',
   //   loadChildren: () => import('./components/admin/admin-routing.module').then(m => m.AdminRoutingModule)
   // },
-  // { path: '**', component: PageNotFoundComponent }
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({

@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { authGuard } from 'src/app/shared/guards/auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
-import { secureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/secure-inner-page.guard';
+import authGuard from 'src/app/shared/guards/auth/auth.guard';
+import secureInnerPageGuard from 'src/app/shared/guards/secure-inner-page/secure-inner-page.guard';
 
 
 const adminRoutes: Routes = [
@@ -36,7 +36,6 @@ const adminRoutes: Routes = [
       }
     ]
   },
-
   { path: '**', component: PageNotFoundComponent }
 ]
 
