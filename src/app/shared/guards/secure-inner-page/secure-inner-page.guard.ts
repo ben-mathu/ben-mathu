@@ -2,16 +2,10 @@ import { ActivatedRouteSnapshot, CanActivate, CanActivateFn, Router, RouterState
 import { AuthService } from '../../services/auth/auth.service';
 import { Injectable, inject } from '@angular/core';
 
-@Injectable({providedIn: 'root'})
-export class SecureInnerPageGuard implements CanActivate {
-
-  constructor(private authService: AuthService, private router: Router) {}
-
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    const isAuthenticated = await this.authService.isLoggedIn()
-    if (!isAuthenticated) {
-      this.router.navigate(['admin', 'login']);
-    }
-    return true;
+export const secureInnerPageGuard = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const isAuthenticated = await inject(AuthService).isLoggedIn()
+  if (!isAuthenticated) {
+    inject(Router).navigate(['admin', 'login']);
   }
-};
+  return isAuthenticated;
+}
