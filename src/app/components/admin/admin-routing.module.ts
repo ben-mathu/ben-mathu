@@ -11,8 +11,11 @@ import { secureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/se
 const adminRoutes: Routes = [
   {
     path: 'admin',
-    component: DashboardComponent,
-    data: { breadcrumb: { alias: 'Dashboard' } },
+    redirectTo: 'admin/dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'admin',
     children: [
       {
         path: 'login',
