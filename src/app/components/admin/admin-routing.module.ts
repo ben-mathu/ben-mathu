@@ -11,6 +11,8 @@ import { secureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/se
 const adminRoutes: Routes = [
   {
     path: 'admin',
+    component: DashboardComponent,
+    data: { breadcrumb: { alias: 'Dashboard' } },
     children: [
       {
         path: 'login',
