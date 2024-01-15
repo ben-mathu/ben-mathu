@@ -1,18 +1,13 @@
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 import { inject } from '@angular/core';
 
-export class SecurePages {
-  authService: AuthService = inject(AuthService);
-  router: Router = inject(Router);
+export const secureInnerPageGuard: CanActivateFn = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
+  const authService = inject(AuthService);
+  const isAuthenticated = await authService.isLoggedIn();
 
-  secureInnerPageGuard = async (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => {
-    const isAuthenticated = await this.authService.isLoggedIn()
-    if (!isAuthenticated) {
-      this.router.navigate(['admin', 'login']);
-    }
-    return isAuthenticated;
+  if (!isAuthenticated) {
+    authService.navigateToLoginPage();
   }
+  return true;
 }
-
-export default new SecurePages();
