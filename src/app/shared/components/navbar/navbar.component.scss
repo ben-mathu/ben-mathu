@@ -26,3 +26,11 @@ mat-icon {
 .socials {
   max-width: fit-content;
 }
+
+.logout {
+  height: 30px;
+  padding: 0 5px;
+  font-size: 16px;
+  border-radius: $buttonDefaultRadius;
+  margin: 0;
+}
