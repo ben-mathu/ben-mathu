@@ -1,9 +1,12 @@
 @import "/assets/styles/variables";
 
+app-login {
+  width: 100%;
+}
+
 .container {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 
 .form-wrapper {
