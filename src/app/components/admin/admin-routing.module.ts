@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
-import { authGuard } from 'src/app/shared/guards/auth/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { authGuard } from 'src/app/shared/guards/auth/auth.guard';
 import { secureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/secure-inner-page.guard';
-
 
 const adminRoutes: Routes = [
   {
     path: 'admin',
-    component: DashboardComponent,
-    data: { breadcrumb: { alias: 'Dashboard' } },
+    redirectTo: 'admin/dashboard',
+    pathMatch: 'full'
+  },
+  {
+    path: 'admin',
     children: [
       {
         path: 'login',
@@ -33,7 +35,6 @@ const adminRoutes: Routes = [
       }
     ]
   },
-
   { path: '**', component: PageNotFoundComponent }
 ]
 

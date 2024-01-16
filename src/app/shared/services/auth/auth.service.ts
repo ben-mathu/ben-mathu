@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { getAuth, onAuthStateChanged } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  navigateToAdmin() {
+    this.router.navigate(['admin']);
+  }
+
+  navigateToLoginPage() {
+    this.router.navigate(['admin', 'login']);
+  }
 
   async isLoggedIn() {
     return await this.getSignedInUser();
