@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 px-3 justify-content-between">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2 px-3 justify-content-between">
   <div class="navbar-brand">
     <a [routerLink]="['/']">Home</a>
     <div>
@@ -17,7 +17,7 @@
 
   <div class="socials collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li *ngIf="isAuth">
+      <li class="nav-item mr-4" *ngIf="isAuth">
         <button mat-raised-button class="btn btn-primary logout" color="primary" (click)="logout()">Logout</button>
       </li>
       <li class="nav-item mx-2">

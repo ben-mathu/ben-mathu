@@ -10,21 +10,14 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   @Input() headerData!:  MyDetails;
+  @Input() isAuth: boolean = false;
   auth: Auth;
-  isAuth: boolean = false;
 
   constructor(private router: Router) {
     this.auth = getAuth();
   }
 
   ngOnInit(): void {
-    onAuthStateChanged(this.auth, (user) => {
-      if (user) {
-        this.isAuth = true;
-      } else {
-        this.isAuth = false;
-      }
-    });
   }
 
   logout() {

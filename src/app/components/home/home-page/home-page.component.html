@@ -1,37 +1,35 @@
-<div class="container-fluid">
-  <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    <div class="d-flex flex-wrap flex-row">
-      <div class="my-avatar mr-3">
-        <img src="{{ avatarImage }}" />
-      </div>
-      <div class="my-description d-flex flex-column mx-4">
-        <span class="name">{{ myDetails.name }}</span>
-        <span class="headline">{{ myDetails.headline }}</span>
-        <span class="description p-2 mt-2 font-weight-light">{{
-          myDetails.description
-        }}</span>
+<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+  <div class="d-flex flex-wrap flex-row">
+    <div class="my-avatar mr-3">
+      <img src="{{ avatarImage }}" />
+    </div>
+    <div class="my-description d-flex flex-column mx-4">
+      <span class="name">{{ myDetails.name }}</span>
+      <span class="headline">{{ myDetails.headline }}</span>
+      <span class="description p-2 mt-2 font-weight-light">{{
+        myDetails.description
+      }}</span>
 
-        <div class="skills-section d-flex flex-wrap my-2">
-          <div class="skills-title">Skills</div>
-          <div class="row d-flex flex-wrap">
-            <skill-rating
-              class="skill col-sm-6 d-flex flex-row flex-wrap"
-              *ngFor="let item of myDetails.skillArr"
-              [myInfo]="item"
-            ></skill-rating>
-          </div>
+      <div class="skills-section d-flex flex-wrap my-2">
+        <div class="skills-title">Skills</div>
+        <div class="row d-flex flex-wrap">
+          <skill-rating
+            class="skill col-sm-6 d-flex flex-row flex-wrap"
+            *ngFor="let item of myDetails.skillArr"
+            [myInfo]="item"
+          ></skill-rating>
         </div>
       </div>
     </div>
   </div>
-  <!-- End of header-section -->
+</div>
+<!-- End of header-section -->
 
-  <div class="d-flex flex-wrap justify-content-center">
-    <card
-      class="col-3 m-3"
-      *ngFor="let item of cardDetails"
-      [cardDetail]="item"
-    ></card>
-  </div>
+<div class="d-flex flex-wrap justify-content-center">
+  <card
+    class="col-3 m-3"
+    *ngFor="let item of cardDetails"
+    [cardDetail]="item"
+  ></card>
 </div>
 <!-- End of home-container -->

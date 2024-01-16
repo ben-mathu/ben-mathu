@@ -1,0 +1,14 @@
+@import '/assets/styles/variables';
+
+.navbar {
+  width: 15%;
+  border-radius: $buttonRadius8;
+
+  .nav-wrapper {
+
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
