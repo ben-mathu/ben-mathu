@@ -29,7 +29,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/.nojekyll"
+              "src/.nojekyll",
+              "src/404.html"
             ],
             "styles": [
               "node_modules/bootstrap/scss/bootstrap.scss",
@@ -102,7 +103,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/.nojekyll"
             ],
             "styles": [
               "assets/styles.scss",
