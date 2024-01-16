@@ -16,7 +16,10 @@ export class AppComponent {
   auth: Auth;
   url: string = '';
 
-  constructor(private service: FirebaseService, private router: Router, private location: Location) {
+  /**
+   * Location - to get path/url
+   */
+  constructor(private service: FirebaseService, private location: Location) {
     this.auth = getAuth();
   }
 
