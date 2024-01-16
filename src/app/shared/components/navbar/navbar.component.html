@@ -17,6 +17,9 @@
 
   <div class="socials collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
+      <li *ngIf="isAuth">
+        <button mat-raised-button class="btn btn-primary logout" color="primary" (click)="logout()">Logout</button>
+      </li>
       <li class="nav-item mx-2">
         <a target="_blank" href="https://linkedin.com/in/benard-mathu">
           <img class="social-icons" src="./assets/images/linkedin.svg" alt="LinkedIn" />

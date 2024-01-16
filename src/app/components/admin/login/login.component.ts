@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
     signInWithEmailAndPassword(getAuth(), this.f['email'].value, this.f['password'].value)
       .then((userCredentials) => {
         const user = userCredentials.user;
-        this.router.navigate(['admin']);
+        if (user) {
+          this.router.navigate(['admin']);
+        }
       }).catch((error) => {
         console.log('Message ' + error.message);
       });
