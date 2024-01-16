@@ -1,8 +1,9 @@
 @import '/assets/styles/variables';
 
 .navbar {
-  width: 15%;
   border-radius: $buttonRadius8;
+  height: 100%;
+  align-items: start;
 
   .nav-wrapper {
 
