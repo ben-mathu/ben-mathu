@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-login.full-width',
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

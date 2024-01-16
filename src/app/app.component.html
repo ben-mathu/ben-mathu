@@ -1,6 +1,6 @@
 <navbar [headerData]="myDetails" [isAuth]="isAuth"></navbar>
 <div class="container-fluid mb-2">
   <app-sidenav *ngIf="isAuth && url.includes('admin')"></app-sidenav>
-  <router-outlet></router-outlet>
+  <router-outlet class="container-wrapper"></router-outlet>
 </div>
 <custom-footer [myDetails]="myDetails"></custom-footer>
