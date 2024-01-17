@@ -2,6 +2,7 @@ import { Auth, getAuth, onAuthStateChanged, signOut } from '@angular/fire/auth';
 import { MyDetails } from './../../models/header/header';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'navbar',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
   @Input() headerData!:  MyDetails;
   @Input() isAuth: boolean = false;
+  @Input() isDashboard: boolean = false;
   auth: Auth;
 
   constructor(private router: Router) {

@@ -15,12 +15,22 @@ export class AppComponent {
   isAuth: boolean = false;
   auth: Auth;
   url: string = '';
+  isDashboard: boolean = false;
 
+  locationEvent$;
   /**
    * Location - to get path/url
    */
-  constructor(private service: FirebaseService, private location: Location) {
+  constructor(private service: FirebaseService, private location: Location, private router: Router) {
     this.auth = getAuth();
+    this.locationEvent$ = location.onUrlChange((val) => {
+      this.url = val;
+      if (val.includes('admin')) {
+        this.isDashboard = true;
+      } else {
+        this.isDashboard = false;
+      }
+    })
   }
 
   ngOnInit() {
@@ -36,7 +46,5 @@ export class AppComponent {
         this.isAuth = false;
       }
     });
-
-    this.url = this.location.path();
   }
 }
