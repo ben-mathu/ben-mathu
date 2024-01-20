@@ -1,6 +1,6 @@
 <navbar [headerData]="myDetails" [isAuth]="isAuth" [isDashboard]="isDashboard"></navbar>
 <div class="container-fluid mb-2">
-  <app-sidenav *ngIf="isAuth && isDashboard"></app-sidenav>
+  <app-sidenav *ngIf="isAuth && isDashboard" [url]="url"></app-sidenav>
   <router-outlet class="container-wrapper"></router-outlet>
 </div>
 <custom-footer [myDetails]="myDetails"></custom-footer>

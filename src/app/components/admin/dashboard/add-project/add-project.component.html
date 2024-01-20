@@ -1,0 +1,23 @@
+<form [formGroup]="addProjectForm" (ngSubmit)="registerProject">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{placeholder}}</mat-label>
+        <input matInput type="text" class="form-control" placeholder="{{placeholder}}" formControlName="projectName">
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{urlLabel}}</mat-label>
+        <input matInput type="text" class="form-control" placeholder="{{urlLabel}}" formControlName="url">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{descriptionLabel}}</mat-label>
+      <textarea matInput type="text" class="form-control" placeholder="{{descriptionLabel}}"  formControlName="projectDescription"></textarea>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="registerProject()">Submit</button>
+</form>

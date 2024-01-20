@@ -32,6 +32,7 @@ const adminRoutes: Routes = [
         component: DashboardComponent,
         data: { breadcrumb: { alias: 'Dashboard' } },
         canActivate: [secureInnerPageGuard],
+        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }
     ]
   },
