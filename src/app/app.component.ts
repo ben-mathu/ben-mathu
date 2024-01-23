@@ -27,7 +27,6 @@ export class AppComponent implements OnInit {
 
     this.locationEvent$ = location.onUrlChange((val) => {
       this.url = val;
-      console.log(this.url);
       if (val.includes('admin')) {
         this.isDashboard = true;
       } else {

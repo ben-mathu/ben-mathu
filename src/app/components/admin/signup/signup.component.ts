@@ -24,7 +24,6 @@ export class SignupComponent implements OnInit {
     createUserWithEmailAndPassword(this.auth, this.email.value, this.password.value).then((userCredentials) => {
       const user = userCredentials.user;
       localStorage.setItem('user', '');
-      console.log(user);
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;

@@ -12,6 +12,9 @@ import { AddBlogComponent } from './add-blog/add-blog.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -29,7 +32,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardRoutingModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule,
+    MatAutocompleteModule,
+    MatChipsModule
   ]
 })
 export class DashboardModule { }
