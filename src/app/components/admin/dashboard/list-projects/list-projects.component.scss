@@ -1,0 +1,10 @@
+.container-fluid {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0;
+
+  table {
+    height: fit-content;
+  }
+}

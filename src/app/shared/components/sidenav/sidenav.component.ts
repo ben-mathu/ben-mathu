@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './sidenav.component.scss'
 })
 export class SidenavComponent {
+  @Input() url: string = '';
 }

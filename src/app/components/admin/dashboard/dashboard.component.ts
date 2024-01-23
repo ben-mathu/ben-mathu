@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-dashboard.full-width',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
