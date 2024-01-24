@@ -9,5 +9,6 @@ export interface ExperienceDetails {
   title: string;
   startDate: string;
   endDate: string;
+  description: string;
   skills: string[];
 }

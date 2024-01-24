@@ -49,6 +49,7 @@ export class AddExperienceComponent implements OnInit {
       title: this.f['title'].value,
       startDate: this.f['startDate'].value,
       endDate: this.f['endDate'].value,
+      description: this.f['description'].value,
       skills: this.skillList
     }
 
