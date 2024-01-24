@@ -10,6 +10,7 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['admin', 'dashboard', 'experiences']" routerLinkActive="active">Experiences</a>
+        <button mat-raised-button class="btn" color="primary" *ngIf="url.includes('experiences')" [routerLink]="['admin', 'dashboard', 'add-experience']">Add Experiences</button>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['admin', 'dashboard', 'blogs']" routerLinkActive="active">Blog</a>

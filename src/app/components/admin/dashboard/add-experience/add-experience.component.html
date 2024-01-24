@@ -1,1 +1,58 @@
-<p>add-experience works!</p>
+<form [formGroup]="addExperienceForm" (ngSubmit)="registerExperience">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{titleLabel}}</mat-label>
+        <input matInput type="text" class="form-control" placeholder="{{titleLabel}}" formControlName="title" value="{{selectedRow ? selectedRow.title : ''}}">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{startDateLabel}}</mat-label>
+        <input matInput [matDatepicker]="startDatepicker" class="form-control" placeholder="{{startDateLabel}}" formControlName="startDate" value="{{selectedRow ? selectedRow.startDate : ''}}">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="startDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #startDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{endDateLabel}}</mat-label>
+        <input matInput [matDatepicker]="endDatepicker" class="form-control" placeholder="{{endDateLabel}}" formControlName="endDate" value="{{selectedRow ? selectedRow.startDate : ''}}">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="endDatepicker"></mat-datepicker-toggle>
+        <mat-datepicker #endDatepicker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{descriptionLabel}}</mat-label>
+      <textarea matInput type="text" class="form-control" placeholder="{{descriptionLabel}}"  formControlName="description" value="{{selectedRow ? selectedRow.endDate : ''}}"></textarea>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Project Status</mat-label>
+      <mat-chip-grid #chipGrid cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
+        @for (skill of skillList; track skill) {
+          <mat-chip-row [editable]="true" (edited)="edit(skill, $event)" cdkDrag>
+            {{ skill }}
+            <button matChipRemove (click)="remove(skill)">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+
+        <input type="text"
+          placeholder="Project Status"
+          [matChipInputFor]="chipGrid"
+          formControlName="skills"
+          (input)="onChange($event)">
+      </mat-chip-grid>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="registerExperience()">Save</button>
+</form>

@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Database, getDatabase, onValue, ref } from '@angular/fire/database';
-import { ProjectDetail } from 'src/app/shared/models/header/project_details';
+import { ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
 import { BreadcrumbService } from 'xng-breadcrumb';
-
-export interface ProjectElement {
-  index: number;
-  key: string;
-  projectName: string;
-  url: string;
-  projectDescription: string;
-  projectStatus: string;
-}
 
 @Component({
   selector: 'app-list-projects',

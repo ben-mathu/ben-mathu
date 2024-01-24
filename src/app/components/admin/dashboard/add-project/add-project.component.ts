@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Database, getDatabase, push, ref, set, update } from '@angular/fire/database';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProjectDetail } from 'src/app/shared/models/header/project_details';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { ProjectElement } from '../list-projects/list-projects.component';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
+import { ProjectDetail } from 'src/app/shared/models/header/portfolio.model';
 
 @Component({
   selector: 'app-add-project',
@@ -15,9 +15,11 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 export class AddProjectComponent implements OnInit {
   @Input() selectedRow!: ProjectElement
 
-  placeholder: string = 'Project Name';
+  projectNameLabel: string = 'Project Name';
   urlLabel: string = 'URL';
   descriptionLabel: string = 'Description';
+  statusLabel: string = 'Project Status';
+
   projectStatuses: string[] = ['Completed', 'In Progress', 'Abandonded', 'Not Started'];
   selectedProjectStatus!: string | undefined
 

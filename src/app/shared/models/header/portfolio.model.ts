@@ -4,3 +4,10 @@ export interface ProjectDetail {
   projectDescription: string;
   projectStatus: string
 }
+
+export interface ExperienceDetails {
+  title: string;
+  startDate: string;
+  endDate: string;
+  skills: string[];
+}

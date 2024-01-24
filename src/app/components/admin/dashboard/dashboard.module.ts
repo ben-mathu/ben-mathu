@@ -15,6 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatIconModule } from '@angular/material/icon';
+import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 
 
 @NgModule({
@@ -35,7 +40,13 @@ import { MatChipsModule } from '@angular/material/chips';
     ReactiveFormsModule,
     MatTableModule,
     MatAutocompleteModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule,
+    CdkDropList,
+    CdkDrag,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class DashboardModule { }

@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>{{placeholder}}</mat-label>
-        <input matInput type="text" class="form-control" placeholder="{{placeholder}}" formControlName="projectName" value="{{selectedRow ? selectedRow.projectName : ''}}">
+        <mat-label>{{projectNameLabel}}</mat-label>
+        <input matInput type="text" class="form-control" placeholder="{{projectNameLabel}}" formControlName="projectName" value="{{selectedRow ? selectedRow.projectName : ''}}">
       </mat-form-field>
     </div>
     <div class="col">
@@ -21,14 +21,14 @@
   </div>
   <div class="row">
     <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Project Status</mat-label>
+      <mat-label>{{statusLabel}}</mat-label>
       <mat-chip-grid #chipGrid>
         <mat-chip-row *ngIf="(selectedRow && selectedRow.projectStatus != '') || selectedProjectStatus">
           {{ selectedProjectStatus }}
         </mat-chip-row>
 
         <input type="text"
-          placeholder="Project Status"
+          placeholder="{{statusLabel}}"
           [matChipInputFor]="chipGrid"
           formControlName="projectStatus"
           [matAutocomplete]="auto">
