@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Database, getDatabase, onValue, ref } from '@angular/fire/database';
 import { ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -9,43 +10,20 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrl: './list-projects.component.scss'
 })
 export class ListProjectsComponent implements OnInit {
-  database: Database;
   projects: ProjectElement[] = [];
   displayedColumns: string[] = ['index', 'projectName', 'url', 'projectDescription'];
   selectedRow!: ProjectElement;
 
-  constructor(private breadcrumbService: BreadcrumbService) {
-    this.database = getDatabase()
+  constructor(private breadcrumbService: BreadcrumbService, private firebaseService: FirebaseService) {
   }
 
   ngOnInit(): void {
     this.breadcrumbService.set('@Projects', 'Projects');
 
-    const projectRef = ref(this.database, 'projects');
-    onValue(projectRef, (snapshot) => {
-      const databaseVal = snapshot.val();
-
-      const keys = Object.keys(databaseVal);
-
-      const p: ProjectElement[] = [];
-
-      for (let i = 0; i < keys.length; i++) {
-        const project: ProjectElement = {
-          index: i,
-          key: keys[i],
-          projectName: databaseVal[keys[i]].projectName,
-          url: databaseVal[keys[i]].url,
-          projectDescription: databaseVal[keys[i]].projectDescription,
-          projectStatus: databaseVal[keys[i]].projectStatus ? databaseVal[keys[i]].projectStatus : ''
-        }
-
-        p.push(
-          project
-        );
-      }
-
-      this.projects = p;
-    });
+    this.firebaseService.getAllProjects()
+      .then((value) => {
+        this.projects = value;
+      })
   }
 
   handleClick(pojectDetails: {rowData: ProjectElement, event: Event}) {

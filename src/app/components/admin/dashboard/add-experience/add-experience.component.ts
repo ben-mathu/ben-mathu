@@ -1,3 +1,4 @@
+import { BreadcrumbService } from 'xng-breadcrumb';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Database, getDatabase, push, ref, update } from '@angular/fire/database';
@@ -7,6 +8,7 @@ import { ExperienceDetails } from 'src/app/shared/models/header/portfolio.model'
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { formatDate } from '@angular/common';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-add-experience',
@@ -17,7 +19,6 @@ export class AddExperienceComponent implements OnInit {
   @Input() selectedRow!: ExperienceElement;
 
   addExperienceForm!: FormGroup;
-  database: Database
 
   skillList: string[] = [];
 
@@ -28,21 +29,22 @@ export class AddExperienceComponent implements OnInit {
   descriptionLabel: string = 'Description';
   companyLabel: string = 'Company';
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.database = getDatabase();
+  constructor(private formBuilder: FormBuilder, private router: Router, private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService) {
   }
 
   ngOnInit(): void {
+    this.breadcrumbService.set('@Experiences', 'Add Experiences');
+
     this.addExperienceForm = this.formBuilder.group({
       title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],
       startDate: [this.selectedRow ? this.selectedRow.startDate : '', Validators.required],
       endDate: [this.selectedRow ? this.selectedRow.endDate : '', Validators.required],
       description: [this.selectedRow ? this.selectedRow.description : ''],
-      company: ['', Validators.required],
+      company: [this.selectedRow ? this.selectedRow.company : '', Validators.required],
       skills: ['']
     });
 
-    this.skillList = this.selectedRow ? this.selectedRow.skills : []
+    this.skillList = this.selectedRow ? this.selectedRow.skills : [];
   }
 
   get f() { return this.addExperienceForm.controls };
@@ -56,8 +58,7 @@ export class AddExperienceComponent implements OnInit {
     }).join('-');
   }
 
-  addExperience() {
-    console.log(this.f);
+  add() {
     const experience: ExperienceDetails = {
       title: this.f['title'].value,
       startDate: this.formatDate(this.f['startDate'].value),
@@ -67,14 +68,16 @@ export class AddExperienceComponent implements OnInit {
       skills: this.skillList
     }
 
-    console.log(experience);
-
     if (this.selectedRow) {
-      update(ref(this.database, 'experiences' + this.selectedRow.key), experience);
+      this.firebaseService.updateExperience(experience, this.selectedRow.key);
     } else {
-      push(ref(this.database, 'experiences'), experience);
+      this.firebaseService.saveExperience(experience);
       this.router.navigate(['admin', 'dashboard', 'experiences']);
     }
+  }
+
+  delete() {
+    this.firebaseService.deleteExperience(this.selectedRow.key);
   }
 
   onChange(event: Event) {

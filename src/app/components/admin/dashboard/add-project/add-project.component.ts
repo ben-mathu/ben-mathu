@@ -6,6 +6,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
 import { ProjectDetail } from 'src/app/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-add-project',
@@ -24,10 +25,8 @@ export class AddProjectComponent implements OnInit {
   selectedProjectStatus!: string | undefined
 
   addProjectForm!: FormGroup;
-  database: Database;
 
-  constructor(private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router) {
-    this.database = getDatabase();
+  constructor(private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router, private firebaseService: FirebaseService) {
   }
 
   ngOnInit(): void {
@@ -49,7 +48,7 @@ export class AddProjectComponent implements OnInit {
     this.selectedProjectStatus = event.option.value;
   }
 
-  registerProject() {
+  add() {
     const project: ProjectDetail = {
       projectName: this.f['projectName'].value,
       url: this.f['url'].value,
@@ -60,10 +59,14 @@ export class AddProjectComponent implements OnInit {
     console.log(project);
 
     if (this.selectedRow) {
-      update(ref(this.database, 'projects/' + this.selectedRow.key), project);
+      this.firebaseService.updateProject(project, this.selectedRow.key);
     } else {
-      push(ref(this.database, 'projects'), project);
+      this.firebaseService.saveProject(project);
       this.router.navigate(['admin', 'dashboard', 'projects']);
     }
+  }
+
+  delete() {
+    this.firebaseService.deleteProject(this.selectedRow.key);
   }
 }

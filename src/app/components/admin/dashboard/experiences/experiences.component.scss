@@ -1,0 +1,15 @@
+.container-fluid {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin: 0;
+
+  table {
+    height: fit-content;
+
+    .table-max-height {
+      max-height: 400px;
+      overflow-y: scroll;
+    }
+  }
+}

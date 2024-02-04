@@ -1,4 +1,4 @@
-<form [formGroup]="addProjectForm" (ngSubmit)="registerProject">
+<form [formGroup]="addProjectForm" (ngSubmit)="add">
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
@@ -38,5 +38,8 @@
       </mat-autocomplete>
     </mat-form-field>
   </div>
-  <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="registerProject()">Save</button>
+  <div class="d-flex">
+    <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="add()">Save</button>
+    <button mat-raised-button class="btn btn-primary" color="warn" type="button" (click)="delete()">Delete</button>
+  </div>
 </form>
