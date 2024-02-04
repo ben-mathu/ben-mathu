@@ -11,4 +11,5 @@ export interface ExperienceDetails {
   endDate: string;
   description: string;
   skills: string[];
+  company: string;
 }

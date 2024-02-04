@@ -15,4 +15,5 @@ export interface ExperienceElement {
   endDate: string;
   description: string;
   skills: string[];
+  company: string;
 }

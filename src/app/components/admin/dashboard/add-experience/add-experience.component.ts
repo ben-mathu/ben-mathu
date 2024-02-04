@@ -6,6 +6,7 @@ import { ExperienceElement } from 'src/app/shared/models/header/portfolio.dto';
 import { ExperienceDetails } from 'src/app/shared/models/header/portfolio.model';
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-add-experience',
@@ -25,6 +26,7 @@ export class AddExperienceComponent implements OnInit {
   endDateLabel: string = 'End Date';
   skillsLabel: string = 'Skills';
   descriptionLabel: string = 'Description';
+  companyLabel: string = 'Company';
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.database = getDatabase();
@@ -36,6 +38,7 @@ export class AddExperienceComponent implements OnInit {
       startDate: [this.selectedRow ? this.selectedRow.startDate : '', Validators.required],
       endDate: [this.selectedRow ? this.selectedRow.endDate : '', Validators.required],
       description: [this.selectedRow ? this.selectedRow.description : ''],
+      company: ['', Validators.required],
       skills: ['']
     });
 
@@ -44,14 +47,27 @@ export class AddExperienceComponent implements OnInit {
 
   get f() { return this.addExperienceForm.controls };
 
-  registerExperience() {
+  formatDate(date: string): string {
+    const options: Intl.DateTimeFormatOptions[] = [{year: "numeric"}, {month: "2-digit"}, {day: "2-digit"}];
+
+    return options.map((option) => {
+      const formatter = new Intl.DateTimeFormat('en', option);
+      return formatter.format(new Date(date));
+    }).join('-');
+  }
+
+  addExperience() {
+    console.log(this.f);
     const experience: ExperienceDetails = {
       title: this.f['title'].value,
-      startDate: this.f['startDate'].value,
-      endDate: this.f['endDate'].value,
+      startDate: this.formatDate(this.f['startDate'].value),
+      endDate: this.formatDate(this.f['endDate'].value),
       description: this.f['description'].value,
+      company: this.f['company'].value,
       skills: this.skillList
     }
+
+    console.log(experience);
 
     if (this.selectedRow) {
       update(ref(this.database, 'experiences' + this.selectedRow.key), experience);

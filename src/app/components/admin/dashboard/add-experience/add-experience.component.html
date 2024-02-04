@@ -1,13 +1,19 @@
-<form [formGroup]="addExperienceForm" (ngSubmit)="registerExperience">
-  <div class="row">
+<form [formGroup]="addExperienceForm" (ngSubmit)="addExperience" class="mt-1">
+  <div class="row mb-2">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>{{titleLabel}}</mat-label>
         <input matInput type="text" class="form-control" placeholder="{{titleLabel}}" formControlName="title" value="{{selectedRow ? selectedRow.title : ''}}">
       </mat-form-field>
     </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{companyLabel}}</mat-label>
+        <input matInput type="text" class="form-control" placeholder="{{companyLabel}}" formControlName="company" value="{{selectedRow ? selectedRow.company : ''}}">
+      </mat-form-field>
+    </div>
   </div>
-  <div class="row">
+  <div class="row mb-2">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>{{startDateLabel}}</mat-label>
@@ -17,7 +23,7 @@
         <mat-datepicker #startDatepicker></mat-datepicker>
       </mat-form-field>
     </div>
-    <div class="col">
+    <div class="col mb-2">
       <mat-form-field class="full-width" appearance="outline">
         <mat-label>{{endDateLabel}}</mat-label>
         <input matInput [matDatepicker]="endDatepicker" class="form-control" placeholder="{{endDateLabel}}" formControlName="endDate" value="{{selectedRow ? selectedRow.startDate : ''}}">
@@ -27,15 +33,15 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="row">
+  <div class="row mb-2">
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>{{descriptionLabel}}</mat-label>
       <textarea matInput type="text" class="form-control" placeholder="{{descriptionLabel}}"  formControlName="description" value="{{selectedRow ? selectedRow.endDate : ''}}"></textarea>
     </mat-form-field>
   </div>
-  <div class="row">
+  <div class="row mb-2">
     <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>Project Status</mat-label>
+      <mat-label>{{skillsLabel}}</mat-label>
       <mat-chip-grid #chipGrid cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="drop($event)">
         @for (skill of skillList; track skill) {
           <mat-chip-row [editable]="true" (edited)="edit(skill, $event)" cdkDrag>
@@ -47,12 +53,13 @@
         }
 
         <input type="text"
-          placeholder="Project Status"
+          placeholder="{{skillsLabel}}"
           [matChipInputFor]="chipGrid"
           formControlName="skills"
           (input)="onChange($event)">
       </mat-chip-grid>
+      <mat-hint>Add skills separated by commas</mat-hint>
     </mat-form-field>
   </div>
-  <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="registerExperience()">Save</button>
+  <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="addExperience()">Save</button>
 </form>
