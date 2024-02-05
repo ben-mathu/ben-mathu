@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
 import { FormControl, FormGroup } from '@angular/forms';
+import '@github/markdown-toolbar-element';
 
 @Component({
   selector: 'app-custom-textarea',

@@ -41,6 +41,9 @@ dependencies:
   '@angular/router':
     specifier: ^17.0.7
     version: 17.1.2(@angular/common@17.1.2)(@angular/core@17.1.2)(@angular/platform-browser@17.1.2)(rxjs@7.8.1)
+  '@github/markdown-toolbar-element':
+    specifier: ^2.2.1
+    version: 2.2.1
   bootstrap:
     specifier: ^5.3.2
     version: 5.3.2(@popperjs/core@2.11.8)
@@ -2569,6 +2572,10 @@ packages:
 
   /@firebase/webchannel-wrapper@0.10.5:
     resolution: {integrity: sha512-eSkJsnhBWv5kCTSU1tSUVl9mpFu+5NXXunZc83le8GMjMlsWwQArSc7cJJ4yl+aDFY0NGLi0AjZWMn1axOrkRg==}
+    dev: false
+
+  /@github/markdown-toolbar-element@2.2.1:
+    resolution: {integrity: sha512-ap+ulyqzG3aVqwKsKjbDdYwM75TQXZpPtmIuPwm+54OTgcC96267oX3cEqd1wSqGsH7O5PonZ//fE9jH7Q4JkA==}
     dev: false
 
   /@grpc/grpc-js@1.9.14:

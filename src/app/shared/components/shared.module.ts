@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CustomTextareaComponent } from './custom-textarea/custom-textarea.component';
 import { RouterModule } from '@angular/router';
+import { MatTabsModule } from '@angular/material/tabs';
+import MarkdownToolbarElement from '@github/markdown-toolbar-element';
 
 @NgModule({
   exports: [
@@ -39,7 +41,9 @@ import { RouterModule } from '@angular/router';
     BreadcrumbModule,
     MatInputModule,
     MatFormFieldModule,
-    RouterModule
-  ]
+    RouterModule,
+    MatTabsModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule { }
