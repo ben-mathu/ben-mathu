@@ -44,7 +44,12 @@ export class FirebaseService {
       onValue(ref(this.database, 'projects'), (snapshot) => {
         const databaseVal = snapshot.val();
 
-        const keys = Object.keys(databaseVal);
+        let keys: string[] = [];
+        if (databaseVal) {
+          keys = Object.keys(databaseVal);
+        } else {
+          reject(Error("No records in Projects"));
+        }
 
         const p: ProjectElement[] = [];
 
@@ -65,7 +70,7 @@ export class FirebaseService {
 
         resolve(p);
       }, (error) => {
-        reject(error.message);
+        reject(error);
       });
     });
   }
@@ -75,7 +80,12 @@ export class FirebaseService {
       onValue(ref(this.database, 'experiences'), (snapshot) => {
         const databaseVal = snapshot.val();
 
-        const keys = Object.keys(databaseVal);
+        let keys: string[] = [];
+        if (databaseVal) {
+          keys = Object.keys(databaseVal);
+        } else {
+          reject(Error("No records in Experiences"));
+        }
 
         const e: ExperienceElement[] = [];
 

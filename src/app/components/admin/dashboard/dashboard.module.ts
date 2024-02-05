@@ -20,6 +20,7 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
+import { SharedModule } from 'src/app/shared/components/shared.module';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
     CdkDrag,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    SharedModule
   ]
 })
 export class DashboardModule { }

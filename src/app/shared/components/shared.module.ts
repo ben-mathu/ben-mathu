@@ -9,6 +9,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { BreadcrumbModule } from 'xng-breadcrumb';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { CustomTextareaComponent } from './custom-textarea/custom-textarea.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   exports: [
@@ -16,21 +21,25 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     FooterComponent,
     CardComponent,
     SkillRatingComponent,
-    SidenavComponent
+    SidenavComponent,
+    CustomTextareaComponent
   ],
   declarations: [
     NavbarComponent,
     FooterComponent,
     CardComponent,
     SkillRatingComponent,
-    SidenavComponent
+    SidenavComponent,
+    CustomTextareaComponent
   ],
   imports: [
     CommonModule,
     MatProgressBarModule,
     MatIconModule,
-    AppRoutingModule,
-    BreadcrumbModule
+    BreadcrumbModule,
+    MatInputModule,
+    MatFormFieldModule,
+    RouterModule
   ]
 })
 export class SharedModule { }

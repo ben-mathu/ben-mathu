@@ -36,7 +36,7 @@ export class AddProjectComponent implements OnInit {
       projectName: [this.selectedRow ? this.selectedRow.projectName : '', Validators.required],
       url: [this.selectedRow ? this.selectedRow.url : '', Validators.required],
       projectStatus: [this.selectedRow ? this.selectedRow.projectStatus : '', Validators.required],
-      projectDescription: [this.selectedRow ? this.selectedRow.projectDescription : '']
+      description: [this.selectedRow ? this.selectedRow.projectDescription : '']
     });
 
     this.selectedProjectStatus = this.selectedRow ? this.selectedRow.projectStatus : undefined
@@ -52,7 +52,7 @@ export class AddProjectComponent implements OnInit {
     const project: ProjectDetail = {
       projectName: this.f['projectName'].value,
       url: this.f['url'].value,
-      projectDescription: this.f['projectDescription'].value,
+      projectDescription: this.f['description'].value,
       projectStatus: this.selectedProjectStatus ? this.selectedProjectStatus : ''
     }
 
