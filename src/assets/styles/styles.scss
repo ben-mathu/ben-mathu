@@ -48,3 +48,9 @@ html, body {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+.form-wrapper {
+  padding: 10px;
+  background-color: $surfaceColor;
+  border-radius: 8px;
+}
