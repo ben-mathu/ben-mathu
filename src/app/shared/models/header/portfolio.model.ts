@@ -13,3 +13,10 @@ export interface ExperienceDetails {
   skills: string[];
   company: string;
 }
+
+export interface BlogDetails {
+  blog: string;
+  tags: string[];
+  dateCreated: string;
+  dateUpdated: string;
+}

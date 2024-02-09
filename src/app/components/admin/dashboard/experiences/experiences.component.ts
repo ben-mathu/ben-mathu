@@ -12,7 +12,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class ExperiencesComponent implements OnInit {
   experiences: ExperienceElement[] = [];
   displayedColumns: string[] = ['index', 'title', 'startDate', 'endDate', 'company'];
-  selectedRow!: ExperienceElement
+  selectedRow!: ExperienceElement;
 
   constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private snackbar: MatSnackBar) {}
 

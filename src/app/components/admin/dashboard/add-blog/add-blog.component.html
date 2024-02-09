@@ -1,1 +1,60 @@
-<p>add-blog works!</p>
+<form [formGroup]="addBlogForm" (ngSubmit)="(add)" class="mt-1 form-wrapper">
+  <div class="row">
+    <app-custom-textarea
+      [descriptionLabel]="blogTextLabel"
+      [text]="selectedRow ? selectedRow.blog : ''"
+      [group]="addBlogForm"
+      [switchEditorToolbar]="true"
+    ></app-custom-textarea>
+  </div>
+  <div class="row mb-2">
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>{{ tagsLabel }}</mat-label>
+      <mat-chip-grid
+        #chipGrid
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        (cdkDropListDropped)="drop($event)"
+      >
+        @for (tag of tags; track tag) {
+          <mat-chip-row [editable]="true" (edited)="edit(tag, $event)" cdkDrag>
+            {{ tag }}
+            <button matChipRemove (click)="remove(tag)">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+        }
+
+        <input
+          type="text"
+          placeholder="{{ tagsLabel }}"
+          [matChipInputFor]="chipGrid"
+          formControlName="tags"
+          (input)="onChange($event)"
+        />
+      </mat-chip-grid>
+      <mat-hint>Add tags separated by commas</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="d-flex">
+    <button
+      mat-raised-button
+      class="btn btn-primary"
+      color="primary"
+      type="submit"
+      (click)="add()"
+    >
+      Save
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="selectedRow"
+      class="btn btn-primary"
+      color="warn"
+      type="button"
+      (click)="delete()"
+    >
+      Delete
+    </button>
+  </div>
+</form>

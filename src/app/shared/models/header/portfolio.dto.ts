@@ -17,3 +17,12 @@ export interface ExperienceElement {
   skills: string[];
   company: string;
 }
+
+export interface BlogElement {
+  index: number;
+  key: string;
+  blog: string;
+  tags: string[];
+  dateCreated: string;
+  dateUpdated: string;
+}

@@ -14,7 +14,7 @@ import { FirebaseService } from 'src/app/shared/services/firebase/firebase.servi
   styleUrl: './add-project.component.scss'
 })
 export class AddProjectComponent implements OnInit {
-  @Input() selectedRow!: ProjectElement
+  @Input() selectedRow!: ProjectElement;
 
   projectNameLabel: string = 'Project Name';
   urlLabel: string = 'URL';

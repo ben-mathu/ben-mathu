@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { child, Database, get, onValue, push, ref, remove, update } from '@angular/fire/database';
-import { ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
-import { ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
+import { BlogDetails, ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
+import { BlogElement, ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,51 @@ import { ExperienceElement, ProjectElement } from '../../models/header/portfolio
 export class FirebaseService {
 
   constructor(private database: Database) {}
+
+  getAllBlogs(): Promise<BlogElement[]> {
+    return new Promise<BlogElement[]>((resolve, reject) => {
+      onValue(ref(this.database, 'blogs'), (snapshot) => {
+        const databaseVal = snapshot.val();
+
+        let keys: string[] = []
+        if (databaseVal) {
+          keys = Object.keys(databaseVal);
+        } else {
+          reject(Error("No records were found for blogs"));
+        }
+
+        const b: BlogElement[] = [];
+        for (let i = 0; i < keys.length; i++) {
+          const blog: BlogElement = {
+            index: i,
+            key: keys[i],
+            blog: databaseVal[keys[i]].blog,
+            dateCreated: databaseVal[keys[i]].dataCreated,
+            dateUpdated: databaseVal[keys[i]].dataUpdated,
+            tags: databaseVal[keys[i]].tags
+          }
+
+          b.push(blog);
+        }
+
+        resolve(b);
+      }, (error) => {
+        reject(error.message);
+      });
+    });
+  }
+
+  saveBlog(blog: BlogDetails) {
+    push(ref(this.database, 'blogs'), blog);
+  }
+
+  updateBlog(blog: BlogDetails, key: string) {
+    update(ref(this.database, 'blogs/' + key), blog);
+  }
+
+  deleteBlog(key: string) {
+    remove(ref(this.database, 'blog/' + key));
+  }
 
   getHeader(): Promise<any> {
     const headerRef = ref(this.database);
