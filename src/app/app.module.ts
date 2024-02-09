@@ -21,6 +21,7 @@ import { SharedModule } from './shared/components/shared.module';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { HomeModule } from './components/home/home.module';
 import { AdminModule } from './components/admin/admin.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { AdminModule } from './components/admin/admin.module';
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    MarkdownModule.forRoot(),
     FirestoreModule,
     BreadcrumbModule,
     MatIconModule,

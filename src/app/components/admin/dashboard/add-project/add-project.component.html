@@ -1,15 +1,29 @@
-<form [formGroup]="addProjectForm" (ngSubmit)="add" class="mt-1 form-wrapper">
+<form [formGroup]="addProjectForm" (ngSubmit)="(add)" class="mt-1 form-wrapper">
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>{{projectNameLabel}}</mat-label>
-        <input matInput type="text" class="form-control" placeholder="{{projectNameLabel}}" formControlName="projectName" value="{{selectedRow ? selectedRow.projectName : ''}}">
+        <mat-label>{{ projectNameLabel }}</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          placeholder="{{ projectNameLabel }}"
+          formControlName="projectName"
+          value="{{ selectedRow ? selectedRow.projectName : '' }}"
+        />
       </mat-form-field>
     </div>
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
-        <mat-label>{{urlLabel}}</mat-label>
-        <input matInput type="text" class="form-control" placeholder="{{urlLabel}}" formControlName="url" value="{{selectedRow ? selectedRow.url: ''}}">
+        <mat-label>{{ urlLabel }}</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          placeholder="{{ urlLabel }}"
+          formControlName="url"
+          value="{{ selectedRow ? selectedRow.url : '' }}"
+        />
       </mat-form-field>
     </div>
   </div>
@@ -22,25 +36,55 @@
   </div>
   <div class="row">
     <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>{{statusLabel}}</mat-label>
+      <mat-label>{{ statusLabel }}</mat-label>
       <mat-chip-grid #chipGrid>
-        <mat-chip-row *ngIf="(selectedRow && selectedRow.projectStatus != '') || selectedProjectStatus">
+        <mat-chip-row
+          *ngIf="
+            (selectedRow && selectedRow.projectStatus != '') ||
+            selectedProjectStatus
+          "
+        >
           {{ selectedProjectStatus }}
         </mat-chip-row>
 
-        <input type="text"
-          placeholder="{{statusLabel}}"
+        <input
+          type="text"
+          placeholder="{{ statusLabel }}"
           [matChipInputFor]="chipGrid"
           formControlName="projectStatus"
-          [matAutocomplete]="auto">
+          [matAutocomplete]="auto"
+        />
       </mat-chip-grid>
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="selectedStatus($event)">
-        <mat-option *ngFor="let status of projectStatuses" [value]="status">{{status}}</mat-option>
+      <mat-autocomplete
+        autoActiveFirstOption
+        #auto="matAutocomplete"
+        (optionSelected)="selectedStatus($event)"
+      >
+        <mat-option *ngFor="let status of projectStatuses" [value]="status">{{
+          status
+        }}</mat-option>
       </mat-autocomplete>
     </mat-form-field>
   </div>
   <div class="d-flex">
-    <button mat-raised-button class="btn btn-primary" color="primary" type="submit" (click)="add()">Save</button>
-    <button mat-raised-button class="btn btn-primary" color="warn" type="button" (click)="delete()">Delete</button>
+    <button
+      mat-raised-button
+      class="btn btn-primary"
+      color="primary"
+      type="submit"
+      (click)="add()"
+    >
+      Save
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="selectedRow"
+      class="btn btn-primary"
+      color="warn"
+      type="button"
+      (click)="delete()"
+    >
+      Delete
+    </button>
   </div>
 </form>
