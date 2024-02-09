@@ -1,0 +1,74 @@
+<mat-tab-group style="padding: 1px;">
+  <mat-tab label="Edit">
+    <markdown-toolbar for="textarea" *ngIf="switchEditorToolbar">
+      <md-bold>
+        <button mat-icon-button>
+          <mat-icon>format_bold</mat-icon>
+        </button>
+      </md-bold>
+      <md-header>
+        <button mat-icon-button>
+          <mat-icon>title</mat-icon>
+        </button>
+      </md-header>
+      <md-italic>
+        <button mat-icon-button>
+          <mat-icon>format_italic</mat-icon>
+        </button>
+      </md-italic>
+      <md-quote>
+        <button mat-icon-button>
+          <mat-icon>format_quote</mat-icon>
+        </button>
+      </md-quote>
+      <md-code>
+        <button mat-icon-button>
+          <mat-icon>code</mat-icon>
+        </button>
+      </md-code>
+      <md-link>
+        <button mat-icon-button>
+          <mat-icon>link</mat-icon>
+        </button>
+      </md-link>
+      <md-image>
+        <button mat-icon-button>
+          <mat-icon>image</mat-icon>
+        </button>
+      </md-image>
+      <md-unordered-list>
+        <button mat-icon-button>
+          <mat-icon>format_list_bulleted</mat-icon>
+        </button>
+      </md-unordered-list>
+      <md-ordered-list>
+        <button mat-icon-button>
+          <mat-icon>format_list_numbered</mat-icon>
+        </button>
+      </md-ordered-list>
+      <md-task-list>
+        <button mat-icon-button>
+          <mat-icon>checklist</mat-icon>
+        </button>
+      </md-task-list>
+      <md-mention>
+        <button mat-icon-button>
+          <mat-icon>alternate_email</mat-icon>
+        </button>
+      </md-mention>
+      <md-ref>
+        <button mat-icon-button>
+          <mat-icon>sell</mat-icon>
+        </button>
+      </md-ref>
+    </markdown-toolbar>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{descriptionLabel}}</mat-label>
+      <textarea matInput type="text" class="form-control" placeholder="{{descriptionLabel}}" id="textarea"  formControlName="description" value="{{ text }}" (input)="onTextChanged($event)"></textarea>
+    </mat-form-field>
+  </mat-tab>
+  <mat-tab label="Preview">
+    <markdown ngPreserveWhitespaces [data]="text">
+    </markdown>
+  </mat-tab>
+</mat-tab-group>

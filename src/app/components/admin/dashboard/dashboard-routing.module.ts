@@ -30,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'experiences',
-    component: ExperiencesComponent
+    component: ExperiencesComponent,
+    data: { breadcrumb: { alias: 'Experiences' }}
   },
   {
     path: 'projects',
