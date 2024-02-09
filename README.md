@@ -1,12 +1,16 @@
 ### Hi there 👋, I am Benard Mathu
 
-## About me
+<details>
+
+  <summary>About me</summary>
 
 - 🌱 I’m currently learning Python and Artificial Intelligence
 - 💬 Ask me about
   - Mobile application development, Java, Physics
 - Topics I am interested in:
   - Physics, Artificial Intelligence
+
+</details>
 
 ## My Stats
 
