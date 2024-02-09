@@ -1,6 +1,6 @@
 <mat-tab-group style="padding: 1px;">
   <mat-tab label="Edit">
-    <markdown-toolbar for="textarea">
+    <markdown-toolbar for="textarea" *ngIf="switchEditorToolbar">
       <md-bold>
         <button mat-icon-button>
           <mat-icon>format_bold</mat-icon>

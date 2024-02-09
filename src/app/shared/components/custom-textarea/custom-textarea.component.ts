@@ -12,6 +12,7 @@ export class CustomTextareaComponent {
   @Input() descriptionLabel!: string;
   @Input() text!: string;
   @Input() group!: FormGroup;
+  @Input() switchEditorToolbar: boolean = false;
 
   onTextChanged(event: Event) {
     this.text = (event.target as HTMLInputElement)?.value
