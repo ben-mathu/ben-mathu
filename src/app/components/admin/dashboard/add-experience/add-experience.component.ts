@@ -33,7 +33,7 @@ export class AddExperienceComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@Experiences', 'Add Experiences');
+    this.breadcrumbService.set('@AddExperience', 'Add Experience');
 
     this.addExperienceForm = this.formBuilder.group({
       title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],

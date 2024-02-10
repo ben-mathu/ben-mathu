@@ -30,7 +30,7 @@ export class AddProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.breadcrumbService.set('@AddProject', 'AddProject');
+    this.breadcrumbService.set('@AddProject', 'Add Project');
 
     this.addProjectForm = this.formBuilder.group({
       projectName: [this.selectedRow ? this.selectedRow.projectName : '', Validators.required],

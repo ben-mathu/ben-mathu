@@ -40,13 +40,13 @@ import { MarkdownModule } from 'ngx-markdown';
     provideAnalytics(() => getAnalytics()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    MarkdownModule.forRoot(),
     FirestoreModule,
     BreadcrumbModule,
     MatIconModule,
     MatProgressBarModule,
     SharedModule,
-    MatButtonModule
+    MatButtonModule,
+    MarkdownModule.forRoot()
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
