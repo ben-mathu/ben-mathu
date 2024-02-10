@@ -39,7 +39,7 @@ export class AddExperienceComponent implements OnInit {
       title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],
       startDate: [this.selectedRow ? this.selectedRow.startDate : '', Validators.required],
       endDate: [this.selectedRow ? this.selectedRow.endDate : '', Validators.required],
-      description: [this.selectedRow ? this.selectedRow.description : ''],
+      text: [this.selectedRow ? this.selectedRow.description : ''],
       company: [this.selectedRow ? this.selectedRow.company : '', Validators.required],
       skills: ['']
     });
@@ -63,7 +63,7 @@ export class AddExperienceComponent implements OnInit {
       title: this.f['title'].value,
       startDate: this.formatDate(this.f['startDate'].value),
       endDate: this.formatDate(this.f['endDate'].value),
-      description: this.f['description'].value,
+      description: this.f['text'].value,
       company: this.f['company'].value,
       skills: this.skillList
     }

@@ -56,7 +56,7 @@
           class="form-control"
           placeholder="{{ endDateLabel }}"
           formControlName="endDate"
-          value="{{ selectedRow ? selectedRow.startDate : '' }}"
+          value="{{ selectedRow ? selectedRow.endDate : '' }}"
         />
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle
@@ -69,9 +69,8 @@
   </div>
   <div class="row mb-2">
     <app-custom-textarea
-      [descriptionLabel]="descriptionLabel"
-      [text]="selectedRow ? selectedRow.endDate : ''"
-      [group]="addExperienceForm"
+      [label]="descriptionLabel"
+      formControlName="text"
       [switchEditorToolbar]="true"
     ></app-custom-textarea>
   </div>

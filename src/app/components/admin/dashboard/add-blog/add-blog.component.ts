@@ -28,7 +28,7 @@ export class AddBlogComponent implements OnInit {
     this.breadcrumbService.set("@AddBlog", "Add Blog");
 
     this.addBlogForm = this.formBuilder.group({
-      blog: [this.selectedRow ? this.selectedRow.blog : '', Validators.required],
+      text: [this.selectedRow ? this.selectedRow.blog : '', Validators.required],
       tags: ['']
     });
 

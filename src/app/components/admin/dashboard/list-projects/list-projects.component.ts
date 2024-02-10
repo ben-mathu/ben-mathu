@@ -24,8 +24,8 @@ export class ListProjectsComponent implements OnInit {
     const verticalPos: MatSnackBarVerticalPosition = 'bottom';
 
     this.firebaseService.getAllProjects()
-      .then((value) => {
-        this.projects = value;
+      .then((values) => {
+        this.projects = values;
       }).catch((error: Error) => {
         this.snackbar.open(error.message, 'Ok',
           {

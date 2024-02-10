@@ -63,8 +63,8 @@
       </md-ref>
     </markdown-toolbar>
     <mat-form-field class="full-width" appearance="outline">
-      <mat-label>{{descriptionLabel}}</mat-label>
-      <textarea matInput type="text" class="form-control" placeholder="{{descriptionLabel}}" id="textarea"  formControlName="description" value="{{ text }}" (input)="onTextChanged($event)"></textarea>
+      <mat-label>{{label}}</mat-label>
+      <textarea matInput type="text" class="form-control" placeholder="{{label}}" id="textarea" value="{{ text }}" (input)="onTextChanged($event)"></textarea>
     </mat-form-field>
   </mat-tab>
   <mat-tab label="Preview">
