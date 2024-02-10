@@ -1,9 +1,8 @@
 <form [formGroup]="addBlogForm" (ngSubmit)="(add)" class="mt-1 form-wrapper">
   <div class="row">
     <app-custom-textarea
-      [descriptionLabel]="blogTextLabel"
-      [text]="selectedRow ? selectedRow.blog : ''"
-      [group]="addBlogForm"
+      [label]="blogTextLabel"
+      formControlName="text"
       [switchEditorToolbar]="true"
     ></app-custom-textarea>
   </div>

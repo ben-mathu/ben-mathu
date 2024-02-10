@@ -20,6 +20,7 @@ export class AddProjectComponent implements OnInit {
   urlLabel: string = 'URL';
   descriptionLabel: string = 'Description';
   statusLabel: string = 'Project Status';
+  textChanged: string = '';
 
   projectStatuses: string[] = ['Completed', 'In Progress', 'Abandonded', 'Not Started'];
   selectedProjectStatus!: string | undefined
@@ -36,23 +37,25 @@ export class AddProjectComponent implements OnInit {
       projectName: [this.selectedRow ? this.selectedRow.projectName : '', Validators.required],
       url: [this.selectedRow ? this.selectedRow.url : '', Validators.required],
       projectStatus: [this.selectedRow ? this.selectedRow.projectStatus : '', Validators.required],
-      description: [this.selectedRow ? this.selectedRow.projectDescription : '']
+      text: [this.selectedRow ? this.selectedRow.projectDescription : '']
     });
 
     this.selectedProjectStatus = this.selectedRow ? this.selectedRow.projectStatus : undefined
   }
 
-  get f(){ return this.addProjectForm.controls; }
+  get f() { return this.addProjectForm.controls; }
 
   selectedStatus(event: MatAutocompleteSelectedEvent): void {
     this.selectedProjectStatus = event.option.value;
   }
 
   add() {
+    console.log(this.f);
+    console.log(this.f['text'].value);
     const project: ProjectDetail = {
       projectName: this.f['projectName'].value,
       url: this.f['url'].value,
-      projectDescription: this.f['description'].value,
+      projectDescription: this.f['text'].value,
       projectStatus: this.selectedProjectStatus ? this.selectedProjectStatus : ''
     }
 

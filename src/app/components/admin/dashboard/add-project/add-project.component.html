@@ -29,9 +29,8 @@
   </div>
   <div class="row">
     <app-custom-textarea
-      [descriptionLabel]="descriptionLabel"
-      [text]="selectedRow ? selectedRow.projectDescription : ''"
-      [group]="addProjectForm"
+      [label]="descriptionLabel"
+      formControlName="text"
       [switchEditorToolbar]="true"
     ></app-custom-textarea>
   </div>
