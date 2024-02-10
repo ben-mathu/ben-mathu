@@ -25,7 +25,7 @@ export class AddBlogComponent implements OnInit {
   constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
-    this.breadcrumbService.set("@Blog", "Blogs");
+    this.breadcrumbService.set("@AddBlog", "Add Blog");
 
     this.addBlogForm = this.formBuilder.group({
       blog: [this.selectedRow ? this.selectedRow.blog : '', Validators.required],
