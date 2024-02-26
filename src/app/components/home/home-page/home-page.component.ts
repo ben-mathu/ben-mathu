@@ -5,7 +5,7 @@ import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home.full-width',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
