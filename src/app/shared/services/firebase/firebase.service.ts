@@ -138,10 +138,10 @@ export class FirebaseService {
           const experience: ExperienceElement = {
             index: i,
             key: keys[i],
-            title: databaseVal[keys[i]].projectName,
-            startDate: databaseVal[keys[i]].url,
-            endDate: databaseVal[keys[i]].projectDescription,
-            description: databaseVal[keys[i]].projectStatus,
+            title: databaseVal[keys[i]].title,
+            startDate: databaseVal[keys[i]].startDate,
+            endDate: databaseVal[keys[i]].endDate,
+            description: databaseVal[keys[i]].description,
             skills: databaseVal[keys[i]].skills,
             company: databaseVal[keys[i]].company
           }
