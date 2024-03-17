@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="grid-wrapper">
-    <div class="card{{getClass()}}">
+    <div class="card">
       <blockquote class="blockquote mb-0 card-body">
         <h4>{{yearsOfExperience}}</h4>
         <p>Years of Experience</p>
@@ -21,10 +21,10 @@
       <mat-card-content>
         <markdown ngPreserveWhitespaces [data]="experience.description">
         </markdown>
-        <i *ngFor="let skill of experience.skills"></i>
+        Skills: <i *ngFor="let skill of experience.skills">{{skill}}</i>
       </mat-card-content>
     </mat-card>
-    <div class="card{{getClass()}}">
+    <!-- <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588282322673-c31965a75c3e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80" alt="" />
     </div>
     <div class="card{{getClass()}}">
@@ -44,16 +44,38 @@
     </div>
     <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588492885706-b8917f06df77?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80" alt="" />
-    </div>
-    <div class="card{{getClass()}}">
+    </div> -->
+    <div class="card">
       <blockquote class="blockquote mb-0 card-body">
         <h4>{{numberOfProjects}}</h4>
         <p>Projects</p>
       </blockquote>
     </div>
-    <div class="card{{getClass()}}">
+    <mat-card *ngFor="let project of projects" class="card{{genClassName[project.index]}}">
+      <mat-card-header>
+        <mat-card-title>{{project.projectName}}</mat-card-title>
+        <!-- <mat-card-subtitle>
+          {{project.company}}
+          <br />
+          <br />
+          <i>{{experience.startDate}}-{{experience.endDate}}</i>
+        </mat-card-subtitle> -->
+        <!-- <img mat-card-sm-image src="{{project.logoUrl}}" class="logo-image" /> -->
+      </mat-card-header>
+      <!-- <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" /> -->
+      <mat-card-content>
+        <markdown ngPreserveWhitespaces [data]="project.projectDescription"></markdown>
+        <i>{{project.projectStatus}}</i>
+      </mat-card-content>
+      <mat-card-actions>
+        <a href="{{project.url}}" target="_blank">
+          <button mat-button>Go to Project</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+    <!-- <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1586521995568-39abaa0c2311?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="" />
-    </div>
+    </div> -->
   </div>
 
   <a class="card" href="https://mathutechblog.wordpress.com/contact/" target="_blank">
