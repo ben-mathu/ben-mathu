@@ -28,6 +28,7 @@ export class AddExperienceComponent implements OnInit {
   skillsLabel: string = 'Skills';
   descriptionLabel: string = 'Description';
   companyLabel: string = 'Company';
+  logoUrlLabel: string = 'Logo Url';
 
   constructor(private formBuilder: FormBuilder, private router: Router, private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService) {
   }
@@ -41,7 +42,8 @@ export class AddExperienceComponent implements OnInit {
       endDate: [this.selectedRow ? this.selectedRow.endDate : '', Validators.required],
       text: [this.selectedRow ? this.selectedRow.description : ''],
       company: [this.selectedRow ? this.selectedRow.company : '', Validators.required],
-      skills: ['']
+      skills: [''],
+      logoUrl: [this.selectedRow ? this.selectedRow.logoUrl : '']
     });
 
     this.skillList = this.selectedRow ? this.selectedRow.skills : [];
@@ -65,7 +67,8 @@ export class AddExperienceComponent implements OnInit {
       endDate: this.formatDate(this.f['endDate'].value),
       description: this.f['text'].value,
       company: this.f['company'].value,
-      skills: this.skillList
+      skills: this.skillList,
+      logoUrl: this.f['logoUrl'].value
     }
 
     if (this.selectedRow) {

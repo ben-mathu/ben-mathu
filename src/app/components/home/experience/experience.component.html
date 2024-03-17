@@ -6,24 +6,24 @@
         <p>Years of Experience</p>
       </blockquote>
     </div>
-    <div class="card{{getClass()}}" *ngFor="let experience of experiences">
-      <mat-card class="card-body">
-        <mat-card-header>
-          <div mat-card-avatar class="header-avatar"></div>
-          <mat-card-title>{{experience.title}}</mat-card-title>
-          <mat-card-subtitle>
-            {{experience.company}}
-            <i>{{experience.startDate}}-{{experience.endDate}}</i>
-          </mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="{{experience.image}}" />
-        <mat-card-content>
-          <markdown ngPreserveWhitespaces [data]="experience.description">
-          </markdown>
-          <i *ngFor="let skill of experience.skills"></i>
-        </mat-card-content>
-      </mat-card>
-    </div>
+    <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}">
+      <mat-card-header>
+        <mat-card-title>{{experience.title}}</mat-card-title>
+        <mat-card-subtitle>
+          {{experience.company}}
+          <br />
+          <br />
+          <i>{{experience.startDate}}-{{experience.endDate}}</i>
+        </mat-card-subtitle>
+        <img mat-card-sm-image src="{{experience.logoUrl}}" class="logo-image" />
+      </mat-card-header>
+      <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
+      <mat-card-content>
+        <markdown ngPreserveWhitespaces [data]="experience.description">
+        </markdown>
+        <i *ngFor="let skill of experience.skills"></i>
+      </mat-card-content>
+    </mat-card>
     <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588282322673-c31965a75c3e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80" alt="" />
     </div>
@@ -47,7 +47,7 @@
     </div>
     <div class="card{{getClass()}}">
       <blockquote class="blockquote mb-0 card-body">
-        <h4>3+</h4>
+        <h4>{{numberOfProjects}}</h4>
         <p>Projects</p>
       </blockquote>
     </div>

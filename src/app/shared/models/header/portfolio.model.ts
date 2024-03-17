@@ -12,6 +12,7 @@ export interface ExperienceDetails {
   description: string;
   skills: string[];
   company: string;
+  logoUrl: string;
 }
 
 export interface BlogDetails {

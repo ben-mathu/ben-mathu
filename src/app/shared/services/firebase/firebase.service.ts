@@ -144,7 +144,8 @@ export class FirebaseService {
             description: databaseVal[keys[i]].description,
             skills: databaseVal[keys[i]].skills,
             company: databaseVal[keys[i]].company,
-            image: databaseVal[keys[i]].image
+            image: databaseVal[keys[i]].image,
+            logoUrl: databaseVal[keys[i]].logoUrl
           }
 
           e.push(

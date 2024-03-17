@@ -9,13 +9,9 @@
   margin: 0 0px 20px 0px;
 
   .card {
-    text-align: center;
-    text-transform: uppercase;
     overflow: hidden;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
     cursor: pointer;
     background-color: #1b242979;
     color: $fontColor;
@@ -28,12 +24,16 @@
       border-radius: 5px;
     }
 
-    .card-body {
+    mat-card-header {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      transition: .2s ease, -webkit-transform .3 ease;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .logo-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 20%;
     }
   }
 
@@ -41,11 +41,6 @@
     z-index: 1;
     background-color: #13191d79;
     box-shadow: 0 4px 8px rgba(0,0,0, .4);
-
-    .card-body {
-      transform: scale(1.05);
-      color: $accentColor;
-    }
   }
 }
 

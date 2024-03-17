@@ -17,6 +17,7 @@ export interface ExperienceElement {
   skills: string[];
   company: string;
   image: string;
+  logoUrl: string;
 }
 
 export interface BlogElement {

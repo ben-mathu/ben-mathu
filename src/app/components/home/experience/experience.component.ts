@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExperienceElement, ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
-import { ExperienceDetails } from 'src/app/shared/models/header/portfolio.model';
 import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -15,17 +13,16 @@ export class ExperienceComponent implements OnInit {
   yearsOfExperience: number = 0;
 
   projects: ProjectElement[] = [];
-  className: string[] = [' tall', ' wide', ' long', ''];
+  className: string[] = [' tall', ' wide', ' long', ' big', ''];
+  genClassName: string[] = [];
+  numberOfProjects = 0;
 
   constructor(
     private breadcrumbService: BreadcrumbService,
-    private firebaseService: FirebaseService,
-    private snackbar: MatSnackBar
+    private firebaseService: FirebaseService
   ) { }
 
   getYear(date: string): number {
-    const options: Intl.DateTimeFormatOptions[] = [{year: "numeric"}, {month: "2-digit"}, {day: "2-digit"}];
-
     const formatter = new Intl.DateTimeFormat('en');
     return Number(formatter.formatToParts(new Date(date))[0].value);
   }
@@ -49,6 +46,21 @@ export class ExperienceComponent implements OnInit {
           if (tempEndYear > endYear) {
             endYear = tempEndYear;
           }
+
+          // shorten the words and add ellipsis
+          const classStyleName = this.getClass();
+          if (classStyleName === ' wide') {
+            experience.description = experience.description.substring(0, 130) + '...';
+          } else if (classStyleName === ' long') {
+            experience.description = experience.description.substring(0, 130) + '...';
+          } else if (classStyleName === ' big') {
+            experience.description = experience.description.substring(0, 500) + '...';
+          } else if (classStyleName === ' tall') {
+            experience.description = experience.description.substring(0, 100) + '...';
+          } else if (classStyleName === '') {
+            experience.description = '...';
+          }
+          this.genClassName.push(classStyleName);
         });
 
         this.yearsOfExperience = endYear - startYear;
@@ -58,7 +70,24 @@ export class ExperienceComponent implements OnInit {
 
     this.firebaseService.getAllProjects()
       .then((values) => {
-        this.projects = values
+        this.projects = values;
+        this.numberOfProjects = this.projects.length;
+        this.projects.map((project) => {
+          // shorten the words and add ellipsis
+          const classStyleName = this.getClass();
+          if (classStyleName === ' wide') {
+            project.projectDescription = project.projectDescription.substring(0, 130) + '...';
+          } else if (classStyleName === ' long') {
+            project.projectDescription = project.projectDescription.substring(0, 130) + '...';
+          } else if (classStyleName === ' big') {
+            project.projectDescription = project.projectDescription.substring(0, 500) + '...';
+          } else if (classStyleName === ' tall') {
+            project.projectDescription = project.projectDescription.substring(0, 100) + '...';
+          } else if (classStyleName === '') {
+            project.projectDescription = '...';
+          }
+          this.genClassName.push(classStyleName);
+        });
       }).catch((err: Error) => {
         // do nothing
       });
@@ -69,6 +98,6 @@ export class ExperienceComponent implements OnInit {
   }
 
   getClass(): string {
-    return this.className[this.randomIntFromInterval(0, this.className.length)]
+    return this.className[this.randomIntFromInterval(0, this.className.length)];
   }
 }
