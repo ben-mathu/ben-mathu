@@ -15,6 +15,7 @@ export class ExperienceComponent implements OnInit {
   yearsOfExperience: number = 0;
 
   projects: ProjectElement[] = [];
+  className: string[] = [' tall', ' wide', ' long', ''];
 
   constructor(
     private breadcrumbService: BreadcrumbService,
@@ -61,5 +62,13 @@ export class ExperienceComponent implements OnInit {
       }).catch((err: Error) => {
         // do nothing
       });
+  }
+
+  randomIntFromInterval(min: number, max: number) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  getClass(): string {
+    return this.className[this.randomIntFromInterval(0, this.className.length)]
   }
 }

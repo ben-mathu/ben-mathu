@@ -1,44 +1,62 @@
 <div class="container-fluid">
   <div class="grid-wrapper">
-    <div class="card">
+    <div class="card{{getClass()}}">
       <blockquote class="blockquote mb-0 card-body">
-        <h4>{{yearsOfExperience}}+</h4>
+        <h4>{{yearsOfExperience}}</h4>
         <p>Years of Experience</p>
       </blockquote>
     </div>
-    <div class="card tall">
+    <div class="card{{getClass()}}" *ngFor="let experience of experiences">
+      <mat-card class="card-body">
+        <mat-card-header>
+          <div mat-card-avatar class="header-avatar"></div>
+          <mat-card-title>{{experience.title}}</mat-card-title>
+          <mat-card-subtitle>
+            {{experience.company}}
+            <i>{{experience.startDate}}-{{experience.endDate}}</i>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{experience.image}}" />
+        <mat-card-content>
+          <markdown ngPreserveWhitespaces [data]="experience.description">
+          </markdown>
+          <i *ngFor="let skill of experience.skills"></i>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588282322673-c31965a75c3e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1351&amp;q=80" alt="" />
     </div>
-    <div class="card">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588117472013-59bb13edafec?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
     </div>
-    <div class="card wide">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1587588354456-ae376af71a25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt="" />
     </div>
-    <div class="card tall">
+    <div class="card{{getClass()}}">
       <img src=" https://images.unsplash.com/photo-1558980663-3685c1d673c4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=60" alt="" />
     </div>
-    <div class="card tall">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588499756884-d72584d84df5?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=2134&amp;q=80" alt="" />
     </div>
-    <div class="card">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588117472013-59bb13edafec?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="">
     </div>
-    <div class="card">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1588492885706-b8917f06df77?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1951&amp;q=80" alt="" />
     </div>
-    <div class="card">
+    <div class="card{{getClass()}}">
       <blockquote class="blockquote mb-0 card-body">
         <h4>3+</h4>
         <p>Projects</p>
       </blockquote>
     </div>
-    <div class="card">
+    <div class="card{{getClass()}}">
       <img src="https://images.unsplash.com/photo-1586521995568-39abaa0c2311?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80" alt="" />
     </div>
-
-    <a class="long" href="https://mathutechblog.wordpress.com/contact/" target="_blank">
-      <button mat-raised-button color="accent">Hire Me!</button>
-    </a>
   </div>
+
+  <a class="card" href="https://mathutechblog.wordpress.com/contact/" target="_blank">
+    <button mat-outlined-button color="primary">Let's Talk</button>
+  </a>
 </div>
