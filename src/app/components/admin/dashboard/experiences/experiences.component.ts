@@ -12,7 +12,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class ExperiencesComponent implements OnInit {
   experiences: ExperienceElement[] = [];
   displayedColumns: string[] = ['index', 'title', 'startDate', 'endDate', 'company'];
-  selectedRow!: ExperienceElement;
+  selectedRow?: ExperienceElement;
 
   constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private snackbar: MatSnackBar) {}
 
@@ -36,6 +36,10 @@ export class ExperiencesComponent implements OnInit {
   }
 
   handleClick(experienceDetails: {rowData: ExperienceElement, event: Event}) {
-    this.selectedRow = experienceDetails['rowData'];
+    if (this.selectedRow) {
+      this.selectedRow = experienceDetails['rowData'];
+    } else {
+      this.selectedRow = undefined;
+    }
   }
 }

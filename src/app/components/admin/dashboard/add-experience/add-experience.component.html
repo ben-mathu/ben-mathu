@@ -68,6 +68,19 @@
     </div>
   </div>
   <div class="row mb-2">
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>{{ logoUrlLabel }}</mat-label>
+      <input
+        matInput
+        type="text"
+        class="form-control"
+        placeholder="{{ logoUrlLabel }}"
+        formControlName="logoUrl"
+        value="{{ selectedRow ? selectedRow.logoUrl : '' }}"
+      />
+    </mat-form-field>
+  </div>
+  <div class="row mb-2">
     <app-custom-textarea
       [label]="descriptionLabel"
       formControlName="text"
