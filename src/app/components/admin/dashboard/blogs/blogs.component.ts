@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { BlogElement } from 'src/app/shared/models/header/portfolio.dto';
-import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { BlogElement } from 'src/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

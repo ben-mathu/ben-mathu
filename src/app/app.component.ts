@@ -1,5 +1,5 @@
-import { MyDetails } from 'src/app/shared/models/header/header';
-import { FirebaseService } from './shared/services/firebase/firebase.service';
+import { MyDetails } from 'src/shared/models/header/header';
+import { FirebaseService } from '../shared/services/firebase/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';

@@ -20,7 +20,7 @@ import { CdkDrag, CdkDropList } from '@angular/cdk/drag-drop';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
-import { SharedModule } from 'src/app/shared/components/shared.module';
+import { SharedModule } from 'src/shared/components/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
 
 

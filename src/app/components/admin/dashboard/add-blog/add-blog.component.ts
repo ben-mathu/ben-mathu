@@ -3,9 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { Router } from '@angular/router';
-import { BlogElement } from 'src/app/shared/models/header/portfolio.dto';
-import { BlogDetails } from 'src/app/shared/models/header/portfolio.model';
-import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { BlogElement } from 'src/shared/models/header/portfolio.dto';
+import { BlogDetails } from 'src/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

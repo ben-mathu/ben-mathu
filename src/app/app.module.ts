@@ -17,7 +17,7 @@ import { provideAnalytics,getAnalytics } from '@angular/fire/analytics';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { BreadcrumbModule } from 'xng-breadcrumb';
-import { SharedModule } from './shared/components/shared.module';
+import { SharedModule } from '../shared/components/shared.module';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { HomeModule } from './components/home/home.module';
 import { AdminModule } from './components/admin/admin.module';

@@ -3,12 +3,12 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { Database, getDatabase, push, ref, update } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ExperienceElement } from 'src/app/shared/models/header/portfolio.dto';
-import { ExperienceDetails } from 'src/app/shared/models/header/portfolio.model';
+import { ExperienceElement } from 'src/shared/models/header/portfolio.dto';
+import { ExperienceDetails } from 'src/shared/models/header/portfolio.model';
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { formatDate } from '@angular/common';
-import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 
 @Component({
   selector: 'app-add-experience',

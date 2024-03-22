@@ -1,4 +1,4 @@
-import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { AuthService } from 'src/shared/services/auth/auth.service';
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivateFn, Router, RouterStateSnapshot } from '@angular/router';
 

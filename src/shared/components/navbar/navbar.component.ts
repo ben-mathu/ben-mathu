@@ -1,5 +1,5 @@
 import { Auth, getAuth, onAuthStateChanged, signOut } from '@angular/fire/auth';
-import { MyDetails } from './../../models/header/header';
+import { MyDetails } from '../../models/header/header';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -28,5 +28,9 @@ export class NavbarComponent implements OnInit {
     }).catch((err) => {
       console.log(err);
     })
+  }
+
+  onClick(event: MouseEvent) {
+    console.log(event);
   }
 }

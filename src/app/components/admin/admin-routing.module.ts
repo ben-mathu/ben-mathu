@@ -4,8 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
-import { authGuard } from 'src/app/shared/guards/auth/auth.guard';
-import { secureInnerPageGuard } from 'src/app/shared/guards/secure-inner-page/secure-inner-page.guard';
+import { authGuard } from 'src/shared/guards/auth/auth.guard';
+import { secureInnerPageGuard } from 'src/shared/guards/secure-inner-page/secure-inner-page.guard';
 
 const adminRoutes: Routes = [
   {

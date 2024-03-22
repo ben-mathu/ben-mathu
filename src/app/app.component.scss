@@ -7,3 +7,12 @@ app-footer {
   flex-direction: row;
   gap: 5px;
 }
+
+span {
+  width: 30px;
+  height: 30px;
+  position: fixed;
+  top: 100% - 2;
+  left: 100% - 1.6;
+  cursor: pointer;
+}

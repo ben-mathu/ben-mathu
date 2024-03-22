@@ -14,7 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { CustomTextareaComponent } from './custom-textarea/custom-textarea.component';
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MarkdownModule, MarkdownService, provideMarkdown } from 'ngx-markdown';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   exports: [
