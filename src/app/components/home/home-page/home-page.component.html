@@ -25,11 +25,70 @@
 </div>
 <!-- End of header-section -->
 
-<div class="d-flex flex-wrap justify-content-center">
+<div *ngIf="yearsOfExperience" class="card title-card">
+  <blockquote class="blockquote mb-0 card-body">
+    <h4>{{yearsOfExperience}}</h4>
+    <p>Years of Experience</p>
+  </blockquote>
+</div>
+
+<div class="d-flex flex-wrap justify-content-evenly">
+  <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}">
+    <mat-card-header>
+      <mat-card-title>{{experience.title}}</mat-card-title>
+      <mat-card-subtitle>
+        {{experience.company}}
+        <br />
+        <br />
+        <i>{{experience.startDate}}-{{experience.endDate}}</i>
+      </mat-card-subtitle>
+      <img mat-card-sm-image src="{{experience.logoUrl}}" class="logo-image" />
+    </mat-card-header>
+    <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
+    <mat-card-content>
+      <markdown ngPreserveWhitespaces [data]="experience.description">
+      </markdown>
+      Skills: <i *ngFor="let skill of experience.skills">{{skill}}</i>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="numberOfProjects" class="card title-card">
+  <blockquote class="blockquote mb-0 card-body">
+    <h4>{{numberOfProjects}}</h4>
+    <p>Projects</p>
+  </blockquote>
+</div>
+
+<div class="d-flex flex-wrap justify-content-evenly">
+  <mat-card *ngFor="let project of projects" class="card{{genClassName[project.index]}}">
+    <mat-card-header>
+      <mat-card-title>{{project.projectName}}</mat-card-title>
+      <!-- <mat-card-subtitle>
+        {{project.company}}
+        <br />
+        <br />
+        <i>{{experience.startDate}}-{{experience.endDate}}</i>
+      </mat-card-subtitle> -->
+      <!-- <img mat-card-sm-image src="{{project.logoUrl}}" class="logo-image" /> -->
+    </mat-card-header>
+    <!-- <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" /> -->
+    <mat-card-content>
+      <markdown ngPreserveWhitespaces [data]="project.projectDescription"></markdown>
+      <i>{{project.projectStatus}}</i>
+    </mat-card-content>
+    <mat-card-actions>
+      <a href="{{project.url}}" target="_blank">
+        <button mat-button>Go to Project</button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<!-- <div class="d-flex flex-wrap justify-content-center">
   <card
     class="col-3 m-3"
     *ngFor="let item of cardDetails"
     [cardDetail]="item"
   ></card>
-</div>
+</div> -->
 <!-- End of home-container -->

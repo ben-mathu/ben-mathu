@@ -2,6 +2,7 @@ import { FirebaseService } from '../../../shared/services/firebase/firebase.serv
 import { Component, OnInit } from '@angular/core';
 import { CardDetail } from 'src/app/shared/models/header/card_detail';
 import { MyDetails, Skill } from 'src/app/shared/models/header/header';
+import { ExperienceElement, ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -11,6 +12,12 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class HomePageComponent implements OnInit {
 
+  experiences: ExperienceElement[] = [];
+  yearsOfExperience?: number;
+
+  projects: ProjectElement[] = [];
+  genClassName: string[] = [];
+  numberOfProjects?: number;
 
   myDetails: MyDetails = new MyDetails();
   avatarImage: String = "https://lh3.googleusercontent.com/a/ACg8ocL5ZsD77c6dOJYmEf4p7qNyBDcGY4Ql3p8lBQlKSG7sLB0=s288-c-no";
@@ -37,6 +44,12 @@ export class HomePageComponent implements OnInit {
   ]
 
   constructor(private service: FirebaseService, private breadcrumbService: BreadcrumbService) {
+  }
+
+  getYear(date: string): number {
+    const formatter = new Intl.DateTimeFormat('en');
+    const options = formatter.formatToParts(new Date(date));
+    return Number(options[4].value);
   }
 
   ngOnInit(): void {
@@ -75,5 +88,42 @@ export class HomePageComponent implements OnInit {
         return 0;
       });
     });
+
+    this.service.getAllExperiences()
+      .then((values) => {
+        this.experiences = values
+
+        let startYear = this.getYear(this.experiences[0].startDate);
+        let endYear = this.getYear(this.experiences[0].endDate);
+        this.experiences.map((experience) => {
+          const tempStartYear = this.getYear(experience.startDate);
+          if (tempStartYear < startYear) {
+            startYear = tempStartYear;
+          }
+
+          const tempEndYear = this.getYear(experience.endDate);
+          if (tempEndYear > endYear) {
+            endYear = tempEndYear;
+          }
+
+          experience.description = experience.description.substring(0, 250) + '...';
+        });
+
+        this.yearsOfExperience = endYear - startYear;
+      }).catch((err: Error) => {
+        // do nothing
+      });
+
+    this.service.getAllProjects()
+      .then((values) => {
+        this.projects = values;
+        this.numberOfProjects = this.projects.length;
+
+        this.projects.map((project) =>{
+          project.projectDescription = project.projectDescription.substring(0, 250) + '...';
+        });
+      }).catch((err: Error) => {
+        // do nothing
+      });
   }
 }

@@ -89,6 +89,10 @@ export class AddExperienceComponent implements OnInit {
     if (inputEvent.inputType === 'insertText' && inputEvent.data === ',') {
       value = value.substring(0, value.length - 1);
 
+      if (!this.skillList) {
+        this.skillList = [];
+      }
+
       if (this.skillList.includes(value)) {
         return;
       }
