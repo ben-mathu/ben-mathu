@@ -17,16 +17,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+
       - name: Setup for Deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MY_EMAIL: mathubenard@gmail.com
-          MY_NAME: ben-mathu
+          MY_NAME: ${{ github.repository_owner }}
 
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions"
-          git remote set-url origin https://$MY_NAME:$GITHUB_TOKEN@github.com/ben-mathu/ben-mathu.git
+          git remote set-url origin https://$MY_NAME:$GITHUB_TOKEN@github.com/$MY_NAME/$MY_NAME.git
 
       - uses: actions/setup-node@v3
         with:
