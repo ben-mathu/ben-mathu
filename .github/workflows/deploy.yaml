@@ -41,11 +41,11 @@ jobs:
       # - name: Install Dependencies
       #   run: npm i --force
 
-      - name: Link Angular
-        run: pnpm link @angular/cli
+      # - name: Link Angular
+      #   run: pnpm link @angular/cli
 
       # - name: Setup pages
       #   uses: actions/deploy-pages@v2
 
       - name: Deploy
-        run: ng deploy --base-href=https://ben-mathu.github.io/ben-mathu/ --no-silent
+        run: pnpm deploy
