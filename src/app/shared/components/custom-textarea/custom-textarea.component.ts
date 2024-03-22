@@ -19,6 +19,7 @@ export class CustomTextareaComponent implements ControlValueAccessor {
   @Input() label!: string;
   @Input() switchEditorToolbar: boolean = false;
   @Input() _text: string = '';
+  numberOfRows: number = 0
 
   get text() {
     return this._text;
@@ -33,6 +34,8 @@ export class CustomTextareaComponent implements ControlValueAccessor {
 
   onTextChanged(event: Event) {
     this.text = (event.target as HTMLInputElement)?.value;
+
+    this.numberOfRows = this.text.split('\n').length;
   }
 
   writeValue(obj: any): void {
