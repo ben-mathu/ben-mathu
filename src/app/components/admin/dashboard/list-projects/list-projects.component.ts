@@ -37,8 +37,11 @@ export class ListProjectsComponent implements OnInit {
       });
   }
 
-  handleClick(pojectDetails: {rowData: ProjectElement, event: Event}) {
-    if (!this.selectedRow) {this.selectedRow = pojectDetails['rowData'];}
-    else { this.selectedRow = undefined }
+  handleClick(projectDetails: {rowData: ProjectElement, event: Event}) {
+    if (!this.selectedRow || projectDetails['rowData'].index !== this.selectedRow.index) {
+      this.selectedRow = projectDetails['rowData'];
+    } else {
+      this.selectedRow = undefined;
+    }
   }
 }

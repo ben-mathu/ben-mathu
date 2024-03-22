@@ -36,7 +36,7 @@ export class ExperiencesComponent implements OnInit {
   }
 
   handleClick(experienceDetails: {rowData: ExperienceElement, event: Event}) {
-    if (!this.selectedRow) {
+    if (!this.selectedRow || experienceDetails['rowData'].index !== this.selectedRow.index) {
       this.selectedRow = experienceDetails['rowData'];
     } else {
       this.selectedRow = undefined;
