@@ -13,7 +13,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition
 export class ListProjectsComponent implements OnInit {
   projects: ProjectElement[] = [];
   displayedColumns: string[] = ['index', 'projectName', 'url', 'projectDescription'];
-  selectedRow!: ProjectElement;
+  selectedRow?: ProjectElement;
 
   constructor(private breadcrumbService: BreadcrumbService, private firebaseService: FirebaseService, private snackbar: MatSnackBar) {
   }
@@ -38,6 +38,7 @@ export class ListProjectsComponent implements OnInit {
   }
 
   handleClick(pojectDetails: {rowData: ProjectElement, event: Event}) {
-    this.selectedRow = pojectDetails['rowData'];
+    if (!this.selectedRow) {this.selectedRow = pojectDetails['rowData'];}
+    else { this.selectedRow = undefined }
   }
 }
