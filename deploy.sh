@@ -6,4 +6,4 @@ git push origin --tags -f
 git checkout master
 git merge develop
 git push
-git checkout develop'
+git checkout develop
