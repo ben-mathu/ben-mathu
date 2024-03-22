@@ -17,11 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 8
-
       - name: Setup for Deployments
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,11 +32,17 @@ jobs:
         with:
           node-version: 18.13
 
-      - name: Install Dependencies
-        run: npm i --force
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: true
 
-      - name: Link Angular
-        run: npm link @angular/cli --force
+      # - name: Install Dependencies
+      #   run: npm i --force
+
+      # - name: Link Angular
+      #   run: pnpm link @angular/cli
 
       # - name: Setup pages
       #   uses: actions/deploy-pages@v2
