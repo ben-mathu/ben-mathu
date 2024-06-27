@@ -16,7 +16,9 @@ export class HomePageComponent implements OnInit {
   yearsOfExperience?: number;
 
   projects: ProjectElement[] = [];
+  className: string[] = [' tall', ' wide', ' long', ' big'];
   genClassName: string[] = [];
+  genProjectsClassName: string[] = [];
   numberOfProjects?: number;
 
   myDetails: MyDetails = new MyDetails();
@@ -95,6 +97,8 @@ export class HomePageComponent implements OnInit {
 
         let startYear = this.getYear(this.experiences[0].startDate);
         let endYear = this.getYear(this.experiences[0].endDate);
+
+        this.genClassName = [];
         this.experiences.map((experience) => {
           const tempStartYear = this.getYear(experience.startDate);
           if (tempStartYear < startYear) {
@@ -106,7 +110,19 @@ export class HomePageComponent implements OnInit {
             endYear = tempEndYear;
           }
 
-          experience.description = experience.description.substring(0, 250) + '...';
+          // shorten the words and add ellipsis
+          const classStyleName = this.getClass();
+          if (classStyleName === ' wide') {
+            experience.description = experience.description.substring(0, 130) + '...';
+          } else if (classStyleName === ' long') {
+            experience.description = experience.description.substring(0, 150) + '...';
+          } else if (classStyleName === ' big') {
+            experience.description = experience.description.substring(0, 500) + '...';
+          } else if (classStyleName === ' tall') {
+            experience.description = experience.description.substring(0, 100) + '...';
+          }
+          this.genClassName.push(classStyleName);
+          // experience.description = experience.description.substring(0, 250) + '...';
         });
 
         this.yearsOfExperience = endYear - startYear;
@@ -119,11 +135,31 @@ export class HomePageComponent implements OnInit {
         this.projects = values;
         this.numberOfProjects = this.projects.length;
 
-        this.projects.map((project) =>{
-          project.projectDescription = project.projectDescription.substring(0, 250) + '...';
+        this.genProjectsClassName = [];
+        this.projects.map((project) => {
+          const classStyleName = this.getClass();
+          if (classStyleName === ' wide') {
+            project.projectDescription = project.projectDescription.substring(0, 130) + '...';
+          } else if (classStyleName === ' long') {
+            project.projectDescription = project.projectDescription.substring(0, 150) + '...';
+          } else if (classStyleName === ' big') {
+            project.projectDescription = project.projectDescription.substring(0, 500) + '...';
+          } else if (classStyleName === ' tall') {
+            project.projectDescription = project.projectDescription.substring(0, 110) + '...';
+          }
+          this.genProjectsClassName.push(classStyleName);
+          // project.projectDescription = project.projectDescription.substring(0, 250) + '...';
         });
       }).catch((err: Error) => {
         // do nothing
       });
+  }
+
+  randomIntFromInterval(min: number, max: number) { // min and max included
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  getClass(): string {
+    return this.className[this.randomIntFromInterval(0, this.className.length-1)];
   }
 }
