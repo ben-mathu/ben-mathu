@@ -22,6 +22,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { HomeModule } from './components/home/home.module';
 import { AdminModule } from './components/admin/admin.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MarkdownModule } from 'ngx-markdown';
     MatProgressBarModule,
     SharedModule,
     MatButtonModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
