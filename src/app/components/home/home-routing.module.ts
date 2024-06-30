@@ -6,6 +6,7 @@ import { ExperienceComponent } from './experience/experience.component';
 import { AboutComponent } from './about/about.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,11 @@ const routes: Routes = [
         path: 'about',
         component: AboutComponent,
         data: { breadcrumb: { alias: 'About' } },
+      },
+      {
+        path: 'blog/:id',
+        component: BlogComponent,
+        data: { breadcrumb: { alias: 'Blog' } },
       }
     ]
   },

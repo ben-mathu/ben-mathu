@@ -7,7 +7,7 @@ import { BlogElement, ExperienceElement, ProjectElement } from '../../models/hea
   providedIn: 'root'
 })
 export class FirebaseService {
-
+  
   constructor(private database: Database) {}
 
   getAllBlogs(): Promise<BlogElement[]> {
@@ -158,5 +158,25 @@ export class FirebaseService {
         reject(error.message);
       });
     });
+  }
+
+  getProjectById(id: any): Promise<ProjectElement> {
+    return new Promise<ProjectElement>((resolve, reject) => {
+      onValue(ref(this.database, 'projects/' + id), (snapshot) => {
+        resolve(snapshot.val());
+      }, (error) => {
+        reject(error.message);
+      })
+    })
+  }
+
+  getExperienceById(id: any): Promise<ExperienceElement> {
+    return new Promise<ExperienceElement>((resolve, reject) => {
+      onValue(ref(this.database, 'experiences/' + id), (snapshot) => {
+        resolve(snapshot.val());
+      }, (error) => {
+        reject(error.message);
+      })
+    })
   }
 }

@@ -10,6 +10,7 @@ import { HomeComponent } from './home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownModule } from 'ngx-markdown';
+import { BlogComponent } from './blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MarkdownModule } from 'ngx-markdown';
     HomePageComponent,
     AboutComponent,
     PortfolioComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    BlogComponent
   ],
   imports: [
     CommonModule,

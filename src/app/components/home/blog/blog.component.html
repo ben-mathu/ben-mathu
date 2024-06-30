@@ -1,0 +1,17 @@
+<div class="container">
+  <div id="carouselExampleInterval" class="carousel slide w-100 rounded bg-dark p-2" data-bs-ride="carousel">
+    <div class="carousel-inner w-100">
+      <div class="carousel-item {{ i === 0 ? 'active' : '' }}" *ngFor="let blog of blogList; index as i">
+        <span class="d-block w-100">{{ blog.get('title') }}</span>
+      </div>
+    </div>
+    <button class="carousel-control-prev rounded" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

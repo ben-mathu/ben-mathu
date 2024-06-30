@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MyDetails } from 'src/shared/models/header/header';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -8,7 +8,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   myDetails!: MyDetails;
 
   constructor(private service: FirebaseService, private breadcrumbService: BreadcrumbService) {}
