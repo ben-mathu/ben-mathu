@@ -58,3 +58,13 @@ html, body {
 .full-width {
   width: 100%;
 }
+
+.shrink-table {
+  width: 50%;
+}
+
+blockquote {
+  border-left: 3px solid rgba(255,255,255,0.21);
+  padding-left: 12px;
+  color: rgba(255,255,255,0.54);
+}
