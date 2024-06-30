@@ -10,6 +10,8 @@ import { HomeComponent } from './home.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownModule } from 'ngx-markdown';
+import { BlogComponent } from './blog/blog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { MarkdownModule } from 'ngx-markdown';
     HomePageComponent,
     AboutComponent,
     PortfolioComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    BlogComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import { MarkdownModule } from 'ngx-markdown';
     HomeRoutingModule,
     MatButtonModule,
     MatCardModule,
-    MarkdownModule
+    MarkdownModule,
+    MatSnackBarModule
   ]
 })
 export class HomeModule { }

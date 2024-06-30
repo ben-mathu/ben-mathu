@@ -16,6 +16,8 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class AddBlogComponent implements OnInit {
   @Input() selectedRow!: BlogElement;
 
+  blogTitleLabel: string = "Article";
+  blogAuthorLabel: string = "Author";
   blogTextLabel: string = "Blog";
   tagsLabel: string = "Tags";
   addBlogForm!: FormGroup;
@@ -28,6 +30,8 @@ export class AddBlogComponent implements OnInit {
     this.breadcrumbService.set("@AddBlog", "Add Blog");
 
     this.addBlogForm = this.formBuilder.group({
+      title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],
+      author: [this.selectedRow ? this.selectedRow.author : '', Validators.required],
       text: [this.selectedRow ? this.selectedRow.blog : '', Validators.required],
       tags: ['']
     });
@@ -48,6 +52,8 @@ export class AddBlogComponent implements OnInit {
 
   add() {
     const blog: BlogDetails = {
+      title: this.f['title'].value,
+      author: this.f['author'].value,
       blog: this.f['text'].value,
       tags: this.tags,
       dateCreated: this.selectedRow ? this.selectedRow.dateCreated : this.formatDate(new Date()),

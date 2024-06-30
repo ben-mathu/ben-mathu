@@ -33,7 +33,7 @@
 </div> -->
 
 <div class="grid-wrapper">
-  <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}">
+  <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}" [routerLink]="['blog', experience.key]">
     <mat-card-header>
       <mat-card-title>{{experience.title}}</mat-card-title>
       <mat-card-subtitle>
@@ -52,7 +52,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}">
+  <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}" [routerLink]="['blog', project.key]">
     <mat-card-header>
       <mat-card-title>{{project.projectName}}</mat-card-title>
       <!-- <mat-card-subtitle>

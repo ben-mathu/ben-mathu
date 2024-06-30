@@ -16,6 +16,8 @@ export interface ExperienceDetails {
 }
 
 export interface BlogDetails {
+  title: string;
+  author: string;
   blog: string;
   tags: string[];
   dateCreated: string;
