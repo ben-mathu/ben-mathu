@@ -50,16 +50,12 @@ export class AddProjectComponent implements OnInit {
   }
 
   add() {
-    console.log(this.f);
-    console.log(this.f['text'].value);
     const project: ProjectDetail = {
       projectName: this.f['projectName'].value,
       url: this.f['url'].value,
       projectDescription: this.f['text'].value,
       projectStatus: this.selectedProjectStatus ? this.selectedProjectStatus : ''
     }
-
-    console.log(project);
 
     if (this.selectedRow) {
       this.firebaseService.updateProject(project, this.selectedRow.key);
