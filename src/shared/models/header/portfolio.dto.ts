@@ -23,6 +23,8 @@ export interface ExperienceElement {
 export interface BlogElement {
   index: number;
   key: string;
+  title: string;
+  author: string;
   blog: string;
   tags: string[];
   dateCreated: string;

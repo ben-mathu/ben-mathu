@@ -1,3 +1,9 @@
+@import "/assets/styles/variables";
+
+.carousel-item {
+  cursor: pointer;
+}
+
 .carousel-control-prev, .carousel-control-next {
   width: 2%;
   right: 10px;
@@ -6,4 +12,21 @@
 .carousel-control-prev {
   left: auto;
   right: 40px;
+}
+
+.card {
+  background-color: #1b242979;
+  color: $fontColor;
+
+  mat-card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 20%;
+  }
 }

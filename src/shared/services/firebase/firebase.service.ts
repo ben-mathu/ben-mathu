@@ -27,6 +27,8 @@ export class FirebaseService {
           const blog: BlogElement = {
             index: i,
             key: keys[i],
+            title: databaseVal[keys[i]].title,
+            author: databaseVal[keys[i]].author,
             blog: databaseVal[keys[i]].blog,
             dateCreated: databaseVal[keys[i]].dataCreated,
             dateUpdated: databaseVal[keys[i]].dataUpdated,

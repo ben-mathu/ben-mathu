@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogComponent } from './blog/blog.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BlogComponent } from './blog/blog.component';
     HomeRoutingModule,
     MatButtonModule,
     MatCardModule,
-    MarkdownModule
+    MarkdownModule,
+    MatSnackBarModule
   ]
 })
 export class HomeModule { }
