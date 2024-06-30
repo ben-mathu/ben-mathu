@@ -18,27 +18,25 @@ export class FirebaseService {
         let keys: string[] = []
         if (databaseVal) {
           keys = Object.keys(databaseVal);
-        } else {
-          reject(Error("No records were found for blogs"));
-        }
 
-        const b: BlogElement[] = [];
-        for (let i = 0; i < keys.length; i++) {
-          const blog: BlogElement = {
-            index: i,
-            key: keys[i],
-            title: databaseVal[keys[i]].title,
-            author: databaseVal[keys[i]].author,
-            blog: databaseVal[keys[i]].blog,
-            dateCreated: databaseVal[keys[i]].dataCreated,
-            dateUpdated: databaseVal[keys[i]].dataUpdated,
-            tags: databaseVal[keys[i]].tags
+          const b: BlogElement[] = [];
+          for (let i = 0; i < keys.length; i++) {
+            const blog: BlogElement = {
+              index: i,
+              key: keys[i],
+              title: databaseVal[keys[i]].title,
+              author: databaseVal[keys[i]].author,
+              blog: databaseVal[keys[i]].blog,
+              dateCreated: databaseVal[keys[i]].dataCreated,
+              dateUpdated: databaseVal[keys[i]].dataUpdated,
+              tags: databaseVal[keys[i]].tags
+            }
+
+            b.push(blog);
           }
 
-          b.push(blog);
+          resolve(b);
         }
-
-        resolve(b);
       }, (error) => {
         reject(error.message);
       });

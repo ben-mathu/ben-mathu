@@ -43,7 +43,6 @@ export class ListProjectsComponent implements OnInit {
       this.displayedColumns = this.displayedColumns.filter((item) => {
         return item !== 'projectDescription';
       });
-      console.log(this.displayedColumns);
     } else {
       this.selectedRow = undefined;
       this.displayedColumns.push('projectDescription');
