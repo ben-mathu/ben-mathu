@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="col margin-top">
+  <div class="col margin-top{{ selectedRow ? ' shrink-table' : '' }}">
     <table mat-table [dataSource]="experiences" class="mat-elevation-z8 table-max-height">
       <ng-container matColumnDef="index">
         <th mat-header-cell *matHeaderCellDef>Index</th>
