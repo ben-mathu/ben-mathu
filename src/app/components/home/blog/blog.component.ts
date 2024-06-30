@@ -11,8 +11,6 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrl: './blog.component.scss'
 })
 export class BlogComponent implements OnInit {
-  @Input('id') id!: string;
-  
   experiences?: ExperienceElement[];
   projects?: ProjectElement[];
   articles?: BlogElement[];
@@ -28,34 +26,16 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     this.breadcrumbService.set('@Blog', 'Blog');
     this.activatedRoute.params.subscribe(async params => {
-      // let id = params['id'];
+      let id = params['id'];
     
-      await this.service.getAllExperiences()
-        .then((values) => {
-          this.experiences = values;
+      this.experiences = await this.service.getAllExperiences();
+      this.setExperience(id);
 
-          this.setExperience(this.id);
-        }).catch((err: Error) => {
-          // do nothing
-        });
+      this.projects = await this.service.getAllProjects();
+      this.setProject(id);
 
-      await this.service.getAllProjects()
-        .then((values) => {
-          this.projects = values;
-
-          this.setProject(this.id);
-        }).catch((err: Error) => {
-          // do nothing
-        });
-
-      await this.service.getAllBlogs()
-        .then((values) => {
-          this.articles = values;
-
-          this.setBlog(this.id);
-        }).catch((err: Error) => {
-          // do nothing
-        });
+      this.articles = await this.service.getAllBlogs();
+      this.setBlog(id);
 
       if (!this.experience || !this.project || !this.article) {
         this.showMessage('Article not found');
@@ -79,7 +59,9 @@ export class BlogComponent implements OnInit {
     this.articles?.map((article) => {
       if (article.key === id) {
         this.article = article;
-        this.breadcrumbService.set('@Blog', 'Blog -> ' + article.title);
+        this.experience = undefined;
+        this.project = undefined;
+        this.breadcrumbService.set('@Blog', 'Blog :: ' + article.title);
       }
 
       const blogMap: Map<string, string> = new Map<string, string>()
@@ -94,7 +76,9 @@ export class BlogComponent implements OnInit {
     this.projects?.map((project) => {
       if (project.key === id) {
         this.project = project;
-        this.breadcrumbService.set('@Blog', 'Blog -> ' + project.projectName);
+        this.article = undefined;
+        this.experience = undefined;
+        this.breadcrumbService.set('@Blog', 'Projects :: ' + project.projectName);
       }
 
       const blogMap: Map<string, string> = new Map<string, string>()
@@ -109,7 +93,9 @@ export class BlogComponent implements OnInit {
     this.experiences?.map((experience) => {
       if (experience.key === id) {
         this.experience = experience;
-        this.breadcrumbService.set('@Blog', 'Blog :: ' + experience.title);
+        this.project = undefined;
+        this.article = undefined;
+        this.breadcrumbService.set('@Blog', 'Experience :: ' + experience.title);
       }
       
       const blogMap: Map<string, string> = new Map<string, string>()
