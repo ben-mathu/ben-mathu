@@ -31,8 +31,7 @@
         </mat-card-header>
         <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
         <mat-card-content>
-          <markdown ngPreserveWhitespaces [data]="experience.description">
-          </markdown>
+          <markdown ngPreserveWhitespaces [data]="experience.description"></markdown>
           Skills: <i class="badge text-bg-light me-1" *ngFor="let skill of experience.skills">{{skill}}</i>
         </mat-card-content>
       </mat-card>
@@ -41,8 +40,7 @@
     @if (project !== undefined) {
       <h3>{{ project.projectName }}</h3>
       <i>{{ project.projectStatus }}</i>
-      <markdown ngPreserveWhitespaces [data]="project.projectDescription">
-      </markdown>
+      <markdown ngPreserveWhitespaces [data]="project.projectDescription"></markdown>
       <a href="{{project.url}}" target="_blank">
         <button mat-button>Go to Project</button>
       </a>
@@ -51,8 +49,7 @@
     @if (article !== undefined) {
       <h3>{{ article.title }}</h3>
       <i>{{ article.dateCreated + '|' + article.dateUpdated }}</i>
-      <markdown ngPreserveWhitespaces [data]="article.blog">
-      </markdown>
+      <markdown ngPreserveWhitespaces [data]="article.blog"></markdown>
 
       <div class="d-flex flex-row">
         <mat-card class="card mb-2">
