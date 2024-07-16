@@ -37,7 +37,7 @@
     <mat-card-header>
       <mat-card-title>{{experience.title}}</mat-card-title>
       <mat-card-subtitle>
-        {{experience.company}}
+        {{experience.company}} <span class="badge text-bg-primary">Experience</span>
         <br />
         <br />
         <i>{{experience.startDate}}-{{experience.endDate}}</i>
@@ -55,6 +55,7 @@
   <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}" [routerLink]="['blog', project.key]">
     <mat-card-header>
       <mat-card-title>{{project.projectName}}</mat-card-title>
+      <mat-card-subtitle><span class="badge text-bg-primary">Project</span></mat-card-subtitle>
       <!-- <mat-card-subtitle>
         {{project.company}}
         <br />
@@ -84,7 +85,7 @@
 </div> -->
 
 <div class="d-flex flex-wrap justify-content-evenly">
-  
+
 </div>
 <!-- <div class="d-flex flex-wrap justify-content-center">
   <card
