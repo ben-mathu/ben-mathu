@@ -30,3 +30,20 @@ export interface BlogElement {
   dateCreated: string;
   dateUpdated: string;
 }
+
+export interface AchievementElement {
+  index: number;
+  key: string;
+  name: string;
+  url: string;
+  description: string;
+  dateCreated: string;
+}
+
+export interface CertificateElement {
+  index: number;
+  key: string;
+  name: string;
+  url: string;
+  dateCreated: string;
+}

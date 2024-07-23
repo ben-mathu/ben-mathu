@@ -22,6 +22,10 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { SharedModule } from 'src/shared/components/shared.module';
 import { MarkdownModule } from 'ngx-markdown';
+import { AchievementsComponent } from './achievements/achievements.component';
+import { AddAchievementComponent } from './add-achievement/add-achievement.component';
+import { AddCertificateComponent } from './add-certificates/add-certificate.component';
+import { CertificatesComponent } from './certificates/certificates.component';
 
 
 @NgModule({
@@ -32,7 +36,11 @@ import { MarkdownModule } from 'ngx-markdown';
     BlogsComponent,
     AddProjectComponent,
     AddExperienceComponent,
-    AddBlogComponent
+    AddBlogComponent,
+    AddAchievementComponent,
+    AchievementsComponent,
+    AddCertificateComponent,
+    CertificatesComponent
   ],
   imports: [
     CommonModule,

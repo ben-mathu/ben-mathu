@@ -3,6 +3,7 @@ import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { ExperienceElement } from 'src/shared/models/header/portfolio.dto';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { showSnackBar } from 'src/shared/utils/utils';
 
 @Component({
   selector: 'app-experiences',
@@ -25,13 +26,7 @@ export class ExperiencesComponent implements OnInit {
       .then((values) => {
         this.experiences = values;
       }).catch((error: Error) => {
-        this.snackbar.open(error.message, 'Ok',
-          {
-            horizontalPosition: horizontalPos,
-            verticalPosition: verticalPos,
-            duration: 5000
-          }
-        );
+        showSnackBar(error.message, this.snackbar);
       });
   }
 

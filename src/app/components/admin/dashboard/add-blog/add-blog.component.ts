@@ -2,10 +2,12 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipEditedEvent } from '@angular/material/chips';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { BlogElement } from 'src/shared/models/header/portfolio.dto';
 import { BlogDetails } from 'src/shared/models/header/portfolio.model';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
+import { formatDate, showSnackBar } from 'src/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -24,7 +26,7 @@ export class AddBlogComponent implements OnInit {
 
   tags: string[] = [];
 
-  constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.breadcrumbService.set("@AddBlog", "Add Blog");
@@ -41,23 +43,14 @@ export class AddBlogComponent implements OnInit {
 
   get f() { return this.addBlogForm.controls };
 
-  formatDate(date: Date) {
-    const options: Intl.DateTimeFormatOptions[] = [{year: "numeric"}, {month: "numeric"}, {day: "numeric"}];
-
-    return options.map((option) => {
-      const formatter = new Intl.DateTimeFormat('en', option);
-      return formatter.format(date);
-    }).join(' ');
-  }
-
   add() {
-    const blog: BlogDetails = {
+    try{const blog: BlogDetails = {
       title: this.f['title'].value,
       author: this.f['author'].value,
       blog: this.f['text'].value,
       tags: this.tags,
-      dateCreated: this.selectedRow ? this.selectedRow.dateCreated : this.formatDate(new Date()),
-      dateUpdated: this.formatDate(new Date())
+      dateCreated: this.selectedRow ? this.selectedRow.dateCreated : formatDate(new Date()),
+      dateUpdated: formatDate(new Date())
     }
 
     if (this.selectedRow) {
@@ -65,6 +58,8 @@ export class AddBlogComponent implements OnInit {
     } else {
       this.firebaseService.saveBlog(blog);
       this.router.navigate(['admin', 'dashboard', 'blogs']);
+    }} catch (error) {
+      showSnackBar('All Fields are Required', this.snackBar);
     }
   }
 

@@ -1,0 +1,60 @@
+<form [formGroup]="addAchievementForm" class="mt-1 form-wrapper">
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ achievementNameLabel }}</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          placeholder="{{ achievementNameLabel }}"
+          formControlName="name"
+          value="{{ selectedRow ? selectedRow.name : '' }}"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ achievementUrlLabel }}</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          placeholder="{{ achievementUrlLabel }}"
+          formControlName="url"
+          value="{{ selectedRow ? selectedRow.url : '' }}"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <app-custom-textarea
+      [label]="achievementDescriptionLabel"
+      formControlName="text"
+      [switchEditorToolbar]="true"
+    ></app-custom-textarea>
+  </div>
+  <div class="d-flex">
+    <button
+      mat-raised-button
+      class="btn btn-primary"
+      color="primary"
+      type="submit"
+      (click)="add()"
+    >
+      Save
+    </button>
+    <button
+      mat-raised-button
+      *ngIf="selectedRow"
+      class="btn btn-primary"
+      color="warn"
+      type="button"
+      (click)="delete()"
+    >
+      Delete
+    </button>
+  </div>
+</form>

@@ -4,6 +4,7 @@ import { ProjectElement } from 'src/shared/models/header/portfolio.dto';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { showSnackBar } from 'src/shared/utils/utils';
 
 @Component({
   selector: 'app-list-projects',
@@ -27,13 +28,7 @@ export class ListProjectsComponent implements OnInit {
         this.projects = values;
         this.displayedColumns.push('projectDescription');
       }).catch((error: Error) => {
-        this.snackbar.open(error.message, 'Ok',
-          {
-            horizontalPosition: horizontalPos,
-            verticalPosition: verticalPos,
-            duration: 5000
-          }
-        );
+        showSnackBar(error.message, this.snackbar);
       });
   }
 

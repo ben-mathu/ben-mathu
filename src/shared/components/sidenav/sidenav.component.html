@@ -16,6 +16,14 @@
         <a class="nav-link" [routerLink]="['admin', 'dashboard', 'blogs']" routerLinkActive="active">Blog</a>
         <button mat-raised-button class="btn" color="primary" *ngIf="url.includes('blogs')" [routerLink]="['admin', 'dashboard', 'blogs', 'add-blog']">Add Blog</button>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['admin', 'dashboard', 'achievements']" routerLinkActive="active">Achievements</a>
+        <button mat-raised-button class="btn" color="primary" *ngIf="url.includes('achievements')" [routerLink]="['admin', 'dashboard', 'achievements', 'add-achievement']">Add Achievement</button>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['admin', 'dashboard', 'certificates']" routerLinkActive="active">Certificates</a>
+        <button mat-raised-button class="btn" color="primary" *ngIf="url.includes('certificates')" [routerLink]="['admin', 'dashboard', 'certificates', 'add-certificate']">Add Achievement</button>
+      </li>
     </ul>
   </div>
 </nav>

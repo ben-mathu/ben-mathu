@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { child, Database, get, onValue, push, ref, remove, update } from '@angular/fire/database';
-import { BlogDetails, ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
-import { BlogElement, ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
+import { AchievementDetails, BlogDetails, CertificateDetails, ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
+import { AchievementElement, BlogElement, CertificateElement, ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-  
+
   constructor(private database: Database) {}
 
   getAllBlogs(): Promise<BlogElement[]> {
@@ -30,7 +30,7 @@ export class FirebaseService {
               dateCreated: databaseVal[keys[i]].dataCreated,
               dateUpdated: databaseVal[keys[i]].dataUpdated,
               tags: databaseVal[keys[i]].tags
-            }
+            };
 
             b.push(blog);
           }
@@ -178,5 +178,94 @@ export class FirebaseService {
         reject(error.message);
       })
     })
+  }
+
+  getAchievements(): Promise<AchievementElement[]> {
+    return new Promise<AchievementElement[]>((resolve, reject) => {
+      onValue(ref(this.database, 'achievements'), (snapshot) => {
+        const databaseVal = snapshot.val();
+
+        let keys: string[] = [];
+        if (databaseVal) {
+          keys = Object.keys(databaseVal);
+
+          const a: AchievementElement[] = [];
+          for (let i = 0; i < keys.length; i++) {
+            const achievement: AchievementElement = {
+              index: i,
+              key: keys[i],
+              name: databaseVal[keys[i]].name,
+              url: databaseVal[keys[i]].url,
+              description: databaseVal[keys[i]].description,
+              dateCreated: databaseVal[keys[i]].dateCreated
+            };
+
+            a.push(achievement);
+          }
+
+          resolve(a);
+        } else {
+          reject('Achievements not found!');
+        }
+      }, (error) => {
+        reject(error.message);
+      });
+    });
+  }
+
+  saveAchievement(achievement: AchievementDetails) {
+    push(ref(this.database, 'achievements'), achievement);
+  }
+
+  updateAchievement(achievement: AchievementDetails, key: string) {
+    update(ref(this.database, 'achievements/' + key), achievement);
+  }
+
+  deleteAchievement(key: string) {
+    remove(ref(this.database, 'achievements/' + key));
+  }
+
+  getCertificates() {
+    return new Promise<CertificateElement[]>((resolve, reject) => {
+      onValue(ref(this.database, 'certificates'), (snapshot) => {
+        const databaseVal = snapshot.val();
+
+        let keys: string[] = [];
+        if (databaseVal) {
+          keys = Object.keys(databaseVal);
+
+          const c: CertificateElement[] = [];
+          for (let i = 0; i < keys.length; i++) {
+            const achievement: CertificateElement = {
+              index: i,
+              key: keys[i],
+              name: databaseVal[keys[i]].name,
+              url: databaseVal[keys[i]].url,
+              dateCreated: databaseVal[keys[i]].dateCreated
+            };
+
+            c.push(achievement);
+          }
+
+          resolve(c);
+        } else {
+          reject('Certificates not found!');
+        }
+      }, (error) => {
+        reject(error.message);
+      });
+    });
+  }
+
+  deleteCertificate(key: string) {
+    remove(ref(this.database, 'certificates/' + key));
+  }
+
+  updateCertificate(certificate: CertificateDetails, key: string) {
+    update(ref(this.database, 'certificates/' + key), certificate);
+  }
+
+  saveCertificate(certificate: CertificateDetails) {
+    push(ref(this.database, 'certificates'), certificate);
   }
 }

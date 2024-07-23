@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
 import { BlogElement } from 'src/shared/models/header/portfolio.dto';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
+import { showSnackBar } from 'src/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -26,17 +27,11 @@ export class BlogsComponent implements OnInit {
       .then((values) => {
         this.blogs = values;
       }).catch((error: Error) => {
-        this.snackbar.open(error.message, 'Ok',
-          {
-            horizontalPosition: horizontalPos,
-            verticalPosition: verticalPos,
-            duration: 5000
-          }
-        );
+        showSnackBar(error.message, this.snackbar);
       });
   }
 
-  handleClick(experienceDetails: {rowData: BlogElement, event: Event}) {
-    this.selectedRow = experienceDetails['rowData'];
+  handleClick(blogDetails: {rowData: BlogElement, event: Event}) {
+    this.selectedRow = blogDetails['rowData'];
   }
 }
