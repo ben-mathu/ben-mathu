@@ -15,21 +15,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
-      <mat-form-field class="full-width" appearance="outline">
-        <mat-label>{{ achievementUrlLabel }}</mat-label>
-        <input
-          matInput
-          type="text"
-          class="form-control"
-          placeholder="{{ achievementUrlLabel }}"
-          formControlName="url"
-          value="{{ selectedRow ? selectedRow.url : '' }}"
-        />
-      </mat-form-field>
-    </div>
-  </div>
-  <div class="row">
     <app-custom-textarea
       [label]="achievementDescriptionLabel"
       formControlName="text"

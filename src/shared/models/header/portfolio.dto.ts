@@ -35,7 +35,6 @@ export interface AchievementElement {
   index: number;
   key: string;
   name: string;
-  url: string;
   description: string;
   dateCreated: string;
 }

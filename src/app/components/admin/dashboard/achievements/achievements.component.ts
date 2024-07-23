@@ -12,7 +12,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class AchievementsComponent implements OnInit {
   achievements: AchievementElement[] = [];
-  selectedRow!: AchievementElement;
+  selectedRow?: AchievementElement;
   displayedColumns = ['index', 'name', 'url', 'dateCreated'];
 
   constructor (private breadcrumbService: BreadcrumbService, private firebaseService: FirebaseService, private snackbar: MatSnackBar) {}
@@ -30,6 +30,10 @@ export class AchievementsComponent implements OnInit {
   }
 
   handleClick(achievementDetails: {rowData: AchievementElement, event: Event}) {
-    this.selectedRow = achievementDetails['rowData'];
+    if (!this.selectedRow || achievementDetails['rowData'].index !== this.selectedRow.index) {
+      this.selectedRow = achievementDetails['rowData'];
+    } else {
+      this.selectedRow = undefined;
+    }
   }
 }

@@ -29,7 +29,6 @@ export class AddAchievementComponent implements OnInit {
 
     this.addAchievementForm = this.formBuilder.group({
       name: [this.selectedRow ? this.selectedRow.name : '', Validators.required],
-      url: [this.selectedRow ? this.selectedRow.url : '', Validators.required],
       text: [this.selectedRow ? this.selectedRow.description : '', Validators.required]
     });
   }
@@ -39,8 +38,7 @@ export class AddAchievementComponent implements OnInit {
   add() {
     try {
       const achievement: AchievementDetails = {
-        name: this.f['title'].value,
-        url: this.f['author'].value,
+        name: this.f['name'].value,
         description: this.f['text'].value,
         dateCreated: this.selectedRow ? this.selectedRow.dateCreated : formatDate(new Date()),
       }
@@ -49,7 +47,7 @@ export class AddAchievementComponent implements OnInit {
         this.firebaseService.updateAchievement(achievement, this.selectedRow.key);
       } else {
         this.firebaseService.saveAchievement(achievement);
-        this.router.navigate(['admin', 'dashboard', 'achievements'])
+        this.router.navigate(['admin', 'dashboard', 'achievements']);
       }
     } catch (error) {
       showSnackBar('All Fields are Required', this.snackBar);

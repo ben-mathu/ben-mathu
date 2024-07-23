@@ -26,7 +26,6 @@ export interface BlogDetails {
 
 export interface AchievementDetails {
   name: string;
-  url: string;
   description: string;
   dateCreated: string;
 }

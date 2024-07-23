@@ -17,7 +17,9 @@
   </div>
 
   <div>
-    @if (experience !== undefined) {
+    @if (experience !== undefined || certificate !== undefined || achievement !== undefined) {
+      <h3>Experience</h3>
+
       <mat-card *ngFor="let experience of experiences" class="card mb-2">
         <mat-card-header>
           <mat-card-title>{{experience.title}}</mat-card-title>
@@ -35,8 +37,32 @@
           Skills: <i class="badge text-bg-light me-1" *ngFor="let skill of experience.skills">{{skill}}</i>
         </mat-card-content>
       </mat-card>
+
+      <h3 *ngIf="certificates?.length! > 0">Certificate</h3>
+
+      <mat-card *ngFor="let certificate of certificates" class="card mb-2">
+        <mat-card-header>
+          <mat-card-title>{{certificate.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <a href="{{certificate.url}}" target="_blank">
+            <button mat-button>Go to Certificate</button>
+          </a>
+        </mat-card-content>
+      </mat-card>
+
+      <h3 *ngIf="achievements?.length! > 0">Achievement</h3>
+
+      <mat-card *ngFor="let achievement of achievements" class="card mb-2">
+        <mat-card-header>
+          <mat-card-title>{{achievement.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <markdown ngPreserveWhitespaces [data]="achievement.description"></markdown>
+        </mat-card-content>
+      </mat-card>
     }
-    
+
     @if (project !== undefined) {
       <h3>{{ project.projectName }}</h3>
       <i>{{ project.projectStatus }}</i>
