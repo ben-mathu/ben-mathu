@@ -37,8 +37,8 @@ export class AddCertificateComponent implements OnInit {
   add() {
     try {
       const certificate: CertificateDetails = {
-        name: this.f['title'].value,
-        url: this.f['author'].value,
+        name: this.f['name'].value,
+        url: this.f['url'].value,
         dateCreated: this.selectedRow ? this.selectedRow.dateCreated : formatDate(new Date()),
       }
 
@@ -49,6 +49,7 @@ export class AddCertificateComponent implements OnInit {
         this.router.navigate(['admin', 'dashboard', 'certificates'])
       }
     } catch (error) {
+
       showSnackBar('All Fields are Required', this.snackBar);
     }
   }

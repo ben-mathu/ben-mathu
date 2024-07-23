@@ -38,7 +38,7 @@ export class AddAchievementComponent implements OnInit {
   add() {
     try {
       const achievement: AchievementDetails = {
-        name: this.f['title'].value,
+        name: this.f['name'].value,
         description: this.f['text'].value,
         dateCreated: this.selectedRow ? this.selectedRow.dateCreated : formatDate(new Date()),
       }
