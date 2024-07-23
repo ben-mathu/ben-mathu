@@ -75,6 +75,28 @@
       </a>
     </mat-card-actions>
   </mat-card>
+
+  <mat-card *ngFor="let certificate of certificates" class="card{{genCertificateClassName[certificate.index]}}" [routerLink]="['blog', certificate.key]">
+    <mat-card-header>
+      <mat-card-title>{{certificate.name}}</mat-card-title>
+      <mat-card-subtitle><span class="badge text-bg-primary">Certificate</span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+      <a href="{{certificate.url}}" target="_blank">
+        <button mat-button>Go to Certificate</button>
+      </a>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card *ngFor="let achievement of achievements" class="card{{genAchievementClassName[achievement.index]}}" [routerLink]="['blog', achievement.key]">
+    <mat-card-header>
+      <mat-card-title>{{achievement.name}}</mat-card-title>
+      <mat-card-subtitle><span class="badge text-bg-primary">Achievement</span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <markdown ngPreserveWhitespaces [data]="achievement.description"></markdown>
+    </mat-card-content>
+  </mat-card>
 </div>
 
 <!-- <div *ngIf="numberOfProjects" class="card title-card">

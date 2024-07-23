@@ -2,7 +2,7 @@ import { FirebaseService } from '../../../../shared/services/firebase/firebase.s
 import { Component, OnInit } from '@angular/core';
 import { CardDetail } from 'src/shared/models/header/card_detail';
 import { MyDetails, Skill } from 'src/shared/models/header/header';
-import { ExperienceElement, ProjectElement } from 'src/shared/models/header/portfolio.dto';
+import { AchievementElement, CertificateElement, ExperienceElement, ProjectElement } from 'src/shared/models/header/portfolio.dto';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -13,12 +13,17 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 export class HomePageComponent implements OnInit {
 
   experiences: ExperienceElement[] = [];
+  projects: ProjectElement[] = [];
+  certificates: CertificateElement[] = [];
+  achievements: AchievementElement[] = [];
+
   yearsOfExperience?: number;
 
-  projects: ProjectElement[] = [];
   className: string[] = [' tall', ' wide', ' long', ' big'];
   genClassName: string[] = [];
   genProjectsClassName: string[] = [];
+  genCertificateClassName: string[] = [];
+  genAchievementClassName: string[] = [];
   numberOfProjects?: number;
 
   myDetails: MyDetails = new MyDetails();
@@ -152,6 +157,37 @@ export class HomePageComponent implements OnInit {
       }).catch((err: Error) => {
         // do nothing
       });
+
+    this.service.getCertificates()
+      .then((values) => {
+        this.certificates = values;
+
+        this.genCertificateClassName = [];
+        this.certificates.map((project) => {
+          const classStyleName = this.getClass();
+          this.genCertificateClassName.push(classStyleName);
+        });
+      });
+
+    this.service.getAchievements()
+      .then((values) => {
+        this.achievements = values;
+
+        this.genAchievementClassName = [];
+        this.achievements.map((achievement) => {
+          const classStyleName = this.getClass();
+          if (classStyleName === ' wide') {
+            achievement.description = achievement.description.substring(0, 130) + '...';
+          } else if (classStyleName === ' long') {
+            achievement.description = achievement.description.substring(0, 150) + '...';
+          } else if (classStyleName === ' big') {
+            achievement.description = achievement.description.substring(0, 500) + '...';
+          } else if (classStyleName === ' tall') {
+            achievement.description = achievement.description.substring(0, 110) + '...';
+          }
+          this.genAchievementClassName.push(classStyleName);
+        })
+      })
   }
 
   randomIntFromInterval(min: number, max: number) { // min and max included

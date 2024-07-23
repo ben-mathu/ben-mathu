@@ -197,7 +197,6 @@ export class FirebaseService {
               index: i,
               key: keys[i],
               name: databaseVal[keys[i]].name,
-              url: databaseVal[keys[i]].url,
               description: databaseVal[keys[i]].description,
               dateCreated: databaseVal[keys[i]].dateCreated
             };
