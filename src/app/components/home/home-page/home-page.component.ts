@@ -22,7 +22,6 @@ export class HomePageComponent implements OnInit {
   numberOfProjects?: number;
 
   myDetails: MyDetails = new MyDetails();
-  avatarImage: String = "https://lh3.googleusercontent.com/a/ACg8ocL5ZsD77c6dOJYmEf4p7qNyBDcGY4Ql3p8lBQlKSG7sLB0=s288-c-no";
 
   cardDetails: CardDetail[] = [
     {
