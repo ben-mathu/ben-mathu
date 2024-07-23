@@ -11,6 +11,7 @@ export class MyDetails implements DocumentData {
   cv_url: string = '';
   phone: string = '';
   email: string = '';
+  profile_pic: String = '';
 }
 
 export class Skill {
