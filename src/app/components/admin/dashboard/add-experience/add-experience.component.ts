@@ -1,7 +1,13 @@
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
-import { Database, getDatabase, push, ref, update } from '@angular/fire/database';
+import {
+  Database,
+  getDatabase,
+  push,
+  ref,
+  update,
+} from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExperienceElement } from 'src/shared/models/header/portfolio.dto';
 import { ExperienceDetails } from 'src/shared/models/header/portfolio.model';
@@ -9,11 +15,13 @@ import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { formatDate } from '@angular/common';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
+import { parseAndFormatDate, showSnackBar } from 'src/shared/utils/utils';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-experience',
   templateUrl: './add-experience.component.html',
-  styleUrl: './add-experience.component.scss'
+  styleUrl: './add-experience.component.scss',
 })
 export class AddExperienceComponent implements OnInit {
   @Input() selectedRow!: ExperienceElement;
@@ -30,52 +38,66 @@ export class AddExperienceComponent implements OnInit {
   companyLabel: string = 'Company';
   logoUrlLabel: string = 'Logo Url';
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService) {
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private firebaseService: FirebaseService,
+    private breadcrumbService: BreadcrumbService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {
     this.breadcrumbService.set('@AddExperience', 'Add Experience');
 
     this.addExperienceForm = this.formBuilder.group({
-      title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],
-      startDate: [this.selectedRow ? this.selectedRow.startDate : '', Validators.required],
-      endDate: [this.selectedRow ? this.selectedRow.endDate : '', Validators.required],
+      title: [
+        this.selectedRow ? this.selectedRow.title : '',
+        Validators.required,
+      ],
+      startDate: [
+        this.selectedRow ? this.selectedRow.startDate : '',
+        Validators.required,
+      ],
+      endDate: [
+        this.selectedRow ? this.selectedRow.endDate : '',
+        Validators.required,
+      ],
       text: [this.selectedRow ? this.selectedRow.description : ''],
-      company: [this.selectedRow ? this.selectedRow.company : '', Validators.required],
+      company: [
+        this.selectedRow ? this.selectedRow.company : '',
+        Validators.required,
+      ],
       skills: [''],
-      logoUrl: [this.selectedRow ? this.selectedRow.logoUrl : '']
+      logoUrl: [this.selectedRow ? this.selectedRow.logoUrl : ''],
     });
 
     this.skillList = this.selectedRow ? this.selectedRow.skills : [];
   }
 
-  get f() { return this.addExperienceForm.controls };
-
-  formatDate(date: string): string {
-    const options: Intl.DateTimeFormatOptions[] = [{year: "numeric"}, {month: "2-digit"}, {day: "2-digit"}];
-
-    return options.map((option) => {
-      const formatter = new Intl.DateTimeFormat('en', option);
-      return formatter.format(new Date(date));
-    }).join('-');
+  get f() {
+    return this.addExperienceForm.controls;
   }
 
   add() {
-    const experience: ExperienceDetails = {
-      title: this.f['title'].value,
-      startDate: this.formatDate(this.f['startDate'].value),
-      endDate: this.formatDate(this.f['endDate'].value),
-      description: this.f['text'].value,
-      company: this.f['company'].value,
-      skills: this.skillList,
-      logoUrl: this.f['logoUrl'].value
-    }
+    try {
+      const experience: ExperienceDetails = {
+        title: this.f['title'].value,
+        startDate: parseAndFormatDate(this.f['startDate'].value),
+        endDate: parseAndFormatDate(this.f['endDate'].value),
+        description: this.f['text'].value,
+        company: this.f['company'].value,
+        skills: this.skillList,
+        logoUrl: this.f['logoUrl'].value,
+      };
 
-    if (this.selectedRow) {
-      this.firebaseService.updateExperience(experience, this.selectedRow.key);
-    } else {
-      this.firebaseService.saveExperience(experience);
-      this.router.navigate(['admin', 'dashboard', 'experiences']);
+      if (this.selectedRow) {
+        this.firebaseService.updateExperience(experience, this.selectedRow.key);
+      } else {
+        this.firebaseService.saveExperience(experience);
+        this.router.navigate(['admin', 'dashboard', 'experiences']);
+      }
+    } catch (error) {
+      showSnackBar('All Fields are Required', this.snackBar);
     }
   }
 
@@ -100,7 +122,10 @@ export class AddExperienceComponent implements OnInit {
       this.skillList.push(value);
 
       this.f['skills'].setValue(' ');
-    } else if (inputEvent.inputType === 'deleteContentBackward' && value === '') {
+    } else if (
+      inputEvent.inputType === 'deleteContentBackward' &&
+      value === ''
+    ) {
       this.skillList.pop();
 
       if (this.skillList.length > 0) {
@@ -131,7 +156,9 @@ export class AddExperienceComponent implements OnInit {
       return;
     }
 
-    if (index > -1) {this.skillList[index] = changedValue}
+    if (index > -1) {
+      this.skillList[index] = changedValue;
+    }
   }
 
   drop(event: CdkDragDrop<string[]>) {

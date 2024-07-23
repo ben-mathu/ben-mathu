@@ -23,3 +23,16 @@ export interface BlogDetails {
   dateCreated: string;
   dateUpdated: string;
 }
+
+export interface AchievementDetails {
+  name: string;
+  url: string;
+  description: string;
+  dateCreated: string;
+}
+
+export interface CertificateDetails {
+  name: string;
+  url: string;
+  dateCreated: string;
+}
