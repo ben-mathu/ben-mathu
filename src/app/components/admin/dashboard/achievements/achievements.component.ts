@@ -24,6 +24,7 @@ export class AchievementsComponent implements OnInit {
       .then((values) => {
         this.achievements = values;
       }).catch((error: Error) => {
+        console.log(error.message);
         showSnackBar(error.message, this.snackbar);
       });
   }

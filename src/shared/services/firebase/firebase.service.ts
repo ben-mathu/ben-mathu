@@ -36,6 +36,8 @@ export class FirebaseService {
           }
 
           resolve(b);
+        } else {
+          reject(Error('No records forund in blogs'));
         }
       }, (error) => {
         reject(error.message);
@@ -205,7 +207,7 @@ export class FirebaseService {
 
           resolve(a);
         } else {
-          reject('Achievements not found!');
+          reject(Error('Achievements not found!'));
         }
       }, (error) => {
         reject(error.message);
@@ -249,7 +251,7 @@ export class FirebaseService {
 
           resolve(c);
         } else {
-          reject('Certificates not found!');
+          reject(Error('Certificates not found!'));
         }
       }, (error) => {
         reject(error.message);
