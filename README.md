@@ -21,7 +21,7 @@
 ---
 
 <div style="display: flex; flex-direction: row" align="center">
-  <img width="550" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300">
+  <img width="550" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true">
 
   <img width="300" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
 </div>
