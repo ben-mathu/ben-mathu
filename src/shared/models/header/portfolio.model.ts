@@ -1,6 +1,7 @@
 export interface ProjectDetail {
   projectName: string;
   url: string;
+  contentUrl: string;
   projectDescription: string;
   projectStatus: string
 }

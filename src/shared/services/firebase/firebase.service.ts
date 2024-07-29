@@ -106,6 +106,7 @@ export class FirebaseService {
             key: keys[i],
             projectName: databaseVal[keys[i]].projectName,
             url: databaseVal[keys[i]].url,
+            contentUrl: databaseVal[keys[i]].contentUrl,
             projectDescription: databaseVal[keys[i]].projectDescription,
             projectStatus: databaseVal[keys[i]].projectStatus ? databaseVal[keys[i]].projectStatus : ''
           }

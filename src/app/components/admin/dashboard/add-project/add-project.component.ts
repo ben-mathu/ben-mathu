@@ -60,7 +60,7 @@ export class AddProjectComponent implements OnInit {
         Validators.required,
       ],
       url: [this.selectedRow ? this.selectedRow.url : '', Validators.required],
-      contentUrl: ['', Validators.required],
+      contentUrl: [this.selectedRow ? this.selectedRow.contentUrl : '', Validators.required],
       projectStatus: [
         this.selectedRow ? this.selectedRow.projectStatus : '',
         Validators.required,
@@ -87,6 +87,7 @@ export class AddProjectComponent implements OnInit {
       const project: ProjectDetail = {
         projectName: this.f['projectName'].value,
         url: this.f['url'].value,
+        contentUrl: this.f['contentUrl'].value,
         projectDescription: this.f['text'].value === '' ? this.contentFromUrl : this.f['text'].value,
         projectStatus: this.selectedProjectStatus
           ? this.selectedProjectStatus
