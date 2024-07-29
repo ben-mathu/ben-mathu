@@ -3,6 +3,7 @@ export interface ProjectElement {
   key: string;
   projectName: string;
   url: string;
+  contentUrl: string;
   projectDescription: string;
   projectStatus: string;
 }

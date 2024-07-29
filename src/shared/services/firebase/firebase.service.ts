@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { child, Database, get, onValue, push, ref, remove, update } from '@angular/fire/database';
 import { AchievementDetails, BlogDetails, CertificateDetails, ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
 import { AchievementElement, BlogElement, CertificateElement, ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
-
-  constructor(private database: Database) {}
+  constructor(private database: Database, private http: HttpClient) {}
 
   getAllBlogs(): Promise<BlogElement[]> {
     return new Promise<BlogElement[]>((resolve, reject) => {
@@ -106,6 +106,7 @@ export class FirebaseService {
             key: keys[i],
             projectName: databaseVal[keys[i]].projectName,
             url: databaseVal[keys[i]].url,
+            contentUrl: databaseVal[keys[i]].contentUrl,
             projectDescription: databaseVal[keys[i]].projectDescription,
             projectStatus: databaseVal[keys[i]].projectStatus ? databaseVal[keys[i]].projectStatus : ''
           }
@@ -268,5 +269,17 @@ export class FirebaseService {
 
   saveCertificate(certificate: CertificateDetails) {
     push(ref(this.database, 'certificates'), certificate);
+  }
+
+  retrieveContent(url: string): Promise<string> {
+    return new Promise<string>(async (resolve, reject) => {
+      const options: Object = {
+        headers: new HttpHeaders({ 'Accept': 'text/plain' }),
+        responseType: 'text'
+      }
+
+      this.http.get<string>(url, options)
+        .subscribe(data => resolve(data))
+    });
   }
 }

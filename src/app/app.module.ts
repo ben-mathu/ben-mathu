@@ -23,6 +23,7 @@ import { HomeModule } from './components/home/home.module';
 import { AdminModule } from './components/admin/admin.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SharedModule,
     MatButtonModule,
     MarkdownModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     // ScreenTrackingService,UserTrackingService
