@@ -29,7 +29,9 @@ export class AddProjectComponent implements OnInit {
   urlLabel: string = 'URL';
   descriptionLabel: string = 'Description';
   statusLabel: string = 'Project Status';
+  contentUrlLabel: string = 'Content Description URL';
   textChanged: string = '';
+  contentFromUrl: string = '';
 
   projectStatuses: string[] = [
     'Completed',
@@ -58,6 +60,7 @@ export class AddProjectComponent implements OnInit {
         Validators.required,
       ],
       url: [this.selectedRow ? this.selectedRow.url : '', Validators.required],
+      contentUrl: ['', Validators.required],
       projectStatus: [
         this.selectedRow ? this.selectedRow.projectStatus : '',
         Validators.required,
@@ -79,11 +82,12 @@ export class AddProjectComponent implements OnInit {
   }
 
   add() {
+    console.log(this.f['text'].value);
     try {
       const project: ProjectDetail = {
         projectName: this.f['projectName'].value,
         url: this.f['url'].value,
-        projectDescription: this.f['text'].value,
+        projectDescription: this.f['text'].value === '' ? this.contentFromUrl : this.f['text'].value,
         projectStatus: this.selectedProjectStatus
           ? this.selectedProjectStatus
           : '',
@@ -102,5 +106,16 @@ export class AddProjectComponent implements OnInit {
 
   delete() {
     this.firebaseService.deleteProject(this.selectedRow.key);
+  }
+
+  retrieveContent() {
+    this.firebaseService.retrieveContent(this.f['contentUrl'].value)
+      .then((value) => {
+        if (!this.selectedRow) {
+          this.contentFromUrl = value;
+        } else if (this.selectedRow.projectDescription === '') {
+          this.contentFromUrl = value;
+        }
+      })
   }
 }

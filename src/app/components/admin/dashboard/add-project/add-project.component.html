@@ -28,10 +28,26 @@
     </div>
   </div>
   <div class="row">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ contentUrlLabel }}</mat-label>
+        <input
+          matInput
+          type="text"
+          class="form-control"
+          placeholder="{{ contentUrlLabel }}"
+          formControlName="contentUrl"
+          (input)="retrieveContent()"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
     <app-custom-textarea
       [label]="descriptionLabel"
       formControlName="text"
       [switchEditorToolbar]="true"
+      [_text]="contentFromUrl ? contentFromUrl : ''"
     ></app-custom-textarea>
   </div>
   <div class="row">

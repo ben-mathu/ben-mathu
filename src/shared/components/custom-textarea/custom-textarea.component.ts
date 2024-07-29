@@ -28,14 +28,18 @@ export class CustomTextareaComponent implements ControlValueAccessor {
   set text(val: string) {
     this._text = val;
     this.propagateChange(this._text);
+    console.log(val);
   }
 
-  propagateChange = (value: any) => {}
+  propagateChange = (value: any) => {
+    console.log(value);
+  }
 
   onTextChanged(event: Event) {
     this.text = (event.target as HTMLInputElement)?.value;
 
     this.numberOfRows = this.text.split('\n').length;
+    console.log(this.text);
   }
 
   writeValue(obj: any): void {
