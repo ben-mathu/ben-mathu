@@ -20,7 +20,7 @@
 
 ---
 
-<div style="display: flex; flex-direction: row; overflow-x: scroll" align="center">
+<p style="display: flex; flex-direction: row; overflow-x: scroll" align="center">
   <a href="https://ben-mathu.github.io/ben-mathu">
     <img width="600" height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true">
   </a>
@@ -28,7 +28,7 @@
   <a href="https://ben-mathu.github.io/ben-mathu">
     <img width="400" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
   </a>
-</div>
+</p>
 
 ---
 
