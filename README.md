@@ -21,9 +21,9 @@
 ---
 
 <div style="display: flex; flex-direction: row" align="center">
-  <img width="600" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300">
+  <img width="550" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300">
 
-  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
+  <img width="300" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
 </div>
 
 <!-- [![](https://visitcount.itsvg.in/api?id=ben-mathu&label=Profile%20Views&icon=8&pretty=true)](https://visitcount.itsvg.in) -->
