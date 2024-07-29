@@ -14,7 +14,6 @@
 
 ## My Stats
 
----
 <p align="center">
   <img alt="Streak Stats" src="https://github-readme-streak-stats.herokuapp.com/?user=ben-mathu&theme=tokyonight&hide_border=true&card_width=800">
 </p>
@@ -22,9 +21,9 @@
 ---
 
 <div style="display: flex; flex-direction: row" align="center">
-  <img src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300" width="500">
+  <img width="600" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300">
 
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut" width="350">
+  <img width="400" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
 </div>
 
 <!-- [![](https://visitcount.itsvg.in/api?id=ben-mathu&label=Profile%20Views&icon=8&pretty=true)](https://visitcount.itsvg.in) -->
