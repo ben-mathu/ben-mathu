@@ -14,15 +14,29 @@
 
 ## My Stats
 
-![](https://github-readme-streak-stats.herokuapp.com/?user=ben-mathu&theme=tokyonight&hide_border=false)<br/>
+---
+<p align="center">
+  <img alt="Streak Stats" src="https://github-readme-streak-stats.herokuapp.com/?user=ben-mathu&theme=tokyonight&hide_border=true&card_width=800">
+</p>
 
-<!-- [![My GitHub Stats](https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300)]() -->
+---
 
-<!-- [![My GitHub Language Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=7&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut)]() -->
+<div style="display: flex; flex-direction: row">
+  <img src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true&card_width=300" width="400">
+
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut" width="300">
+</div>
 
 <!-- [![](https://visitcount.itsvg.in/api?id=ben-mathu&label=Profile%20Views&icon=8&pretty=true)](https://visitcount.itsvg.in) -->
+---
 
-![](https://github-contributor-stats.vercel.app/api?username=ben-mathu&limit=5&theme=tokyonight&combine_all_yearly_contributions=true)
+<p align="center">
+  <img src="https://github-contributor-stats.vercel.app/api?username=ben-mathu&limit=5&theme=tokyonight&combine_all_yearly_contributions=true&hide_border=true&width=800">
+</p>
+
+<div id="header" align="end">
+  <img src="https://komarev.com/ghpvc/?username=ben-mathu&style=for-the-badge&color=blue" alt=""/>
+</div>
 
 <!--
 **ben-mathu/ben-mathu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
