@@ -26,16 +26,18 @@
   <img width="300" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
 </div>
 
-<!-- [![](https://visitcount.itsvg.in/api?id=ben-mathu&label=Profile%20Views&icon=8&pretty=true)](https://visitcount.itsvg.in) -->
 ---
 
 <p align="center">
   <img src="https://github-contributor-stats.vercel.app/api?username=ben-mathu&limit=5&theme=tokyonight&combine_all_yearly_contributions=true&hide_border=true&width=800">
 </p>
 
-<div id="header" align="end">
-  <img src="https://komarev.com/ghpvc/?username=ben-mathu&style=for-the-badge&color=blue" alt=""/>
-</div>
+<!-- <div align="end">
+  <p>
+    [![](https://visitcount.itsvg.in/api?id=ben-mathu&label=Profile%20Views&icon=8&pretty=true)](https://visitcount.itsvg.in)
+  </p>
+  <img src="https://komarev.com/ghpvc/?username=ben-mathu&style=for-the-badge&color=blue&base=1000000" alt=""/>
+</div> -->
 
 <!--
 **ben-mathu/ben-mathu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
