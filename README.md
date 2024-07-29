@@ -20,20 +20,16 @@
 
 ---
 
-<div style="display: flex; flex-direction: row;" align="center">
-  <a href="https://ben-mathu.github.io/ben-mathu">
-    <img width="600" height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=shadow_blue&show_icons=true&hide_border=true&layout=compact">
-  </a>
+<div style="display: flex; flex-direction: row; gap:1rem; justify-content: center" align="center">
+  <img height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=400">
 
-  <a href="https://ben-mathu.github.io/ben-mathu">
-    <img width="400" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=shadow_blue&show_icons=true&hide_border=true&card_width=300&layout=donut">
-  </a>
+  <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=200&layout=compact">
 </div>
 
 ---
 
 <p align="center">
-  <img src="https://github-contributor-stats.vercel.app/api?username=ben-mathu&limit=5&theme=tokyonight&combine_all_yearly_contributions=true&hide_border=true&width=800">
+  <img src="https://github-contributor-stats.vercel.app/api?username=ben-mathu&limit=5&theme=vision-friendly-dark&combine_all_yearly_contributions=true&hide_border=true&width=800">
 </p>
 
 <!-- <div align="end">
