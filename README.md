@@ -20,15 +20,15 @@
 
 ---
 
-<p style="display: flex; flex-direction: row; overflow-x: scroll" align="center">
+<div style="display: flex; flex-direction: row;" align="center">
   <a href="https://ben-mathu.github.io/ben-mathu">
-    <img width="600" height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=transparent&show_icons=true&hide_border=true">
+    <img width="600" height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=shadow_blue&show_icons=true&hide_border=true&layout=compact">
   </a>
 
   <a href="https://ben-mathu.github.io/ben-mathu">
-    <img width="400" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=transparent&show_icons=true&hide_border=true&card_width=300&layout=donut">
+    <img width="400" height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=shadow_blue&show_icons=true&hide_border=true&card_width=300&layout=donut">
   </a>
-</p>
+</div>
 
 ---
 
