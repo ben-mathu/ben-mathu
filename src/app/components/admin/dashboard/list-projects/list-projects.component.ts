@@ -20,9 +20,11 @@ export class ListProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.breadcrumbService.set('@Projects', 'Projects');
-    const horizontalPos: MatSnackBarHorizontalPosition = 'end';
-    const verticalPos: MatSnackBarVerticalPosition = 'bottom';
 
+    this.getProjects()
+  }
+
+  getProjects() {
     this.firebaseService.getAllProjects()
       .then((values) => {
         this.projects = values;
@@ -30,6 +32,11 @@ export class ListProjectsComponent implements OnInit {
       }).catch((error: Error) => {
         showSnackBar(error.message, this.snackbar);
       });
+  }
+
+  onDelete() {
+    this.getProjects();
+    this.selectedRow = undefined;
   }
 
   handleClick(projectDetails: {rowData: ProjectElement, event: Event}) {

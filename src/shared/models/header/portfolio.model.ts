@@ -2,6 +2,7 @@ export interface ProjectDetail {
   projectName: string;
   url: string;
   contentUrl: string;
+  type: string;
   projectDescription: string;
   projectStatus: string
 }

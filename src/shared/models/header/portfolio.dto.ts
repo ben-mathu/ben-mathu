@@ -4,6 +4,7 @@ export interface ProjectElement {
   projectName: string;
   url: string;
   contentUrl: string;
+  type: string;
   projectDescription: string;
   projectStatus: string;
 }

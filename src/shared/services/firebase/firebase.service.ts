@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { child, Database, get, onValue, push, ref, remove, update } from '@angular/fire/database';
+import { child, Database, get, onValue, push, ref, remove, set, update } from '@angular/fire/database';
 import { AchievementDetails, BlogDetails, CertificateDetails, ExperienceDetails, ProjectDetail } from '../../models/header/portfolio.model';
 import { AchievementElement, BlogElement, CertificateElement, ExperienceElement, ProjectElement } from '../../models/header/portfolio.dto';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -78,6 +78,10 @@ export class FirebaseService {
     update(ref(this.database, 'projects/' + key), project);
   }
 
+  updateProjectDescription(key: string, value: string) {
+    set(ref(this.database, 'projects/' + key + '/projectDescription'), value);
+  }
+
   deleteProject(key: string) {
     remove(ref(this.database, 'projects/' + key));
   }
@@ -107,6 +111,7 @@ export class FirebaseService {
             projectName: databaseVal[keys[i]].projectName,
             url: databaseVal[keys[i]].url,
             contentUrl: databaseVal[keys[i]].contentUrl,
+            type: databaseVal[keys[i]].type,
             projectDescription: databaseVal[keys[i]].projectDescription,
             projectStatus: databaseVal[keys[i]].projectStatus ? databaseVal[keys[i]].projectStatus : ''
           }

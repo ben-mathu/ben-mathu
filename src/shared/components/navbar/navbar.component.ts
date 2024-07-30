@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
   @Input() headerData!:  MyDetails;
   @Input() isAuth: boolean = false;
   @Input() isDashboard: boolean = false;
@@ -19,18 +19,11 @@ export class NavbarComponent implements OnInit {
     this.auth = getAuth();
   }
 
-  ngOnInit(): void {
-  }
-
   logout() {
     signOut(this.auth).then(() => {
       this.router.navigate(['admin', 'login']);
     }).catch((err) => {
       console.log(err);
-    })
-  }
-
-  onClick(event: MouseEvent) {
-    console.log(event);
+    });
   }
 }
