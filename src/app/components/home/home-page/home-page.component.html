@@ -55,7 +55,7 @@
   <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}" [routerLink]="['blog', project.key]">
     <mat-card-header>
       <mat-card-title>{{project.projectName}}</mat-card-title>
-      <mat-card-subtitle><span class="badge text-bg-primary">Project</span></mat-card-subtitle>
+      <mat-card-subtitle><span class="badge text-bg-primary">{{ project.type }}</span></mat-card-subtitle>
       <!-- <mat-card-subtitle>
         {{project.company}}
         <br />
@@ -98,22 +98,3 @@
     </mat-card-content>
   </mat-card>
 </div>
-
-<!-- <div *ngIf="numberOfProjects" class="card title-card">
-  <blockquote class="blockquote mb-0 card-body">
-    <h4>{{numberOfProjects}}</h4>
-    <p>Projects</p>
-  </blockquote>
-</div> -->
-
-<div class="d-flex flex-wrap justify-content-evenly">
-
-</div>
-<!-- <div class="d-flex flex-wrap justify-content-center">
-  <card
-    class="col-3 m-3"
-    *ngFor="let item of cardDetails"
-    [cardDetail]="item"
-  ></card>
-</div> -->
-<!-- End of home-container -->

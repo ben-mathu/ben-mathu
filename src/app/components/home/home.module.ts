@@ -12,6 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MarkdownModule } from 'ngx-markdown';
 import { BlogComponent } from './blog/blog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatButtonModule,
     MatCardModule,
     MarkdownModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
   ]
 })
 export class HomeModule { }

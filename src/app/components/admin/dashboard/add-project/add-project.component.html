@@ -1,4 +1,4 @@
-<form [formGroup]="addProjectForm" (ngSubmit)="(add)" class="mt-1 form-wrapper">
+<form [formGroup]="addProjectForm" (ngSubmit)="add()" class="mt-1 form-wrapper">
   <div class="row">
     <div class="col">
       <mat-form-field class="full-width" appearance="outline">
@@ -37,6 +37,7 @@
           class="form-control"
           placeholder="{{ contentUrlLabel }}"
           formControlName="contentUrl"
+          value="{{ selectedRow ? selectedRow.contentUrl : '' }}"
           (input)="retrieveContent()"
         />
       </mat-form-field>
@@ -47,40 +48,72 @@
       [label]="descriptionLabel"
       formControlName="text"
       [switchEditorToolbar]="true"
-      [_text]="contentFromUrl ? contentFromUrl : ''"
+      [text]="selectedRow ? selectedRow.projectDescription : ''"
     ></app-custom-textarea>
   </div>
-  <div class="row">
-    <mat-form-field class="example-full-width" appearance="outline">
-      <mat-label>{{ statusLabel }}</mat-label>
-      <mat-chip-grid #chipGrid>
-        <mat-chip-row
-          *ngIf="
-            (selectedRow && selectedRow.projectStatus != '') ||
-            selectedProjectStatus
-          "
-        >
-          {{ selectedProjectStatus }}
-        </mat-chip-row>
+  <div class="row d-flex justify-content-between">
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ statusLabel }}</mat-label>
+        <mat-chip-grid #chipGridStatus>
+          <mat-chip-row
+            *ngIf="
+              (selectedRow && selectedRow.projectStatus != '') ||
+              selectedProjectStatus
+            "
+          >
+            {{ selectedProjectStatus }}
+          </mat-chip-row>
 
-        <input
-          type="text"
-          placeholder="{{ statusLabel }}"
-          [matChipInputFor]="chipGrid"
-          formControlName="projectStatus"
-          [matAutocomplete]="auto"
-        />
-      </mat-chip-grid>
-      <mat-autocomplete
-        autoActiveFirstOption
-        #auto="matAutocomplete"
-        (optionSelected)="selectedStatus($event)"
-      >
-        <mat-option *ngFor="let status of projectStatuses" [value]="status">{{
-          status
-        }}</mat-option>
-      </mat-autocomplete>
-    </mat-form-field>
+          <input
+            type="text"
+            placeholder="{{ statusLabel }}"
+            [matChipInputFor]="chipGridStatus"
+            formControlName="projectStatus"
+            [matAutocomplete]="autoStatus"
+          />
+        </mat-chip-grid>
+        <mat-autocomplete
+          autoActiveFirstOption
+          #autoStatus="matAutocomplete"
+          (optionSelected)="selectedStatus($event)"
+        >
+          <mat-option *ngFor="let status of projectStatuses" [value]="status">{{
+            status
+          }}</mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <div class="col">
+      <mat-form-field class="full-width" appearance="outline">
+        <mat-label>{{ typeLabel }}</mat-label>
+        <mat-chip-grid #chipGridType>
+          <mat-chip-row
+            *ngIf="(selectedRow && selectedRow.type != '') || selectedProjectType"
+          >
+            {{ selectedProjectType }}
+          </mat-chip-row>
+
+          <input
+            type="text"
+            placeholder="{{ typeLabel }}"
+            [matChipInputFor]="chipGridType"
+            formControlName="type"
+            [matAutocomplete]="autoType"
+          />
+        </mat-chip-grid>
+
+        <mat-autocomplete
+            autoActiveFirstOption
+            #autoType="matAutocomplete"
+            (optionSelected)="selectedType($event)"
+          >
+            <mat-option *ngFor="let type of projectTypes" [value]="type">
+              {{ type }}
+            </mat-option>
+          </mat-autocomplete>
+      </mat-form-field>
+    </div>
   </div>
   <div class="d-flex">
     <button
@@ -88,7 +121,6 @@
       class="btn btn-primary"
       color="primary"
       type="submit"
-      (click)="add()"
     >
       Save
     </button>

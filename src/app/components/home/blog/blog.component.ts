@@ -78,7 +78,6 @@ export class BlogComponent implements OnInit {
 
       try {
         this.certificates = await this.service.getCertificates();
-        console.log(this.certificates);
         this.setCertificate(id);
       } catch (error) {
         showSnackBar('certificates not found', this.snackbar);

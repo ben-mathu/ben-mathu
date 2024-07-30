@@ -27,5 +27,5 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="handleClick({rowData: row, event: $event})"></tr>
     </table>
   </div>
-  <app-add-project *ngIf="selectedRow" [selectedRow]="selectedRow" class="col"></app-add-project>
+  <app-add-project *ngIf="selectedRow" [selectedRow]="selectedRow" (onDelete)="onDelete()" class="col"></app-add-project>
 </div>
