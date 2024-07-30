@@ -69,14 +69,13 @@ blockquote {
   color: rgba(255,255,255,0.54);
 }
 
-markdown p:has(> img) {
-  width: fit-content;
+markdown span:has(> img) img {
   background: #ffffff;
   padding: 5px;
   border-radius: 8px;
   transition: .2s ease, -webkit-transform .3s ease;
 }
 
-markdown p:has(> img):hover {
+markdown span:has(> img) img:hover {
   box-shadow: 0 4px 8px rgba(0,0,0, .4);
 }
