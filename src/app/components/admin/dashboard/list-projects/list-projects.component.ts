@@ -3,34 +3,45 @@ import { Database, getDatabase, onValue, ref } from '@angular/fire/database';
 import { ProjectElement } from 'src/shared/models/header/portfolio.dto';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
-import { showSnackBar } from 'src/shared/utils/utils';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import { Utils } from 'src/shared/utils/utils';
 
 @Component({
   selector: 'app-list-projects',
   templateUrl: './list-projects.component.html',
-  styleUrl: './list-projects.component.scss'
+  styleUrl: './list-projects.component.scss',
 })
 export class ListProjectsComponent implements OnInit {
   projects: ProjectElement[] = [];
   displayedColumns: string[] = ['index', 'projectName', 'url'];
   selectedRow?: ProjectElement;
 
-  constructor(private breadcrumbService: BreadcrumbService, private firebaseService: FirebaseService, private snackbar: MatSnackBar) {}
+  constructor(
+    private breadcrumbService: BreadcrumbService,
+    private firebaseService: FirebaseService,
+    private snackbar: MatSnackBar,
+    private util: Utils
+  ) {}
 
   ngOnInit(): void {
     this.breadcrumbService.set('@Projects', 'Projects');
 
-    this.getProjects()
+    this.getProjects();
   }
 
   getProjects() {
-    this.firebaseService.getAllProjects()
+    this.firebaseService
+      .getAllProjects()
       .then((values) => {
         this.projects = values;
         this.displayedColumns.push('projectDescription');
-      }).catch((error: Error) => {
-        showSnackBar(error.message, this.snackbar);
+      })
+      .catch((error: Error) => {
+        this.util.showSnackBar(error.message, this.snackbar);
       });
   }
 
@@ -39,8 +50,11 @@ export class ListProjectsComponent implements OnInit {
     this.selectedRow = undefined;
   }
 
-  handleClick(projectDetails: {rowData: ProjectElement, event: Event}) {
-    if (!this.selectedRow || projectDetails['rowData'].index !== this.selectedRow.index) {
+  handleClick(projectDetails: { rowData: ProjectElement; event: Event }) {
+    if (
+      !this.selectedRow ||
+      projectDetails['rowData'].index !== this.selectedRow.index
+    ) {
       this.selectedRow = projectDetails['rowData'];
       this.displayedColumns = this.displayedColumns.filter((item) => {
         return item !== 'projectDescription';

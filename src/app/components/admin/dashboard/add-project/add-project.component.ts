@@ -6,7 +6,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ProjectElement } from 'src/shared/models/header/portfolio.dto';
 import { ProjectDetail } from 'src/shared/models/header/portfolio.model';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { showSnackBar } from 'src/shared/utils/utils';
+import { Utils } from 'src/shared/utils/utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -75,7 +75,8 @@ export class AddProjectComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private firebaseService: FirebaseService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private util: Utils
   ) {}
 
   ngOnInit(): void {
@@ -132,14 +133,14 @@ export class AddProjectComponent implements OnInit {
 
       if (this.selectedRow) {
         this.firebaseService.updateProject(project, this.selectedRow.key);
-        showSnackBar('Successfully updated', this.snackBar);
+        this.util.showSnackBar('Successfully updated', this.snackBar);
       } else {
         this.firebaseService.saveProject(project);
         this.router.navigate(['admin', 'dashboard', 'projects']);
-        showSnackBar('Successfully saved', this.snackBar);
+        this.util.showSnackBar('Successfully saved', this.snackBar);
       }
     } catch (error) {
-      showSnackBar('All Fields are Required', this.snackBar);
+      this.util.showSnackBar('All Fields are Required', this.snackBar);
       console.log(error);
     }
   }

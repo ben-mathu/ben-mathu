@@ -15,7 +15,7 @@ import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { formatDate } from '@angular/common';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { parseAndFormatDate, showSnackBar } from 'src/shared/utils/utils';
+import { Utils } from 'src/shared/utils/utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -43,7 +43,8 @@ export class AddExperienceComponent implements OnInit {
     private router: Router,
     private firebaseService: FirebaseService,
     private breadcrumbService: BreadcrumbService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private util: Utils
   ) {}
 
   ngOnInit(): void {
@@ -82,8 +83,8 @@ export class AddExperienceComponent implements OnInit {
     try {
       const experience: ExperienceDetails = {
         title: this.f['title'].value,
-        startDate: parseAndFormatDate(this.f['startDate'].value),
-        endDate: parseAndFormatDate(this.f['endDate'].value),
+        startDate: this.util.parseAndFormatDate(this.f['startDate'].value),
+        endDate: this.util.parseAndFormatDate(this.f['endDate'].value),
         description: this.f['text'].value,
         company: this.f['company'].value,
         skills: this.skillList,
@@ -97,7 +98,7 @@ export class AddExperienceComponent implements OnInit {
         this.router.navigate(['admin', 'dashboard', 'experiences']);
       }
     } catch (error) {
-      showSnackBar('All Fields are Required', this.snackBar);
+      this.util.showSnackBar('All Fields are Required', this.snackBar);
     }
   }
 

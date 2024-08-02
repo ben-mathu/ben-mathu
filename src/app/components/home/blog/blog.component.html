@@ -1,9 +1,9 @@
 <div class="container">
   <div id="carouselExampleInterval" class="carousel slide w-100 rounded bg-dark p-2 mb-1" data-bs-ride="carousel">
     <div class="carousel-inner w-100">
-      <div class="carousel-item {{ i === 0 ? 'active' : '' }}" *ngFor="let blog of blogList; index as i" [routerLink]="['../../', 'blog', blog.get('key')]" (click)="searchForBlog(blog?.get('key'))">
-        <span class="d-block w-100 text-secondary fs-6">{{ blog.get('title')?.split(':')![0]}}</span>
-        <span class="d-block w-100">{{ blog.get('title')?.split(':')![1]}}</span>
+      <div class="carousel-item {{ i === 0 ? 'active' : '' }}" *ngFor="let article of articleCarousel; index as i" (click)="searchForBlog(article.key)">
+        <span class="d-block w-100 text-secondary fs-6">{{ article.type }}</span>
+        <span class="d-block w-100">{{ article.title }}</span>
       </div>
     </div>
     <button class="carousel-control-prev rounded" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -16,90 +16,108 @@
     </button>
   </div>
 
-  <div>
-    @if (experience !== undefined || certificate !== undefined || achievement !== undefined) {
-      <h3>Experience</h3>
-
-      <mat-card *ngFor="let experience of experiences" class="card mb-2">
-        <mat-card-header>
-          <mat-card-title>{{experience.title}}</mat-card-title>
-          <mat-card-subtitle>
-            {{experience.company}}
-            <br />
-            <br />
-            <i>{{experience.startDate}}-{{experience.endDate}}</i>
-          </mat-card-subtitle>
-          <img mat-card-sm-image src="{{experience.logoUrl}}" class="logo-image" />
-        </mat-card-header>
-        <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
-        <mat-card-content>
-          <markdown ngPreserveWhitespaces [data]="experience.description"></markdown>
-          Skills: <i class="badge text-bg-light me-1" *ngFor="let skill of experience.skills">{{skill}}</i>
-        </mat-card-content>
-      </mat-card>
-
-      <h3 *ngIf="certificates?.length! > 0">Certificate</h3>
-
-      <mat-card *ngFor="let certificate of certificates" class="card mb-2">
-        <mat-card-header>
-          <mat-card-title>{{certificate.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <a href="{{certificate.url}}" target="_blank">
-            <button mat-button>Go to Certificate</button>
-          </a>
-        </mat-card-content>
-      </mat-card>
-
-      <h3 *ngIf="achievements?.length! > 0">Achievement</h3>
-
-      <mat-card *ngFor="let achievement of achievements" class="card mb-2">
-        <mat-card-header>
-          <mat-card-title>{{achievement.name}}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <markdown ngPreserveWhitespaces [data]="achievement.description"></markdown>
-        </mat-card-content>
-      </mat-card>
-    }
-
-    @if (project !== undefined) {
-      <div class="d-flex justify-content-between align-items-center">
-        <h3>{{ project.projectName }}</h3>
-        <div class="d-flex badge text-bg-primary h-auto justify-content-center align-items-center fs-6 fw-bold">
-          <mat-icon class="h-auto">construction</mat-icon>
-          <span>{{ project.type }}</span>
-        </div>
+  <div class="d-flex flex-row">
+    @if (project !== undefined || article !== undefined) {
+      <div class="me-3 w-25 p-3">
+        <ul class="list-unstyled ps-0 white">
+          <li class="mb-1" *ngFor="let category of articleMap | keyvalue;">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light-emphasis" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+              {{ utils.capitalize(category.key) }}
+            </button>
+            <div class="collapse show" id="home-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none rounded" *ngFor="let articles of category.value | keyvalue">{{ articles.value.get('title') }}</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
       </div>
-      <i>{{ project.projectStatus }}</i>
-      <markdown ngPreserveWhitespaces [data]="project.projectDescription"></markdown>
-      <a href="{{project.url}}" target="_blank">
-        <button mat-button>Go to Project</button>
-      </a>
     }
+    <div class="col">
+      @if (experience !== undefined || certificate !== undefined || achievement !== undefined) {
+        <h3>Experience</h3>
 
-    @if (article !== undefined) {
-      <h3>{{ article.title }}</h3>
-      <i>{{ article.dateCreated + '|' + article.dateUpdated }}</i>
-      <markdown ngPreserveWhitespaces [data]="article.blog"></markdown>
-
-      <div class="d-flex flex-row">
-        <mat-card class="card mb-2">
+        <mat-card *ngFor="let experience of experiences" class="card mb-2">
           <mat-card-header>
-            <mat-card-title>{{article.title}}</mat-card-title>
+            <mat-card-title>{{experience.title}}</mat-card-title>
             <mat-card-subtitle>
-              {{article.author}}
+              {{experience.company}}
               <br />
               <br />
-              <i>{{ article.dateCreated + '|' + article.dateUpdated }}</i>
+              <i>{{experience.startDate}}-{{experience.endDate}}</i>
             </mat-card-subtitle>
+            <img mat-card-sm-image src="{{experience.logoUrl}}" class="logo-image" />
           </mat-card-header>
+          <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
           <mat-card-content>
-            <markdown ngPreserveWhitespaces [data]="article.blog.substring(0, 250) + '...'">
-            </markdown>
+            <markdown ngPreserveWhitespaces [data]="experience.description"></markdown>
+            Skills: <i class="badge text-bg-light me-1" *ngFor="let skill of experience.skills">{{skill}}</i>
           </mat-card-content>
         </mat-card>
-      </div>
-    }
+
+        <h3 *ngIf="certificates?.length! > 0">Certificate</h3>
+
+        <mat-card *ngFor="let certificate of certificates" class="card mb-2">
+          <mat-card-header>
+            <mat-card-title>{{certificate.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <a href="{{certificate.url}}" target="_blank">
+              <button mat-button>Go to Certificate</button>
+            </a>
+          </mat-card-content>
+        </mat-card>
+
+        <h3 *ngIf="achievements?.length! > 0">Achievement</h3>
+
+        <mat-card *ngFor="let achievement of achievements" class="card mb-2">
+          <mat-card-header>
+            <mat-card-title>{{achievement.name}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <markdown ngPreserveWhitespaces [data]="achievement.description"></markdown>
+          </mat-card-content>
+        </mat-card>
+      }
+
+      @if (project !== undefined) {
+        <div class="d-flex justify-content-between align-items-center">
+          <h3>{{ project.projectName }}</h3>
+          <div class="d-flex badge text-bg-primary h-auto justify-content-center align-items-center fs-6 fw-bold">
+            <mat-icon class="h-auto">construction</mat-icon>
+            <span>{{ project.type }}</span>
+          </div>
+        </div>
+        <i>{{ project.projectStatus }}</i>
+        <markdown ngPreserveWhitespaces [data]="project.projectDescription"></markdown>
+        <a href="{{project.url}}" target="_blank">
+          <button mat-button>Go to Project</button>
+        </a>
+      }
+
+      @if (article !== undefined) {
+        <h3>{{ article.title }}</h3>
+        <i>{{ article.dateCreated + '|' + article.dateUpdated }}</i>
+        <markdown ngPreserveWhitespaces [data]="article.blog"></markdown>
+
+        <div class="d-flex flex-row">
+          <mat-card class="card mb-2">
+            <mat-card-header>
+              <mat-card-title>{{article.title}}</mat-card-title>
+              <mat-card-subtitle>
+                {{article.author}}
+                <br />
+                <br />
+                <i>{{ article.dateCreated + '|' + article.dateUpdated }}</i>
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <markdown ngPreserveWhitespaces [data]="article.blog.substring(0, 250) + '...'">
+              </markdown>
+            </mat-card-content>
+          </mat-card>
+        </div>
+      }
+    </div>
   </div>
 </div>

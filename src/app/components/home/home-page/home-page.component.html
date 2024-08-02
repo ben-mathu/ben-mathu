@@ -33,7 +33,7 @@
 </div> -->
 
 <div class="grid-wrapper">
-  <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}" [routerLink]="['blog', experience.key]">
+  <mat-card *ngFor="let experience of experiences" class="card{{genClassName[experience.index]}}" [routerLink]="['article', experience.key]">
     <mat-card-header>
       <mat-card-title>{{experience.title}}</mat-card-title>
       <mat-card-subtitle>
@@ -52,7 +52,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}" [routerLink]="['blog', project.key]">
+  <mat-card *ngFor="let project of projects" class="card{{genProjectsClassName[project.index]}}" [routerLink]="['article', project.key]">
     <mat-card-header>
       <mat-card-title>{{project.projectName}}</mat-card-title>
       <mat-card-subtitle><span class="badge text-bg-primary">{{ project.type }}</span></mat-card-subtitle>
@@ -76,7 +76,7 @@
     </mat-card-actions>
   </mat-card>
 
-  <mat-card *ngFor="let certificate of certificates" class="card{{genCertificateClassName[certificate.index]}}" [routerLink]="['blog', certificate.key]">
+  <mat-card *ngFor="let certificate of certificates" class="card{{genCertificateClassName[certificate.index]}}" [routerLink]="['article', certificate.key]">
     <mat-card-header>
       <mat-card-title>{{certificate.name}}</mat-card-title>
       <mat-card-subtitle><span class="badge text-bg-primary">Certificate</span></mat-card-subtitle>
@@ -88,7 +88,7 @@
     </mat-card-actions>
   </mat-card>
 
-  <mat-card *ngFor="let achievement of achievements" class="card{{genAchievementClassName[achievement.index]}}" [routerLink]="['blog', achievement.key]">
+  <mat-card *ngFor="let achievement of achievements" class="card{{genAchievementClassName[achievement.index]}}" [routerLink]="['article', achievement.key]">
     <mat-card-header>
       <mat-card-title>{{achievement.name}}</mat-card-title>
       <mat-card-subtitle><span class="badge text-bg-primary">Achievement</span></mat-card-subtitle>

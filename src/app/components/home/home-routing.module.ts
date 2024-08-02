@@ -33,9 +33,9 @@ const routes: Routes = [
         data: { breadcrumb: { alias: 'About' } },
       },
       {
-        path: 'blog/:id',
+        path: 'article/:id',
         component: BlogComponent,
-        data: { breadcrumb: { alias: 'Blog' } },
+        data: { breadcrumb: { alias: 'Article' } },
       }
     ]
   },

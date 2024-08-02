@@ -7,59 +7,81 @@ import { Router } from '@angular/router';
 import { BlogElement } from 'src/shared/models/header/portfolio.dto';
 import { BlogDetails } from 'src/shared/models/header/portfolio.model';
 import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { formatDate, showSnackBar } from 'src/shared/utils/utils';
+import { Utils } from 'src/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-add-blog',
   templateUrl: './add-blog.component.html',
-  styleUrl: './add-blog.component.scss'
+  styleUrl: './add-blog.component.scss',
 })
 export class AddBlogComponent implements OnInit {
   @Input() selectedRow!: BlogElement;
 
-  blogTitleLabel: string = "Article";
-  blogAuthorLabel: string = "Author";
-  blogTextLabel: string = "Blog";
-  tagsLabel: string = "Tags";
+  blogTitleLabel: string = 'Article';
+  blogAuthorLabel: string = 'Author';
+  blogTextLabel: string = 'Blog';
+  tagsLabel: string = 'Tags';
   addBlogForm!: FormGroup;
 
   tags: string[] = [];
 
-  constructor(private firebaseService: FirebaseService, private breadcrumbService: BreadcrumbService, private formBuilder: FormBuilder, private router: Router, private snackBar: MatSnackBar) {}
+  constructor(
+    private firebaseService: FirebaseService,
+    private breadcrumbService: BreadcrumbService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private util: Utils
+  ) {}
 
   ngOnInit(): void {
-    this.breadcrumbService.set("@AddBlog", "Add Blog");
+    this.breadcrumbService.set('@AddBlog', 'Add Blog');
 
     this.addBlogForm = this.formBuilder.group({
-      title: [this.selectedRow ? this.selectedRow.title : '', Validators.required],
-      author: [this.selectedRow ? this.selectedRow.author : '', Validators.required],
-      text: [this.selectedRow ? this.selectedRow.blog : '', Validators.required],
-      tags: ['']
+      title: [
+        this.selectedRow ? this.selectedRow.title : '',
+        Validators.required,
+      ],
+      author: [
+        this.selectedRow ? this.selectedRow.author : '',
+        Validators.required,
+      ],
+      text: [
+        this.selectedRow ? this.selectedRow.blog : '',
+        Validators.required,
+      ],
+      tags: [''],
     });
 
     this.tags = this.selectedRow ? this.selectedRow.tags : [];
   }
 
-  get f() { return this.addBlogForm.controls };
+  get f() {
+    return this.addBlogForm.controls;
+  }
 
   add() {
-    try{const blog: BlogDetails = {
-      title: this.f['title'].value,
-      author: this.f['author'].value,
-      blog: this.f['text'].value,
-      tags: this.tags,
-      dateCreated: this.selectedRow ? this.selectedRow.dateCreated : formatDate(new Date()),
-      dateUpdated: formatDate(new Date())
-    }
+    try {
+      const blog: BlogDetails = {
+        title: this.f['title'].value,
+        author: this.f['author'].value,
+        blog: this.f['text'].value,
+        tags: this.tags,
+        dateCreated: this.selectedRow
+          ? this.selectedRow.dateCreated
+          : this.util.formatDate(new Date()),
+        dateUpdated: this.util.formatDate(new Date()),
+      };
 
-    if (this.selectedRow) {
-      this.firebaseService.updateBlog(blog, this.selectedRow.key);
-    } else {
-      this.firebaseService.saveBlog(blog);
-      this.router.navigate(['admin', 'dashboard', 'blogs']);
-    }} catch (error) {
-      showSnackBar('All Fields are Required', this.snackBar);
+      if (this.selectedRow) {
+        this.firebaseService.updateBlog(blog, this.selectedRow.key);
+      } else {
+        this.firebaseService.saveBlog(blog);
+        this.router.navigate(['admin', 'dashboard', 'blogs']);
+      }
+    } catch (error) {
+      this.util.showSnackBar('All Fields are Required', this.snackBar);
     }
   }
 
@@ -76,7 +98,9 @@ export class AddBlogComponent implements OnInit {
       return;
     }
 
-    if (index > -1) {this.tags[index] = changedValue}
+    if (index > -1) {
+      this.tags[index] = changedValue;
+    }
   }
 
   remove(tag: string) {
@@ -105,7 +129,10 @@ export class AddBlogComponent implements OnInit {
       this.tags.push(value);
 
       this.f['tags'].setValue(' ');
-    } else if (inputEvent.inputType === 'deleteContentBackward' && value === '') {
+    } else if (
+      inputEvent.inputType === 'deleteContentBackward' &&
+      value === ''
+    ) {
       this.tags.pop();
 
       if (this.tags.length > 0) {
