@@ -1,27 +1,32 @@
 <div class="container">
-  <div id="carouselExampleInterval" class="carousel slide w-100 rounded bg-dark p-2 mb-1" data-bs-ride="carousel">
-    <div class="carousel-inner w-100">
-      <div class="carousel-item {{ i === 0 ? 'active' : '' }}" *ngFor="let article of articleCarousel; index as i" (click)="searchForBlog(article.key)">
-        <span class="d-block w-100 text-secondary fs-6">{{ article.type }}</span>
-        <span class="d-block w-100">{{ article.title }}</span>
+  <div class="carousel-container">
+    <div class="slide-container">
+      <div class="slide" [@slideInOut]="getSlideAnimation(i)" *ngFor="let article of carouselDeque; index as i" [routerLink]="['../../', 'article', article.key]">
+        <span class="">{{ article.type }}</span>
+        <span class="">{{ article.title }}</span>
       </div>
     </div>
-    <button class="carousel-control-prev rounded" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
   </div>
+
+  <button mat-icon-button style="color: black" type="button" (click)="previousSlide()">
+    <span>
+      <mat-icon>chevron_left</mat-icon>
+    </span>
+    <!-- <span class="visually-hidden">Previous</span> -->
+  </button>
+  <button mat-icon-button style="color: black" type="button" (click)="nextSlide()">
+    <span>
+      <mat-icon>chevron_right</mat-icon>
+    </span>
+    <!-- <span class="visually-hidden">Next</span> -->
+  </button>
 
   <div class="d-flex flex-row">
     @if (project !== undefined || article !== undefined) {
-      <div class="me-3 w-25 p-3">
+      <div class="me-3 w-25 p-3"><!-- Side nav for projects, Tools and articles -->
         <ul class="list-unstyled ps-0 white">
           <li class="mb-1" *ngFor="let category of articleMap | keyvalue;">
-            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light-emphasis" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-light-emphasis">
               {{ utils.capitalize(category.key) }}
             </button>
             <div class="collapse show" id="home-collapse">

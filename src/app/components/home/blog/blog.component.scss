@@ -1,22 +1,32 @@
 @import "/assets/styles/variables";
 
-.carousel-item {
-  cursor: pointer;
+.carousel-container {
+  width: 100%;
+  // overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: cyan;
 }
 
-.carousel-control-prev, .carousel-control-next {
-  width: 2%;
-  right: 10px;
+.slide-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
-.carousel-control-prev {
-  left: auto;
-  right: 40px;
+.slide {
+  display: flex;
+  flex-direction: column;
+  // width: 100%;
+  position: relative;
+  flex: 0 0 100%;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .card {
-  background-color: #1b242979;
-  color: $fontColor;
 
   mat-card-header {
     display: flex;

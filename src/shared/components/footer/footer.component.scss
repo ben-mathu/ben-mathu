@@ -34,12 +34,7 @@
       align-items: center;
       gap: 10px;
       text-decoration: none;
-      color: white;
       font-weight: 700;
-    }
-
-    mat-icon {
-      color: $primaryColor;
     }
   }
 }
@@ -69,7 +64,6 @@ ul {
   width: 30px;
   height: 30px;
   padding: 8px;
-  background-color: $backgroundColorTransparent;
   border-radius: 5px;
   text-decoration: none;
 }

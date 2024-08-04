@@ -15,6 +15,8 @@ export class NavbarComponent {
   @Input() isDashboard: boolean = false;
   auth: Auth;
 
+  collapse: boolean = false;
+
   constructor(private router: Router) {
     this.auth = getAuth();
   }
@@ -25,5 +27,9 @@ export class NavbarComponent {
     }).catch((err) => {
       console.log(err);
     });
+  }
+
+  toggleSocialButtons() {
+    this.collapse = !this.collapse;
   }
 }

@@ -1,26 +1,49 @@
 @import "/assets/styles/variables";
 
-.navbar-nav {
+mat-toolbar {
   display: flex;
   flex-direction: row;
+  margin-right: 30px;
 }
 
-a {
-  text-decoration: none;
-  color: white;
+.navbar-spacer {
+  flex: 1 1 auto;
+}
 
-  .social-icons {
-    width: 20px;
-    height: 20px;
-  }
+.navbar-toggler {
+  display: none;
 }
 
 xng-breadcrumb {
   font-size: small;
 }
 
-mat-icon {
-  color: white;
+@media (max-width: 599px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .collapse {
+    display: none;
+  }
+
+  .xng-breadcrumb {
+    display: none;
+  }
+}
+
+mat-list {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  text-decoration: none;
+
+  .social-icons {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .socials {

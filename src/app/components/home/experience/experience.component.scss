@@ -13,8 +13,6 @@
 
     display: flex;
     cursor: pointer;
-    background-color: #1b242979;
-    color: $fontColor;
     transition: .2s ease, -webkit-transform .3s ease;
 
     img {
@@ -39,7 +37,6 @@
 
   .card:hover {
     z-index: 1;
-    background-color: #13191d79;
     box-shadow: 0 4px 8px rgba(0,0,0, .4);
   }
 }

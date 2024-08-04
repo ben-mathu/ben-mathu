@@ -13,6 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { BlogComponent } from './blog/blog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { MatIconModule } from '@angular/material/icon';
     MarkdownModule,
     MatSnackBarModule,
     MatIconModule,
+    MatChipsModule
   ]
 })
 export class HomeModule { }

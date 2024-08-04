@@ -1,8 +1,7 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import {
   MatSnackBar,
-  MatSnackBarHorizontalPosition,
-  MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import {
@@ -31,6 +30,26 @@ interface Article {
     {
       provide: Utils
     }
+  ],
+  animations: [
+    trigger('slideInOut', [
+      state('left', style({ transform: 'translateX(-100%)'})),
+      state('center', style({ transform: 'translateX(0)'})),
+      state('right', style({ transform: 'translateX(100%)'})),
+      transition('* => *', animate('800ms ease-in-out'))
+      // transition(':enter', [
+      //   style({ tranform: 'translateX({{ direction }}%)' }),
+      //   animate('400ms ease-in', style({ transform: 'translateX(0%)' }))
+      // ])
+      // state('void', style({ transform: 'translateX(100%)' })),
+      // transition(':enter', [
+      //   style({ transform: 'translateX(-100%)' }),
+      //   animate('0.5s ease-in-out', style({ transform: 'translateX(0)'}))
+      // ]),
+      // transition(':leave', [
+      //   animate('.5s ease-in-out', style({ transform: 'translateX(100%)' }))
+      // ])
+    ])
   ]
 })
 export class BlogComponent implements OnInit {
@@ -51,8 +70,13 @@ export class BlogComponent implements OnInit {
 
   articleMap: Map<string, Map<string, Map<string, string>>> = new Map();
   articleCarousel: Article[] = [];
+  carouselDeque: Article[] = [];
+  indexDeque: number[] = [];
 
   utils: Utils;
+
+  currentIndex = 0;
+  prevIndex = 0;
 
   constructor(
     private breadcrumbService: BreadcrumbService,
@@ -68,6 +92,7 @@ export class BlogComponent implements OnInit {
     this.breadcrumbService.set('@Article', 'Article');
     this.activatedRoute.params.subscribe(async (params) => {
       let id = params['id'];
+      this.articleCarousel = [];
 
       try {
         this.experiences = await this.service.getAllExperiences();
@@ -122,13 +147,13 @@ export class BlogComponent implements OnInit {
     if (key === Constants.PROJECT || key === Constants.ARTICLE) {
       let articles = this.articleMap.get(key);
 
-      let articleById!: Map<string, string>;
+      let articleById!: Map<string, string> | undefined;
 
       if (!articles) {
         articles = new Map<string, Map<string, string>>();
         articleById = new Map<string, string>();
       } else {
-        let articleById = articles.get(articleId)
+        articleById = articles.get(articleId)
 
         if (!articleById) {
           articleById = new Map<string, string>();
@@ -148,22 +173,9 @@ export class BlogComponent implements OnInit {
       type: type
     }
     this.articleCarousel.push(a);
-  }
 
-  searchForBlog(id?: string): void {
-    this.articleCarousel = [];
-    if (id) {
-      this.setExperience(id);
-
-      this.setProject(id);
-
-      this.setBlog(id);
-
-      this.setAchievement(id);
-
-      this.setCertificate(id);
-    } else {
-      this.utils.showSnackBar('Article not found', this.snackbar);
+    if (this.carouselDeque.length <= 2) {
+      this.carouselDeque.push(a);
     }
   }
 
@@ -290,5 +302,25 @@ export class BlogComponent implements OnInit {
         Constants.EXPERIENCE
       );
     });
+  }
+
+  getSlideAnimation(index: number) {
+    if (index === this.currentIndex - 1) {
+      return 'left';
+    } else if (index === this.currentIndex) {
+      return 'center';
+    } else if (index === (this.currentIndex + 1) % this.carouselDeque.length) {
+      return 'right';
+    } else {
+      return 'left';
+    }
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.carouselDeque.length;
+  }
+
+  previousSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.carouselDeque.length) % this.carouselDeque.length;
   }
 }

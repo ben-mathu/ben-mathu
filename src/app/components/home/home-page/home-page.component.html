@@ -1,4 +1,4 @@
-<div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+<div class="jumbotron p-3 p-md-5 text-white rounded">
   <div class="d-flex flex-wrap flex-row">
     <div class="my-avatar mr-3">
       <img src="{{ myDetails.profile_pic }}" />
@@ -48,7 +48,7 @@
     <mat-card-content>
       <markdown ngPreserveWhitespaces [data]="experience.description">
       </markdown>
-      Skills: <i class="badge text-bg-light me-1" *ngFor="let skill of experience.skills">{{skill}}</i>
+      Skills: <mat-chip *ngFor="let skill of experience.skills">{{skill}}</mat-chip>
     </mat-card-content>
   </mat-card>
 

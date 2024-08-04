@@ -1,11 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/pink-bluegrey.css";
-@import "variables";
+@use "themes/light";
+@use "variables" as var;
 
 html, body {
   height: 100%;
-  color: $fontColor;
-  background-color: $backgroundColor;
+  // background-color: var.$backgroundColor;
   font-family: 'Work Sans';
   margin: 0px;
 
@@ -44,14 +43,12 @@ html, body {
 }
 
 .sub-titles {
-  color: $primaryColor;
   text-transform: uppercase;
   font-weight: 700;
 }
 
 .form-wrapper {
   padding: 10px;
-  background-color: $surfaceColor;
   border-radius: 8px;
 }
 
@@ -66,11 +63,10 @@ html, body {
 blockquote {
   border-left: 3px solid rgba(255,255,255,0.21);
   padding-left: 12px;
-  color: rgba(255,255,255,0.54);
+  // color: rgba(255,255,255,0.54);
 }
 
 markdown span:has(> img) img {
-  background: #ffffff;
   padding: 5px;
   border-radius: 8px;
   transition: .2s ease, -webkit-transform .3s ease;
@@ -78,4 +74,14 @@ markdown span:has(> img) img {
 
 markdown span:has(> img) img:hover {
   box-shadow: 0 4px 8px rgba(0,0,0, .4);
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-mdc-standard-chip {
+  border-radius: 3px;
 }

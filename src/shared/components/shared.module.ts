@@ -15,6 +15,8 @@ import { CustomTextareaComponent } from './custom-textarea/custom-textarea.compo
 import { RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MarkdownModule } from 'ngx-markdown';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   exports: [
@@ -43,7 +45,9 @@ import { MarkdownModule } from 'ngx-markdown';
     RouterModule,
     MatTabsModule,
     MatButtonModule,
-    MarkdownModule
+    MarkdownModule,
+    MatToolbarModule,
+    MatListModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
