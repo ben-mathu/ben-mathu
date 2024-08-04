@@ -23,39 +23,33 @@ import { HomeModule } from './components/home/home.module';
 import { AdminModule } from './components/admin/admin.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    PageNotFoundComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HomeModule,
-    AdminModule,
-    MatIconModule,
-    MatTabsModule,
-    MatCardModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAnalytics(() => getAnalytics()),
-    provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
-    FirestoreModule,
-    BreadcrumbModule,
-    MatIconModule,
-    MatProgressBarModule,
-    SharedModule,
-    MatButtonModule,
-    MarkdownModule.forRoot(),
-    BrowserAnimationsModule,
-    HttpClientModule
-  ],
-  providers: [
-    // ScreenTrackingService,UserTrackingService
-    { provide: APP_BASE_HREF, useValue: environment.baseUrl }
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        PageNotFoundComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        HomeModule,
+        AdminModule,
+        MatIconModule,
+        MatTabsModule,
+        MatCardModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAnalytics(() => getAnalytics()),
+        provideDatabase(() => getDatabase()),
+        provideFirestore(() => getFirestore()),
+        FirestoreModule,
+        BreadcrumbModule,
+        MatIconModule,
+        MatProgressBarModule,
+        SharedModule,
+        MatButtonModule,
+        MarkdownModule.forRoot(),
+        BrowserAnimationsModule], providers: [
+        // ScreenTrackingService,UserTrackingService
+        { provide: APP_BASE_HREF, useValue: environment.baseUrl },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
