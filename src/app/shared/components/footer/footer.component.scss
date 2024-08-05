@@ -15,27 +15,19 @@
 
     .link-sections {
       margin: 30px;
+      text-decoration: none;
     }
   }
 }
 
 .info-links {
-  width: 270px;
+  width: 300px;
 
-  li {
+  button {
     width: 100%;
-    border: 1px solid var.$borderColor;
-    border-radius: 10px;
-
-    a {
-      padding: 10px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 700;
-    }
+    padding: 10px;
+    font-weight: 700;
+    justify-content: start;
   }
 }
 

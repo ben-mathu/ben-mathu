@@ -1,7 +1,8 @@
 {
   "watch": [
     "icons",
-    "src/assets/icons"
+    "src/assets/icons",
+    "angular.json"
   ],
   "ext": "sh, svg"
 }

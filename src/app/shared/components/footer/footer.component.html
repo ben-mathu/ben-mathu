@@ -17,26 +17,26 @@
     <div class="information link-sections">
       <div class="info-title sub-titles">Information</div>
       <div class="info-links">
-        <ul>
-          <li>
-            <a *ngIf="myDetails !== undefined" href="{{ myDetails.cv_url }}" target="_blank">
+        <mat-list>
+          <a mat-list-item *ngIf="myDetails !== undefined" href="{{ myDetails.cv_url }}" target="_blank">
+            <button mat-stroked-button>
               <mat-icon>description</mat-icon>
-              <span>CV</span>
-            </a>
-          </li>
-          <li>
-            <a *ngIf="myDetails !== undefined" href="#">
+              <span class="info-label">CV</span>
+            </button>
+          </a>
+          <a mat-list-item *ngIf="myDetails !== undefined" href="#">
+            <button mat-stroked-button>
               <mat-icon>phone</mat-icon>
-              <span>{{ myDetails.phone }}</span>
-            </a>
-          </li>
-          <li>
-            <a *ngIf="myDetails !== undefined" href="mailto:{{myDetails.email}}">
+              <span class="info-label">{{ myDetails.phone }}</span>
+            </button>
+          </a>
+          <a mat-list-item *ngIf="myDetails !== undefined" href="mailto:{{myDetails.email}}">
+            <button mat-stroked-button>
               <mat-icon>email</mat-icon>
-              <span>{{ myDetails.email }}</span>
-            </a>
-          </li>
-        </ul>
+              <span class="info-label">{{ myDetails.email }}</span>
+            </button>
+          </a>
+        </mat-list>
       </div>
     </div>
     <!-- <div class="projects link-sections">

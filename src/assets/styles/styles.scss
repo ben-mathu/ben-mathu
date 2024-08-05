@@ -12,10 +12,6 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-
-    .full-width{
-      width: 100%;
-    }
   }
 }
 
@@ -74,16 +70,6 @@ markdown span:has(> img) img {
 
 markdown span:has(> img) img:hover {
   box-shadow: 0 4px 8px rgba(0,0,0, .4);
-}
-
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mat-mdc-standard-chip {
-  border-radius: 3px;
 }
 
 .social-icons {
