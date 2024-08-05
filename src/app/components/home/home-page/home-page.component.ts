@@ -1,8 +1,8 @@
-import { FirebaseService } from '../../../../shared/services/firebase/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { CardDetail } from 'src/shared/models/header/card_detail';
-import { MyDetails, Skill } from 'src/shared/models/header/header';
-import { AchievementElement, CertificateElement, ExperienceElement, ProjectElement } from 'src/shared/models/header/portfolio.dto';
+import { CardDetail } from 'src/app/shared/models/header/card_detail';
+import { MyDetails, Skill } from 'src/app/shared/models/header/header';
+import { AchievementElement, CertificateElement, ExperienceElement, ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ExperienceElement, ProjectElement } from 'src/shared/models/header/portfolio.dto';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
+import { ExperienceElement, ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

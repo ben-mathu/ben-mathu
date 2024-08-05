@@ -1,9 +1,10 @@
-import { MyDetails } from 'src/shared/models/header/header';
-import { FirebaseService } from '../shared/services/firebase/firebase.service';
+import { MyDetails } from 'src/app/shared/models/header/header';
+import { FirebaseService } from './shared/services/firebase/firebase.service';
 import { Component, OnInit } from '@angular/core';
 import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { IconService } from './shared/services/icon/icon.service';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements OnInit {
   /**
    * Location - to get path/url
    */
-  constructor(private service: FirebaseService, private location: Location, private router: Router) {
+  constructor(private service: FirebaseService, private location: Location, private router: Router, iconsService: IconService) {
     this.auth = getAuth();
 
     this.locationEvent$ = location.onUrlChange((val) => {
@@ -33,6 +34,8 @@ export class AppComponent implements OnInit {
         this.isDashboard = false;
       }
     });
+
+    iconsService.registerIcons();
   }
 
   ngOnInit() {

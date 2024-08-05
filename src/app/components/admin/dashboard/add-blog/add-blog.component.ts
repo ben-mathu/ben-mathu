@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { BlogElement } from 'src/shared/models/header/portfolio.dto';
-import { BlogDetails } from 'src/shared/models/header/portfolio.model';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+import { BlogElement } from 'src/app/shared/models/header/portfolio.dto';
+import { BlogDetails } from 'src/app/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

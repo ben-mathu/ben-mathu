@@ -1,4 +1,4 @@
-@import "/assets/styles/variables";
+@use "../../../../assets/styles/variables" as var;
 
 .my-avatar {
   max-width: 270px;
@@ -27,7 +27,7 @@
   }
 
   .description {
-    border: 1px solid $borderColor;
+    border: 1px solid var.$borderColor;
     line-height: 25px;
     border-radius: 10px;
     font-size: 14px;

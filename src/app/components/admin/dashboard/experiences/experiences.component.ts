@@ -1,13 +1,13 @@
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
 import { Component, OnInit } from '@angular/core';
-import { ExperienceElement } from 'src/shared/models/header/portfolio.dto';
+import { ExperienceElement } from 'src/app/shared/models/header/portfolio.dto';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-import { Utils } from 'src/shared/utils/utils';
+import { Utils } from 'src/app/shared/utils/utils';
 
 @Component({
   selector: 'app-experiences',

@@ -1,9 +1,15 @@
 {
   "name": "ben-mathu",
   "version": "2.9.4",
+  "engines": {
+    "node": ">=18.19",
+    "npm": "10.7.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:dev": "nodemon -x 'sh ./icons/serialize.sh && ng serve --live-reload'",
+    "start:open": "nodemon -x 'sh ./icons/serialize.sh && ng serve --open --live-reload'",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "deploy": "ng deploy --base-href=https://ben-mathu.github.io/ben-mathu/ --no-silent",
@@ -44,6 +50,8 @@
     "karma-coverage": "~2.1.0",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "nodemon": "^3.1.4",
+    "npm-run-all": "^4.1.5",
     "typescript": "~5.5.4",
     "yargs": "^17.7.1"
   }

@@ -1,4 +1,4 @@
-import { MyDetails } from 'src/shared/models/header/header';
+import { MyDetails } from 'src/app/shared/models/header/header';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({

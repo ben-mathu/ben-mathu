@@ -1,0 +1,7 @@
+{
+  "watch": [
+    "icons",
+    "src/assets/icons"
+  ],
+  "ext": "sh, svg"
+}

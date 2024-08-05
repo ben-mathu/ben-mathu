@@ -10,10 +10,10 @@ import {
   CertificateElement,
   ExperienceElement,
   ProjectElement,
-} from 'src/shared/models/header/portfolio.dto';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Constants } from 'src/shared/utils/constants';
-import { Utils } from 'src/shared/utils/utils';
+} from 'src/app/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Constants } from 'src/app/shared/utils/constants';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 interface Article {

@@ -7,9 +7,9 @@ import {
 import {
   AchievementElement,
   CertificateElement,
-} from 'src/shared/models/header/portfolio.dto';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+} from 'src/app/shared/models/header/portfolio.dto';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

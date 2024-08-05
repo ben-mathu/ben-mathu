@@ -5,13 +5,13 @@ import { Router } from '@angular/router';
 import {
   AchievementElement,
   CertificateElement,
-} from 'src/shared/models/header/portfolio.dto';
+} from 'src/app/shared/models/header/portfolio.dto';
 import {
   AchievementDetails,
   CertificateDetails,
-} from 'src/shared/models/header/portfolio.model';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+} from 'src/app/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

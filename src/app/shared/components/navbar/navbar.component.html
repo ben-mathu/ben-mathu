@@ -1,0 +1,23 @@
+<mat-toolbar>
+  <div class="navbar-brand">
+    <button mat-button [routerLink]="['/']">Home</button>
+  </div>
+
+  <span class="navbar-spacer"></span>
+
+  <button mat-raised-button class="btn btn-primary logout" color="primary" (click)="logout()">Logout</button>
+
+  <div class="socials {{ collapse ? '' :'collapse'}}" id="navbarNavDropdown">
+    <app-social-icons></app-social-icons>
+  </div>
+
+  <button mat-icon-button class="navbar-toggler" type="button" (click)="toggleSocialButtons()">
+    <span class="material-symbols-rounded">
+      <mat-icon>menu</mat-icon>
+    </span>
+  </button>
+
+  <!-- <a class="link-button sub-titles" routerLink="./portfolio" routerLinkActive="active">Portfolio</a>
+  <a class="link-button sub-titles" routerLink="./about" routerLinkActive="active">About</a>
+  <a class="link-button sub-titles" routerLink="./contacts" routerLinkActive="active">Contacts</a> -->
+</mat-toolbar>

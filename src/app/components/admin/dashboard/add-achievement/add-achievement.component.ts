@@ -2,10 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { AchievementElement } from 'src/shared/models/header/portfolio.dto';
-import { AchievementDetails } from 'src/shared/models/header/portfolio.model';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+import { AchievementElement } from 'src/app/shared/models/header/portfolio.dto';
+import { AchievementDetails } from 'src/app/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({

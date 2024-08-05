@@ -9,13 +9,13 @@ import {
   update,
 } from '@angular/fire/database';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ExperienceElement } from 'src/shared/models/header/portfolio.dto';
-import { ExperienceDetails } from 'src/shared/models/header/portfolio.model';
+import { ExperienceElement } from 'src/app/shared/models/header/portfolio.dto';
+import { ExperienceDetails } from 'src/app/shared/models/header/portfolio.model';
 import { MatChipEditedEvent } from '@angular/material/chips';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { formatDate } from '@angular/common';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

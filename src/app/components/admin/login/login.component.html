@@ -1,6 +1,6 @@
 <div class="container">
   <div class="form-wrapper">
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
       <div class="mb-3">
         <mat-form-field class="input-text-field" appearance="outline">
           <mat-label>Email</mat-label>
@@ -20,7 +20,7 @@
         <!-- <label for="exampleInputPassword1" class="form-label">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1"> -->
       </div>
-      <button mat-raised-button class="btn btn-primary login" color="primary" (click)="loginUser()">Login</button>
+      <button mat-raised-button class="btn btn-primary login" color="primary" type="submit">Login</button>
     </form>
   </div>
 </div>

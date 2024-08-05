@@ -3,10 +3,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ProjectElement } from 'src/shared/models/header/portfolio.dto';
-import { ProjectDetail } from 'src/shared/models/header/portfolio.model';
-import { FirebaseService } from 'src/shared/services/firebase/firebase.service';
-import { Utils } from 'src/shared/utils/utils';
+import { ProjectElement } from 'src/app/shared/models/header/portfolio.dto';
+import { ProjectDetail } from 'src/app/shared/models/header/portfolio.model';
+import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
