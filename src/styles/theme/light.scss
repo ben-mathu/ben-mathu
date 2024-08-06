@@ -3,9 +3,55 @@
 
 @include mat.core();
 
-$my-app-primary: mat.m2-define-palette(mat.$m2-blue-palette);
-$my-app-accent: mat.m2-define-palette(mat.$m2-blue-palette, A200, A100, A400);
-$my-app-warn: mat.m2-define-palette(mat.$m2-blue-palette);
+$cutom-palette: (
+  50: #061218,
+  100: #111D23,
+  200: #263238,
+  300: #3C494F,
+  400: #546067,
+  500: #6C7980,
+  600: #86939A,
+  700: #A0ADB5,
+  800: #BBC8D0,
+  900: #D7E4EC,
+  A100: #5bb9ff,
+  A200: #28a3ff,
+  A400: #008bf4,
+  A700: #007dda,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: white,
+  )
+);
+
+$custom-error-palette: (
+  50: #ffeae9,
+  100: #ffccc8,
+  200: #ffaaa4,
+  300: #ff8780,
+  400: #ff6e64,
+  500: #ff5449,
+  600: #ff4d42,
+  700: #ff4339,
+  800: #ff3a31,
+  900: #ff2921,
+  A100: #ffffff,
+  A200: #ffffff,
+  A400: #ffd2d0,
+  A700: #ffb9b7,
+  contrast: (
+    A100: #ffffff,
+    A200: #ffffff,
+    A400: #ffd2d0,
+    A700: #ffb9b7,
+  ),
+);
+
+$my-app-primary: mat.m2-define-palette($cutom-palette, A400, A700);
+$my-app-accent: mat.m2-define-palette($cutom-palette, A200);
+$my-app-warn: mat.m2-define-palette($custom-error-palette);
 
 $my-app-theme: mat.m2-define-light-theme(
   (
