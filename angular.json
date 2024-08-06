@@ -36,7 +36,12 @@
               "src/404.html"
             ],
             "styles": [
-              "src/assets/styles/styles.scss"
+              "src/styles/styles.scss",
+              {
+                "input": "src/styles/themes/_dark.scss",
+                "bundleName": "dark",
+                "inject": false
+              }
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js"
@@ -106,9 +111,7 @@
               "src/.nojekyll"
             ],
             "styles": [
-              "assets/styles.scss",
-              "assets/app-theme.scss",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "styles/styles.scss"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
