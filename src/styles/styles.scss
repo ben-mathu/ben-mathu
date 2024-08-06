@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-@use "themes/light";
+@use "@angular/material" as mat;
+
+@use "theme/light";
 @use "variables" as var;
+
+@include mat.all-component-themes(light.$my-app-theme);
 
 html, body {
   height: 100%;

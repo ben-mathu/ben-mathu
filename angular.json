@@ -38,7 +38,7 @@
             "styles": [
               "src/styles/styles.scss",
               {
-                "input": "src/styles/themes/_dark.scss",
+                "input": "src/styles/theme/dark.scss",
                 "bundleName": "dark",
                 "inject": false
               }

@@ -1,10 +1,11 @@
 import { MyDetails } from 'src/app/shared/models/header/header';
 import { FirebaseService } from './shared/services/firebase/firebase.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IconService } from './shared/services/icon/icon.service';
+import { ThemeManagerService } from './shared/services/theme/theme-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,9 @@ import { IconService } from './shared/services/icon/icon.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+  themeManager: ThemeManagerService = inject(ThemeManagerService);
+
   myDetails!: MyDetails;
   isAuth: boolean = false;
   auth: Auth;
@@ -23,7 +27,12 @@ export class AppComponent implements OnInit {
   /**
    * Location - to get path/url
    */
-  constructor(private service: FirebaseService, private location: Location, private router: Router, iconsService: IconService) {
+  constructor(
+    private service: FirebaseService,
+    private location: Location,
+    private router: Router,
+    iconsService: IconService
+  ) {
     this.auth = getAuth();
 
     this.locationEvent$ = location.onUrlChange((val) => {
