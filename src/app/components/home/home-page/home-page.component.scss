@@ -1,8 +1,14 @@
 @use "../../../../styles/variables" as var;
 
+.about-me {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .my-avatar {
-  max-width: 270px;
-  max-height: 270px;
+  max-width: 300px;
+  max-height: 300px;
   border: 1px solid #3b4f58;
   border-radius: 15px;
   overflow: hidden;
@@ -15,7 +21,7 @@
 }
 
 .my-description {
-  max-width: 60%;
+  max-width: 75%;
 
   .name {
     font-size: 25px;
