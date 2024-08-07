@@ -14,6 +14,7 @@ import { BlogComponent } from './blog/blog.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { MatChipsModule } from '@angular/material/chips';
     MarkdownModule,
     MatSnackBarModule,
     MatIconModule,
-    MatChipsModule
+    MatChipsModule,
+    MatGridListModule
   ]
 })
 export class HomeModule { }

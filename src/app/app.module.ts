@@ -31,6 +31,7 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],

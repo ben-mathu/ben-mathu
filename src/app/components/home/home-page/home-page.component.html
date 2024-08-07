@@ -1,24 +1,22 @@
-<div>
-  <div class="about-me">
-    <div class="my-avatar">
-      <img src="{{ myDetails.profile_pic }}" />
-    </div>
-    <div class="my-description">
-      <span class="name">{{ myDetails.name }}</span>
-      <span class="headline">{{ myDetails.headline }}</span>
-      <span class="description p-2 mt-2 font-weight-light">{{
-        myDetails.description
-      }}</span>
+<div class="about-me">
+  <div class="my-avatar">
+    <img src="{{ myDetails.profile_pic }}" />
+  </div>
+  <div class="my-description">
+    <span class="name">{{ myDetails.name }}</span>
+    <span class="headline">{{ myDetails.headline }}</span>
+    <span class="description p-2 mt-2 font-weight-light">{{
+      myDetails.description
+    }}</span>
 
-      <div class="skills-section d-flex flex-column my-2">
-        <div class="skills-title">Skills</div>
-        <div class="row d-flex flex-wrap">
-          <skill-rating
-            class="skill col-sm-6 d-flex flex-row flex-wrap"
-            *ngFor="let item of myDetails.skillArr"
-            [myInfo]="item"
-          ></skill-rating>
-        </div>
+    <div class="skills-section">
+      <div class="skills-title">Skills</div>
+      <div class="row d-flex flex-wrap">
+        <skill-rating
+          class="skill col-sm-6 d-flex flex-row flex-wrap"
+          *ngFor="let item of myDetails.skillArr"
+          [myInfo]="item"
+        ></skill-rating>
       </div>
     </div>
   </div>
@@ -42,13 +40,13 @@
         <br />
         <i>{{experience.startDate}}-{{experience.endDate}}</i>
       </mat-card-subtitle>
-      <img mat-card-sm-image src="{{experience.logoUrl}}" class="logo-image" />
+      <img mat-card-sm-image *ngIf="experience.logoUrl" src="{{experience.logoUrl}}" class="logo-image" />
     </mat-card-header>
     <img mat-card-image src="{{experience.image}}" *ngIf="experience.image" />
     <mat-card-content>
       <markdown ngPreserveWhitespaces [data]="experience.description">
       </markdown>
-      Skills: <mat-chip *ngFor="let skill of experience.skills">{{skill}}</mat-chip>
+      <span class="skill-content">Skills: <mat-chip *ngFor="let skill of experience.skills">{{skill}}</mat-chip></span>
     </mat-card-content>
   </mat-card>
 

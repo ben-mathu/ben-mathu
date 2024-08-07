@@ -32,7 +32,6 @@ export class ThemeManagerService {
   isDark: boolean = preferredTheme() === 'dark' ? true : false;
 
   constructor() {
-    console.log("Setting theme.")
 
     this.setTheme();
     this.watchThemeChanges();
@@ -46,13 +45,9 @@ export class ThemeManagerService {
       const href = 'dark.css';
       getLinkElementForKey(key).setAttribute('href', href);
       document.body.classList.add(key);
-
-      console.log('Dark theme was set');
     } else {
       this.removeStyle('dark');
       document.body.classList.remove('dark');
-
-      console.log('Dark theme was set');
     }
   }
 
