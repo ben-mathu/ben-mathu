@@ -4,8 +4,6 @@
 @use "theme/light";
 @use "variables" as var;
 
-@include mat.all-component-themes(light.$my-app-theme);
-
 html, body {
   height: 100%;
   font-family: 'Work Sans';
