@@ -1,4 +1,4 @@
-<span [routerLink]="['admin']"></span>
+<button mat-button class="den" [routerLink]="['admin']"></button>
 <navbar [headerData]="myDetails" [isAuth]="isAuth" [isDashboard]="isDashboard"></navbar>
 <div class="site-container">
   <app-sidenav *ngIf="isAuth && isDashboard" [url]="url"></app-sidenav>
