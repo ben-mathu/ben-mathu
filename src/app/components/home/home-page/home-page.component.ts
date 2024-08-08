@@ -135,7 +135,7 @@ export class HomePageComponent implements OnInit {
               experience.description.substring(0, 150) + '...';
           } else if (classStyleName === ' big') {
             experience.description =
-              experience.description.substring(0, 500) + '...';
+              experience.description.substring(0, 420) + '...';
           } else if (classStyleName === ' tall') {
             experience.description =
               experience.description.substring(0, 100) + '...';

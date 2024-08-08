@@ -38,13 +38,6 @@
 </div>
 <!-- End of header-section -->
 
-<!-- <div *ngIf="yearsOfExperience" class="card title-card">
-  <blockquote class="blockquote mb-0 card-body">
-    <h4>{{yearsOfExperience}}</h4>
-    <p>Years of Experience</p>
-  </blockquote>
-</div> -->
-
 <div class="grid-wrapper">
   <mat-card
     *ngFor="let experience of experiences"
@@ -55,10 +48,10 @@
       <mat-card-title>{{ experience.title }}</mat-card-title>
       <mat-card-subtitle>
         {{ experience.company }}
-        <span class="badge text-bg-primary">Experience</span>
+        <mat-chip>Experience</mat-chip>
         <br />
         <br />
-        <i>{{ experience.startDate }}-{{ experience.endDate }}</i>
+        <i>{{ experience.startDate }} to {{ experience.endDate }}</i>
       </mat-card-subtitle>
       <img
         mat-card-sm-image
@@ -117,7 +110,7 @@
 
   <mat-card
     *ngFor="let certificate of certificates"
-    class="card{{ genCertificateClassName[certificate.index] }}"
+    class="card long-short"
     [routerLink]="['article', certificate.key]"
   >
     <mat-card-header>

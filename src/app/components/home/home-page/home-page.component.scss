@@ -1,5 +1,9 @@
 @use "../../../../styles/variables" as var;
 
+/**
+ * Header
+ */
+
 .about-me {
   display: flex;
   flex-direction: row;
@@ -47,6 +51,7 @@
 
 .skills-title {
   font-weight: 600;
+  font-size: 18px;
 }
 
 .skills-section {
@@ -59,13 +64,21 @@
   width: 100%;
 }
 
+/*
+ * Grid
+ */
+
 .grid-wrapper {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-auto-rows: 200px;
   grid-auto-flow: dense;
-  margin: 20px 0px;
+  margin: 20px 0;
+}
+
+mat-card {
+  border-width: 0 10px 10px 0;
 }
 
 .card {
@@ -73,17 +86,9 @@
   // max-height: 600px;
   // margin-bottom: 20px;
   overflow: hidden;
-
   display: flex;
   cursor: pointer;
   transition: .2s ease, -webkit-transform .3s ease;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-  }
 
   mat-card-header {
     display: flex;
@@ -107,44 +112,51 @@
   box-shadow: 0 4px 8px rgba(0,0,0, .4);
 }
 
-.grid-wrapper .wide {
-  grid-column: span 2;
+.grid-wrapper {
+  .wide {
+    grid-column: span 2;
 
-  .skill-content {
-    display: none;
+    .skill-content {
+      display: none;
+    }
+
+    button {
+      display: none;
+    }
   }
 
-  button {
-    display: none;
-  }
-}
+  .tall {
+    grid-row: span 2;
 
-.grid-wrapper .tall {
-  grid-row: span 2;
+    .skill-content {
+      display: none;
+    }
 
-  .skill-content {
-    display: none;
-  }
-
-  button {
-    display: none;
-  }
-}
-
-.grid-wrapper .big {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-.grid-wrapper .long {
-  grid-column: span 2;
-  grid-row: span 1;
-
-  .skill-content {
-    display: none;
+    button {
+      display: none;
+    }
   }
 
-  button {
-    display: none;
+  .big {
+    grid-column: span 2;
+    grid-row: span 2;
   }
+
+  .long {
+    grid-column: span 2;
+    grid-row: span 1;
+
+    .skill-content {
+      display: none;
+    }
+
+    button {
+      display: none;
+    }
+  }
+
+  // .long-short {
+  //   grid-column: span 2;
+  //   grid-row: span 0.5;
+  // }
 }
