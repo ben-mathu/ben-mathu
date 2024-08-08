@@ -70,12 +70,11 @@ export class ThemeManagerService {
   }
 }
 
-function preferredTheme(): 'dark' | 'light' {
+export function preferredTheme(): 'dark' | 'light' {
   return window.matchMedia(BROWSER_THEME).matches ? 'dark' : 'light';
 }
 
 function getLinkElementForKey(key: string) {
-  console.log('check if there is an existing link create link');
   return getExistingLinkElementByKey(key) || createLinkElementWithKey(key);
 }
 

@@ -64,7 +64,7 @@
     </markdown-toolbar>
     <mat-form-field class="full-width" appearance="outline">
       <mat-label>{{label}}</mat-label>
-      <textarea matInput type="text" class="form-control" placeholder="{{label}}" id="textarea" value="{{ text }}" (input)="onTextChanged($event)" rows="{{numberOfRows}}"></textarea>
+      <textarea matInput style="overflow-y: auto;" type="text" class="form-control" placeholder="{{label}}" id="textarea" value="{{ text }}" (input)="onTextChanged($event)" rows="{{numberOfRows}}"></textarea>
     </mat-form-field>
   </mat-tab>
   <mat-tab label="Preview">

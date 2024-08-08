@@ -3,6 +3,8 @@ import { MyDetails } from '../../models/header/header';
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { Utils } from '../../utils/utils';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'navbar',
@@ -25,7 +27,7 @@ export class NavbarComponent {
     signOut(this.auth).then(() => {
       this.router.navigate(['admin', 'login']);
     }).catch((err) => {
-      console.log(err);
+      // Error could not sigout
     });
   }
 

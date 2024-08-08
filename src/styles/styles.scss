@@ -77,3 +77,9 @@ markdown span:has(> img) img:hover {
   width: 30px;
   height: 30px;
 }
+
+:root {
+  .mat-mdc-chip.mat-mdc-standard-chip {
+    --mdc-chip-container-shape-radius: 8px;
+  }
+}

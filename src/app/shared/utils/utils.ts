@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from "@angular/material/snack-bar";
+import { preferredTheme } from "../services/theme/theme-manager.service";
 
 @Injectable()
 export class Utils {
@@ -40,5 +41,9 @@ export class Utils {
    */
   capitalize(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  getPreferredTheme() {
+    return preferredTheme();
   }
 }

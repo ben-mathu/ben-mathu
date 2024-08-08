@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
-      this.myDetails.skillArr = result.val().skills.split(',');
     });
   }
 }

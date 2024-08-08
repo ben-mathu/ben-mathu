@@ -45,10 +45,18 @@
   }
 }
 
+.skills-title {
+  font-weight: 600;
+}
+
 .skills-section {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.skill {
+  width: 100%;
 }
 
 .grid-wrapper {

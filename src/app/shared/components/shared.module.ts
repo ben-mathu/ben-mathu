@@ -18,6 +18,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { SocialIconsComponent } from './social-icons/social-icons.component';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   exports: [
@@ -49,7 +50,8 @@ import { SocialIconsComponent } from './social-icons/social-icons.component';
     MatButtonModule,
     MarkdownModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatChipsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -36,12 +36,6 @@ export class AddProjectComponent implements OnInit {
 
     this.selectedProjectStatus = value.projectStatus;
     this.selectedProjectType = value.type;
-    // if (value.contentUrl)
-    //   this.retrieveContent(value.contentUrl);
-    // else {
-    //   this.contentFromUrl = value.projectDescription;
-    //   console.log('setting content with description')
-    // }
   }
 
   get selectedRow(): ProjectElement | undefined {
@@ -141,7 +135,6 @@ export class AddProjectComponent implements OnInit {
       }
     } catch (error) {
       this.util.showSnackBar('All Fields are Required', this.snackBar);
-      console.log(error);
     }
   }
 

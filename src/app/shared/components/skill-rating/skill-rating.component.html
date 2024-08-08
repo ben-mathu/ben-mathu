@@ -1,5 +1,18 @@
-<div class="d-flex flex-row justify-content-between mx-2" style="width: 100%">
-  <span>{{ myInfo.name }}</span>
+<div class="skill-container">
+  <mat-chip>
+    <img
+      matChipAvatar
+      *ngIf="myInfo.icon"
+      src="{{myInfo.icon}}"
+      alt="Android"
+    />
+    {{ myInfo.tech }}
+  </mat-chip>
   <span>{{ myInfo.rating }}</span>
 </div>
-<mat-progress-bar class="rounded" mode="determinate" value="{{ calculatePercentage(myInfo.rating) }}" color="accent"></mat-progress-bar>
+<mat-progress-bar
+  class="rounded"
+  mode="determinate"
+  value="{{ calculatePercentage(myInfo.rating) }}"
+  color="accent"
+></mat-progress-bar>

@@ -4,9 +4,8 @@ export class MyDetails implements DocumentData {
   name: string = '';
   headline: string = '';
   description: string= '';
-  skills: string = '';
-  technologies: string = '';
-  skillArr: Skill[] = [];
+  languages: Skill[] = [];
+  technologies: Skill[] = [];
   techArr: string[] = [];
   cv_url: string = '';
   phone: string = '';
@@ -15,6 +14,7 @@ export class MyDetails implements DocumentData {
 }
 
 export class Skill {
-  name: string = '';
+  tech: string = '';
   rating: string = '';
+  icon: string = '';
 }

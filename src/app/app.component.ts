@@ -50,7 +50,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.service.getHeader().then((result) => {
       this.myDetails = result.val();
-      this.myDetails.skillArr = result.val().skills.split(',');
     });
 
     onAuthStateChanged(this.auth, (user) => {
