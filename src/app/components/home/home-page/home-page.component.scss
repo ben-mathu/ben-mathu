@@ -58,10 +58,31 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin: 10px 0;
 }
 
 .skill {
   width: 100%;
+}
+
+@media (max-width: var.$medium-max-width) {
+  .about-me {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .my-description {
+    max-width: fit-content;
+
+    .name {
+      text-align: center;
+    }
+
+    .headline {
+      text-align: center;
+    }
+  }
 }
 
 /*
@@ -113,6 +134,8 @@ mat-card {
 }
 
 .grid-wrapper {
+  display: grid;
+
   .wide {
     grid-column: span 2;
 
@@ -154,9 +177,13 @@ mat-card {
       display: none;
     }
   }
+}
 
-  // .long-short {
-  //   grid-column: span 2;
-  //   grid-row: span 0.5;
-  // }
+@media (max-width: var.$xsmall-max-width) {
+  .grid-wrapper {
+    max-width: var.$xsmall-max-width;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }

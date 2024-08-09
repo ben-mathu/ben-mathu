@@ -26,11 +26,6 @@ interface Article {
   selector: 'app-blog.full-width',
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
-  providers: [
-    {
-      provide: Utils
-    }
-  ],
   animations: [
     trigger('slideInOut', [
       state('left', style({ transform: 'translateX(-100%)'})),

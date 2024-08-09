@@ -1,18 +1,19 @@
 import { MyDetails } from 'src/app/shared/models/header/header';
 import { FirebaseService } from './shared/services/firebase/firebase.service';
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { Auth, getAuth, onAuthStateChanged } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { IconService } from './shared/services/icon/icon.service';
 import { ThemeManagerService } from './shared/services/theme/theme-manager.service';
+import { Utils } from './shared/utils/utils';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
 
   themeManager: ThemeManagerService = inject(ThemeManagerService);
 
@@ -31,7 +32,8 @@ export class AppComponent implements OnInit {
     private service: FirebaseService,
     private location: Location,
     private router: Router,
-    iconsService: IconService
+    iconsService: IconService,
+    private util: Utils
   ) {
     this.auth = getAuth();
 
@@ -59,5 +61,9 @@ export class AppComponent implements OnInit {
         this.isAuth = false;
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    this.util.unsubscribe();
   }
 }

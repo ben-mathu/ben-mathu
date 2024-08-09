@@ -1,3 +1,5 @@
+@use '../../../../styles/variables' as var;
+
 .bg-dark {
   background-image: url('../../../../assets/images/footer_bg_light.svg');
 }
@@ -22,6 +24,22 @@
       margin: 30px;
       text-decoration: none;
     }
+  }
+}
+
+@media (max-width: var.$small-max-width) {
+  .footer {
+    flex-direction: column;
+
+    .links {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: var.$xsmall-max-width) {
+  .links {
+    flex-direction: column;
   }
 }
 

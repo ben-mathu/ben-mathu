@@ -32,6 +32,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { Utils } from './shared/utils/utils';
 
 @NgModule({
   declarations: [AppComponent, PageNotFoundComponent],
@@ -61,7 +62,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
     // ScreenTrackingService,UserTrackingService
     { provide: APP_BASE_HREF, useValue: environment.baseUrl },
     provideHttpClient(withInterceptorsFromDi()),
-    MatIconRegistry
+    MatIconRegistry,
+    {
+      provide: Utils
+    }
   ],
 })
 export class AppModule {}

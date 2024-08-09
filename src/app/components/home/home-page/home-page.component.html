@@ -11,7 +11,7 @@
 
     <div class="skills-section">
       <div class="skills-title">Languages</div>
-      <mat-grid-list cols="3" gutterSize="10" rowHeight="55">
+      <mat-grid-list cols="{{ colNum }}" gutterSize="10" rowHeight="55">
         <mat-grid-tile *ngFor="let item of myDetails.languages">
           <skill-rating
             mat-grid-tile
@@ -26,7 +26,7 @@
 
 <div class="skills-section">
   <div class="skills-title">Technologies</div>
-  <mat-grid-list cols="3" gutterSize="10" rowHeight="55">
+  <mat-grid-list cols="{{ colNum }}" gutterSize="10" rowHeight="55">
     <mat-grid-tile *ngFor="let item of myDetails.technologies">
       <skill-rating
         mat-grid-tile

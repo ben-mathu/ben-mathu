@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Breakpoints } from '@angular/cdk/layout';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { CardDetail } from 'src/app/shared/models/header/card_detail';
 import { MyDetails, Skill } from 'src/app/shared/models/header/header';
 import {
@@ -8,6 +10,7 @@ import {
   ProjectElement,
 } from 'src/app/shared/models/header/portfolio.dto';
 import { FirebaseService } from 'src/app/shared/services/firebase/firebase.service';
+import { Utils } from 'src/app/shared/utils/utils';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -16,6 +19,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
+
   experiences: ExperienceElement[] = [];
   projects: ProjectElement[] = [];
   certificates: CertificateElement[] = [];
@@ -53,10 +57,16 @@ export class HomePageComponent implements OnInit {
     },
   ];
 
+  util: Utils;
+  colNum: number = 3;
+
   constructor(
     private service: FirebaseService,
-    private breadcrumbService: BreadcrumbService
-  ) {}
+    private breadcrumbService: BreadcrumbService,
+    util: Utils
+  ) {
+    this.util = util
+  }
 
   getYear(date: string): number {
     const formatter = new Intl.DateTimeFormat('en');
@@ -214,6 +224,14 @@ export class HomePageComponent implements OnInit {
     }).catch(err => {
       // Error retrieving achievements
     });
+
+    this.util.screenState?.subscribe(state => {
+      if (state === Breakpoints.XSmall || state === Breakpoints.Small) {
+        this.colNum = 2;
+      } else {
+        this.colNum = 3;
+      }
+    })
   }
 
   randomIntFromInterval(min: number, max: number) {

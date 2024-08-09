@@ -5,12 +5,7 @@ import { Utils } from '../../utils/utils';
 @Component({
   selector: 'custom-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
-  providers: [
-    {
-      provide: Utils
-    }
-  ]
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
   @Input() myDetails!: MyDetails;
