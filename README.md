@@ -12,16 +12,9 @@
 
   ## My Stats
 
-  <p align="center">
-    <img alt="Streak Stats" src="https://github-readme-streak-stats.herokuapp.com/?user=ben-mathu&theme=tokyonight&hide_border=true&card_width=800">
-  </p>
-
-  ---
-
-  <div style="display: flex; flex-direction: row; gap:1rem; justify-content: center" align="center">
-    <img height="200" src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=400&rank_icon=github">
-
-    <img height="200" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=6&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=200&layout=compact">
+  <div align="center">
+    <img src="https://github-readme-stats.vercel.app/api/?username=ben-mathu&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=400&rank_icon=github">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ben-mathu&langs_count=8&theme=one_dark_pro&show_icons=true&hide_border=true&card_width=400&layout=compact">
   </div>
 
   ---
