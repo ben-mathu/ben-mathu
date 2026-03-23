@@ -7,17 +7,17 @@ This Privacy Policy describes how **Benatt** ("we," "our," or "I"), operated by 
 
 To provide a functional and secure experience, we may collect certain personally identifiable information.
 
-* Financial Information: Crypt Code offers in-app purchases and may offer subscriptions in the future. All financial transactions are processed securely through the Google Play Store. We do not collect or store your credit card numbers or banking details on our own servers.  
-* Personal Data: While using our Service, we may ask you to provide certain information that can be used to contact or identify you (e.g., email address if you contact support).  
-* On-Device Data: Any encryption keys or sensitive codes processed by the app are stored locally on your device and are not transmitted to or stored by us.
+- Financial Information: Buddy offers in-app purchases and may offer subscriptions in the future. All financial transactions are processed securely through the Google Play Store. We do not collect or store your credit card numbers or banking details on our own servers.
+- Personal Data: While using our Service, we may ask you to provide certain information that can be used to contact or identify you (e.g., email address if you contact support).
+- On-Device Data: Any encryption keys or sensitive codes or data from SMSes processed by the app are stored locally on your device and are not transmitted to or stored by us.
 
 ## 2\. Third-Party Services
 
 The app utilizes third-party services that may collect information used to identify you. These include:
 
-* Google Play Services: Used for app functionality and account management.  
-* Google Play Billing: Used to process one-time purchases and subscriptions.  
-* Google Analytics for Firebase & Firebase Crashlytics: Used to monitor app performance and fix technical bugs.
+- Google Play Services: Used for app functionality and account management.
+- Google Play Billing: Used to process one-time purchases and subscriptions.
+- Google Analytics for Firebase & Firebase Crashlytics: Used to monitor app performance and fix technical bugs.
 
 ## 3\. Log Data and Cookies
 
